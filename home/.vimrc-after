@@ -1,0 +1,4 @@
+" This file will be evaluated after filetype plugins are loaded.  Use it to
+" override settings from those plugins - such as unwanted formatoptions.
+
+set formatoptions-=o
