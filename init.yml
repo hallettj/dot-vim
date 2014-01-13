@@ -1,0 +1,33 @@
+#!/usr/bin/ansible-playbook --ask-sudo-pass
+---
+- hosts: workstations
+  tasks:
+    - { apt: pkg=vim-gnome,         sudo: yes }
+    - { apt: pkg=cmake,             sudo: yes }
+    - { apt: pkg=python-dev,        sudo: yes }
+    - { apt: pkg=silversearcher-ag, sudo: yes }
+    - { apt: pkg=npm,               sudo: yes }
+
+    - name: install neobundle, which manages vim plugins
+      git: repo=https://github.com/Shougo/neobundle.vim.git
+           dest=~/.vim/bundle/neobundle.vim
+           update=no
+
+    - name: install plugins
+      shell: ~/.vim/bundle/neobundle.vim/bin/neoinstall
+
+    - name: install jshint, used by syntastic plugin
+      npm: name=jshint global=yes executable=/usr/bin/npm
+      sudo: yes
+
+    - name: install jsctags
+      npm: name=jsctags global=yes executable=/usr/bin/npm
+      sudo: yes
+
+    - name: install tern, used by tern_for_vim plugin
+      npm: path={{ ansible_env.HOME }}/.vim/bundle/tern_for_vim
+
+    - name: ensure that YouCompleteMe submodules are cloned and up-to-date
+      shell: git submodule update --init chdir=~/.vim/bundle/YouCompleteMe
+    - name: compile YouCompleteMe
+      shell: ./install.sh chdir=~/.vim/bundle/YouCompleteMe
