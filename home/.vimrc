@@ -222,7 +222,7 @@ NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'IndentAnything'
 
 " Movements
-NeoBundle 'goldfeld/vim-seek'
+NeoBundle 'justinmk/vim-sneak'
 
 NeoBundle 'Valloric/YouCompleteMe' "{{{
   let g:ycm_autoclose_preview_window_after_completion = 1
