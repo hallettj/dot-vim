@@ -1,12 +1,16 @@
-#!/usr/bin/ansible-playbook --ask-sudo-pass
+#!/usr/bin/env ansible-playbook
 ---
 - hosts: workstations
   tasks:
-    - { apt: pkg=vim-gnome,         sudo: yes }
-    - { apt: pkg=cmake,             sudo: yes }
-    - { apt: pkg=python-dev,        sudo: yes }
-    - { apt: pkg=silversearcher-ag, sudo: yes }
-    - { apt: pkg=npm,               sudo: yes }
+    - name: install apt packages
+      action: apt pkg={{ item }} state=present
+      sudo: yes
+      with_items:
+        - vim-gnome
+        - cmake
+        - python-dev
+        - silversearcher-ag
+        - npm
 
     - name: install neobundle, which manages vim plugins
       git: repo=https://github.com/Shougo/neobundle.vim.git

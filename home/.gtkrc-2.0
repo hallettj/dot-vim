@@ -1,0 +1,7 @@
+# Sets window background color - the color used for the edges of the
+# window when the window size is not an integer multiple of the
+# character height or width.
+style "vimfix" {
+  bg[NORMAL] = "#002b36"
+}
+widget "vim-main-window.*GtkForm" style "vimfix"
