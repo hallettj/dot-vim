@@ -227,6 +227,14 @@ NeoBundle 'goldfeld/vim-seek'
 NeoBundle 'Valloric/YouCompleteMe' "{{{
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_autoclose_preview_window_after_insertion = 1
+
+  " Disables autocompletion for certain filetypes.  I find it annoying
+  " when writing prose.
+  let g:ycm_filetype_blacklist = {
+    \ 'tex':      1,
+    \ 'markdown': 1,
+    \ 'mail':     1
+    \ }
 "}}}
 
 NeoBundle 'pangloss/vim-javascript' "{{{
