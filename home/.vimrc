@@ -196,9 +196,9 @@ NeoBundle 'scrooloose/syntastic' "{{{
   let g:syntastic_enable_signs=0
   nnoremap <silent> <Leader>e :SyntasticCheck<cr>:silent! Errors<cr>
   vnoremap <silent> <Leader>e :SyntasticCheck<cr>:silent! Errors<cr>
-  nnoremap <silent> <leader>lc :lclose<cr>
+  nnoremap <silent> <leader>lc :lclose<cr>:cclose<cr>
   nnoremap <silent> <leader>lo :lopen<cr>
-  nnoremap <silent> <leader>cc :cclose<cr>
+  nnoremap <silent> <leader>cc :cclose<cr>:lclose<cr>
   nnoremap <silent> <leader>co :copen<cr>
 "}}}
 
@@ -287,8 +287,8 @@ NeoBundle 'altercation/vim-colors-solarized' "{{{
 "}}}
 
 NeoBundle 'rking/ag.vim' "{{{
-  nnoremap <leader>a :LAg<space>
-  vnoremap <leader>a "*y:LAg<space><C-R>*<CR>
+  nnoremap <leader>a :Ag<space>
+  vnoremap <leader>a "*y:Ag<space>'<C-R>*'<CR>
 "}}}
 
 NeoBundle 'drmikehenry/vim-fontdetect'
