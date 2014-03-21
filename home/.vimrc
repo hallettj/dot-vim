@@ -263,7 +263,7 @@ NeoBundle 'kchmck/vim-coffee-script' "{{{
   hi link coffeeSpaceError None
 "}}}
 
-NeoBundle 'jhenahan/idris-vim'
+NeoBundle 'idris-hackers/idris-vim'
 
 NeoBundle 'benmills/vimux'
 NeoBundle 'jpalardy/vim-slime' "{{{
