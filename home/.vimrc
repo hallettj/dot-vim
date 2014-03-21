@@ -106,6 +106,9 @@ vnoremap ' `
 nnoremap ` '
 vnoremap ` '
 
+" Alias ) to 0 to ease transition to inverted number row.
+nnoremap ) 0
+
 " Retains selection in visual mode when indenting blocks
 vnoremap < <gv
 vnoremap > >gv
