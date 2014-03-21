@@ -110,6 +110,30 @@ vnoremap ` '
 vnoremap < <gv
 vnoremap > >gv
 
+" System copy/paste shortcuts
+" These come from:
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+" Scratch buffer shortcuts
+nmap <Leader>s :Ssplit<cr>
+
+" Commands to create scratch buffers
+function! s:scratchEdit(cmd, options)
+    exe a:cmd tempname()
+    setl buftype=nofile bufhidden=wipe nobuflisted
+    if !empty(a:options) | exe 'setl' a:options | endif
+endfunction
+command! -bar -nargs=* Sedit    call s:scratchEdit('edit',   <q-args>)
+command! -bar -nargs=* Ssplit   call s:scratchEdit('split',  <q-args>)
+command! -bar -nargs=* Svsplit  call s:scratchEdit('vsplit', <q-args>)
+command! -bar -nargs=* Stabedit call s:scratchEdit('tabe',   <q-args>)
+
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim', { 'rev': 'master' }
 
