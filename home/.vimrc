@@ -430,5 +430,10 @@ NeoBundle 'Raimondi/delimitMate' "{{{
 "   nmap <C-C>     <Plug>DWMClose
 " "}}}
 
+NeoBundle 'terryma/vim-expand-region' "{{{
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+"}}}
+
 " Installation check.
 NeoBundleCheck
