@@ -243,6 +243,7 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-rsi'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-vinegar'
@@ -436,31 +437,12 @@ NeoBundle 'Raimondi/delimitMate' "{{{
   let delimitMate_jump_expansion     = 1
 "}}}
 
-" NeoBundle 'spolu/dwm.vim' "{{{
-"   let g:dwm_map_keys = 0
-"   let g:dwm_master_pane_width = "50%"
-
-  " Cycle windows clockwise and counterclockwise.
-  nnoremap <C-J> <C-W>w
-  nnoremap <C-K> <C-W>W
-
-  " Shortcut to switch to window to the left or to the right.
-  nnoremap <C-H> <C-W>h
-  nnoremap <C-L> <C-W>l
-
-  " Jumps to last active window.  Press repeatedly to jump back and
-  " forth between two windows.
-  nnoremap <C-\> <C-W>p
-
-"   nmap <C-Space> <Plug>DWMFocus
-"   nmap <C-N>     <Plug>DWMNew
-"   nmap <C-C>     <Plug>DWMClose
-" "}}}
-
 NeoBundle 'terryma/vim-expand-region' "{{{
   vmap v <Plug>(expand_region_expand)
   vmap <C-v> <Plug>(expand_region_shrink)
 "}}}
+
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Installation check.
 NeoBundleCheck
