@@ -251,6 +251,7 @@ NeoBundle 'IndentAnything'
 
 " Movements
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'wellle/targets.vim'
 
 NeoBundle 'Valloric/YouCompleteMe' "{{{
   let g:ycm_autoclose_preview_window_after_completion = 1
