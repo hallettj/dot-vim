@@ -106,8 +106,14 @@ vnoremap ' `
 nnoremap ` '
 vnoremap ` '
 
-" Alias ) to 0 to ease transition to inverted number row.
+" I often use 0 to jump to the beginning of a line.  With mapping I can
+" continue to use the same shortcut with an inverted number row.
 nnoremap ) 0
+
+" By default Vim binds ) to a movement that goes forward a sentence at
+" a time.  These mappings preserve the sentence movement shortcuts:
+nnoremap 0 )
+nnoremap 9 (
 
 " Retains selection in visual mode when indenting blocks
 vnoremap < <gv
