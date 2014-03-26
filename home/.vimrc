@@ -259,7 +259,12 @@ NeoBundle 'IndentAnything'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
-NeoBundle 'Valloric/YouCompleteMe' "{{{
+NeoBundle 'Valloric/YouCompleteMe', {
+      \ 'build': {
+        \ 'unix': './install.sh',
+      \ },
+    \ }
+"{{{
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_autoclose_preview_window_after_insertion = 1
 

@@ -6,7 +6,7 @@ snippet log "console.log()"
 console.log(${1:'${2:something happened}'$3});
 endsnippet
 
-snippet if "the basic flow control statement" !b
+snippet if "the basic flow control statement" b
 if (${1:true}) {
 	${VISUAL}$2
 }
@@ -24,19 +24,19 @@ else {
 }
 endsnippet
 
-snippet fun "function (fun)" !w
-function(${1}) {
-	${VISUAL}$0
-}
-endsnippet
-
-snippet fun "function (fun)" !b
+snippet fun "named function (fun)" b
 function ${1:name}(${2}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet def "define() an AMD module" !b
+snippet f "anonymous function (f)" w
+function(${1}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet def "define() an AMD module" b
 define('${1:`!p
 abspath = os.path.abspath(path)
 matches = re.findall('/scripts/(.*)\.js$', abspath, re.IGNORECASE)
@@ -49,13 +49,13 @@ snip.rv = matches[0] if len(matches) > 0 else 'apps/feature/main'
 });
 endsnippet
 
-snippet req "require() some AMD dependencies" !b
+snippet req "require() some AMD dependencies" b
 require([${1:'${2:jquery}'$3}], function(${4:$}) {
 	${VISUAL}$0
 });
 endsnippet
 
-snippet timeout "setTimeout function" !b
+snippet timeout "setTimeout function" b
 setTimeout(${2:function() \{
 	${VISUAL}$3
 \}}, ${1:10});
