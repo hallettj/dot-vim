@@ -75,6 +75,7 @@ endif
 " Automatically save when the window loses focus or when a buffer is
 " hidden.
 set autowriteall
+set autoread
 au FocusLost * silent! wall
 
 augroup myfiletypes
