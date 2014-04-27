@@ -23,7 +23,6 @@ set encoding=utf-8
 set scrolloff=3
 set autoindent
 set showmode
-set hidden
 set wildmode=longest
 set ttyfast
 set ruler
@@ -76,7 +75,13 @@ endif
 " hidden.
 set autowriteall
 set autoread
+set hidden
 au FocusLost * silent! wall
+
+" Don't keep swap files.
+set noswapfile
+set nobackup
+set writebackup
 
 augroup myfiletypes
   " Clear old autocmds in group
