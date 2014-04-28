@@ -11,7 +11,8 @@ syntax on
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
 " Map <Leader> to , key
-let mapleader = ","
+let mapleader = "<space>"
+let maplocalleader = "<space><space>"
 
 " Default tab options
 set tabstop=4
