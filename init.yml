@@ -8,11 +8,16 @@
       action: apt pkg={{ item }} state=present
       sudo: yes
       with_items:
+        - exuberant-ctags
         - vim-gnome
         - cmake
         - python-dev
         - silversearcher-ag
         - npm
+
+    - shell: cabal update
+    - shell: cabal install lushtags
+             creates=~/.cabal/bin/lushtags
 
     - name: install neobundle, which manages vim plugins
       git: repo=https://github.com/Shougo/neobundle.vim.git
