@@ -11,8 +11,8 @@ syntax on
 filetype plugin indent on " Enable filetype-specific indenting and plugins
 
 " Map <Leader> to , key
-let mapleader = "<space>"
-let maplocalleader = "<space><space>"
+let mapleader = " "
+let maplocalleader = "  "
 
 " Default tab options
 set tabstop=4
@@ -51,6 +51,9 @@ set formatoptions=cqrn1
 " Displays visible characters for tab and end-of-line characters.
 if has('gui_running')
   set list
+else
+  set t_ZH=[3m
+  set t_ZR=[23m
 endif
 set listchars=tab:▸\ ,eol:¬
 
