@@ -56,6 +56,7 @@ else
   set t_ZR=[23m
 endif
 set listchars=tab:▸\ ,eol:¬
+set conceallevel=2 concealcursor=n
 
 " Highlights the given column.
 set colorcolumn=80
@@ -304,7 +305,9 @@ NeoBundle 'kchmck/vim-coffee-script' "{{{
   hi link coffeeSpaceError None
 "}}}
 
+NeoBundle 'Twinside/vim-haskellConceal'
 NeoBundle 'idris-hackers/idris-vim'
+NeoBundle 'japesinator/vim-IdrisConceal'
 
 NeoBundle 'benmills/vimux'
 NeoBundle 'jpalardy/vim-slime' "{{{
