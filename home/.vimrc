@@ -134,6 +134,9 @@ vmap <Leader>P "+P
 " Scratch buffer shortcuts
 nmap <Leader>s :Ssplit<cr>
 
+" Window management shortcuts
+nnoremap <C-_> <C-w>_
+
 " Commands to create scratch buffers
 function! s:scratchEdit(cmd, options)
     exe a:cmd tempname()
