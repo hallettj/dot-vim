@@ -462,7 +462,7 @@ NeoBundle 'terryma/vim-expand-region' "{{{
 "}}}
 
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'pivotal/tmux-config'
+NeoBundle 'hallettj/tmux-config'
 
 NeoBundle 'vim-scripts/gitignore'
 
