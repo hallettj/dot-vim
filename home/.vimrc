@@ -107,6 +107,12 @@ endif
 " I don't want code to be folded when I open a file.
 set nofoldenable
 
+" Swap : and ,
+nnoremap , :
+vnoremap , :
+nnoremap : ,
+vnoremap : ,
+
 " Bounce between bracket pairs with the <tab> key.
 nnoremap <tab> %
 vnoremap <tab> %
