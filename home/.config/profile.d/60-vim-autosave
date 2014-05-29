@@ -1,35 +1,5 @@
-autoload -U add-zsh-hook
+TMUX_AUTOSAVE=~/.vim/bundle/tmux-config/tmux-autowrite/autowrite-vim.zsh
 
-# Things that could go wrong:
-# √ No vim
-# √ Vim is suspended
-# √ Multiple vims
-# √ A vim doesn't support F-keys
-# √ No tmux
-# √ Command given to run-shell could return non-zero
-# √ No tmux server running
-function tell_vim_to_write {
-  local pane=$1
-  local tty=$2
-  local pid=$3
-
-  (ps -ostate=,pid= -t $tty | grep "S \+$pid") >/dev/null 2>&1
-  local vim_in_foreground=$?
-
-  if [[ $vim_in_foreground == 0 ]]; then
-    tmux send-keys -t $pane F19 WriteAll
-  fi
-}
-
-function trigger_autosave {
-  local pane_list
-  local panes
-  pane_list=$(tmux show-environment -g | grep VIM_PANES | cut -f 2 -d =)
-  panes=("${(s/;/)pane_list}")
-  for vim_pane in $panes; do
-    eval tell_vim_to_write $vim_pane
-  done
-  true
-}
-
-add-zsh-hook preexec trigger_autosave
+if [ -f $TMUX_AUTOSAVE ]; then
+  source $TMUX_AUTOSAVE
+fi
