@@ -45,7 +45,7 @@ set incsearch
 
 " Wrap long lines
 set wrap
-set textwidth=72
+set textwidth=80
 set formatoptions=cqrn1
 
 " Displays visible characters for tab and end-of-line characters.
