@@ -142,6 +142,8 @@ nmap <Leader>s :Ssplit<cr>
 
 " Window management shortcuts
 nnoremap <C-_> <C-w>_
+nnoremap <C-w>s <C-w>v
+nnoremap <C-w>S <C-w>s
 
 " Commands to create scratch buffers
 function! s:scratchEdit(cmd, options)
