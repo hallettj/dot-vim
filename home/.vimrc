@@ -138,7 +138,8 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " Scratch buffer shortcuts
-nmap <Leader>s :Ssplit<cr>
+nnoremap <Leader>s :Svsplit<cr>
+nnoremap <Leader>S :Ssplit<cr>
 
 " Window management shortcuts
 nnoremap <C-_> <C-w>_
