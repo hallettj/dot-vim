@@ -364,6 +364,16 @@ NeoBundle 'bling/vim-airline' "{{{
   endif
   set noshowmode  " Mode is indicated in status line instead.
 
+  " certain number of spaces are allowed after tabs, but not in between
+  let g:airline#extensions#whitespace#mixed_indent_algo = 1
+
+  let g:airline#extensions#default#section_truncate_width = {
+    \ 'b': 98,
+    \ 'x': 60,
+    \ 'y': 98,
+    \ 'z': 45,
+    \ }
+
   " Customizes airline theme to reduce contrast
   let g:airline_theme_patch_func = 'AirlineThemePatch'
   function! AirlineThemePatch(palette)
