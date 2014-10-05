@@ -319,6 +319,8 @@ NeoBundle 'Twinside/vim-haskellConceal'
 NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'japesinator/vim-IdrisConceal'
 
+NeoBundle 'lambdatoast/elm.vim'
+
 NeoBundle 'benmills/vimux'
 NeoBundle 'jpalardy/vim-slime' "{{{
   " Run slime.vim sessions in tmux
