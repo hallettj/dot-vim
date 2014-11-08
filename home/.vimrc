@@ -7,28 +7,19 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-syntax on
-filetype plugin indent on " Enable filetype-specific indenting and plugins
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim', { 'rev': 'master' }
+
+NeoBundle 'tpope/vim-sensible'
 
 " Map <Leader> to , key
 let mapleader = " "
 let maplocalleader = "  "
 
-" Default tab options
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
 set encoding=utf-8
 set scrolloff=3
-set autoindent
-set showmode
 set wildmode=longest
 set ttyfast
-set ruler
-set backspace=indent,eol,start
-set laststatus=2
 
 " Fixes H and L movements for use with scrolloff
 execute 'nnoremap H H'.&l:scrolloff.'k'
@@ -39,9 +30,6 @@ execute 'vnoremap L L'.&l:scrolloff.'j'
 " Make searches case-sensitive only when capital letters are included.
 set ignorecase
 set smartcase
-
-" Make searching more interactive.
-set incsearch
 
 " Wrap long lines
 set wrap
@@ -88,20 +76,11 @@ set noswapfile
 set nobackup
 set writebackup
 
-augroup myfiletypes
-  " Clear old autocmds in group
-  autocmd!
-  au BufRead,BufNewFile *.ftl setfiletype ftl.html
-  au BufRead,BufNewFile *.soy setfiletype soy.html
-augroup END
-
 " Load matchit to bounce between do and end in Ruby and between opening
 " and closing tags in HTML.
-if has('gui_running')
-    runtime! macros/matchit.vim
-else
-    set noshowmatch
-    let loaded_matchparen = 1  " Prevents DoMatchParen plugin from loading.
+if !has('gui_running')
+  set noshowmatch
+  let loaded_matchparen = 1  " Prevents DoMatchParen plugin from loading.
 endif
 
 " I don't want code to be folded when I open a file.
@@ -127,6 +106,9 @@ vnoremap ` '
 vnoremap < <gv
 vnoremap > >gv
 
+" Window management shortcuts
+nnoremap <C-_> <C-w>_
+
 " System copy/paste shortcuts
 " These come from:
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
@@ -141,9 +123,6 @@ vmap <Leader>P "+P
 nnoremap <Leader>s :Svsplit<cr>
 nnoremap <Leader>S :Ssplit<cr>
 
-" Window management shortcuts
-nnoremap <C-_> <C-w>_
-
 " Commands to create scratch buffers
 function! s:scratchEdit(cmd, options)
     exe a:cmd tempname()
@@ -155,9 +134,6 @@ command! -bar -nargs=* Ssplit   call s:scratchEdit('split',  <q-args>)
 command! -bar -nargs=* Svsplit  call s:scratchEdit('vsplit', <q-args>)
 command! -bar -nargs=* Stabedit call s:scratchEdit('tabe',   <q-args>)
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim', { 'rev': 'master' }
-
 " Recommended to install
 NeoBundleDepends 'Shougo/vimproc', {
       \ 'build': {
@@ -167,39 +143,6 @@ NeoBundleDepends 'Shougo/vimproc', {
         \ 'windows': '"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\nmake.exe" make_msvc32.mak',
       \ },
     \ }
-
-" Customizations for Unite
-" copied from https://github.com/bling/dotvim/blob/master/vimrc
-NeoBundle 'Shougo/unite.vim' "{{{
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
-  call unite#filters#sorter_default#use(['sorter_rank'])
-  call unite#set_profile('files', 'smartcase', 1)
-
-  let g:unite_data_directory='~/.vim/.cache/unite'
-  let g:unite_enable_start_insert=1
-  let g:unite_source_history_yank_enable=1
-  let g:unite_source_file_rec_max_cache_files=5000
-  let g:unite_prompt='» '
-
-  function! s:unite_settings()
-    nmap <buffer> Q <plug>(unite_exit)
-    nmap <buffer> <esc> <plug>(unite_exit)
-    imap <buffer> <esc> <plug>(unite_exit)
-  endfunction
-  autocmd FileType unite call s:unite_settings()
-
-  nmap <space> [unite]
-  nnoremap [unite] <nop>
-
-  nnoremap <silent> [unite]<space> :<C-u>Unite -resume -auto-resize -buffer-name=mixed file_rec/async buffer file_mru bookmark<cr>
-  nnoremap <silent> [unite]f :<C-u>Unite -resume -auto-resize -buffer-name=files file_rec/async<cr>
-  nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-  nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-  nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
-  nnoremap <silent> [unite]/ :<C-u>Unite -auto-resize -buffer-name=search grep:.<cr>
-  nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline -vertical -winwidth=35 outline<cr>
-  nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-"}}}
 
 NeoBundle 'kien/ctrlp.vim' "{{{
   let g:ctrlp_clear_cache_on_exit=1
@@ -247,15 +190,14 @@ NeoBundle 'scrooloose/syntastic' "{{{
   nnoremap <silent> <leader>co :copen<cr>
 "}}}
 
-" unimpaired pairs well with syntastic - provides location list
-" shortcuts
-NeoBundle 'tpope/vim-unimpaired'
-
 NeoBundle 'majutsushi/tagbar', { 'depends': 'bitc/lushtags' } "{{{
   nnoremap <silent> <Leader>] :TagbarToggle<cr>
   vnoremap <silent> <Leader>] :TagbarToggle<cr>
 "}}}
 
+" unimpaired pairs well with syntastic - provides location list
+" shortcuts
+NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-characterize'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
