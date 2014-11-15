@@ -106,6 +106,9 @@ vnoremap ` '
 vnoremap < <gv
 vnoremap > >gv
 
+" Makes Vim's visual mode more consistent with tmux's
+vnoremap <Enter> y
+
 " Window management shortcuts
 nnoremap <C-_> <C-w>_
 
