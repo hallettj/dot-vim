@@ -347,6 +347,10 @@ NeoBundle 'bling/vim-airline' "{{{
     let mode_bg   = base0
     let branch_fg = base02
     let branch_bg = base00
+    let middle_fg = base01
+    let middle_bg = base02
+    let inactive_fg = base01
+    let inactive_bg = base02
 
     " Cheatsheet:
     " airline_a = mode indicator
@@ -362,6 +366,10 @@ NeoBundle 'bling/vim-airline' "{{{
       let a:palette.normal.airline_a[3] = mode_bg.t
       let a:palette.normal.airline_z[1] = mode_bg.g
       let a:palette.normal.airline_z[3] = mode_bg.t
+      let a:palette.inactive = airline#themes#generate_color_map(
+        \ [inactive_fg.g, inactive_bg.g, inactive_fg.t, inactive_bg.t, ''],
+        \ [inactive_fg.g, inactive_bg.g, inactive_fg.t, inactive_bg.t, ''],
+        \ [inactive_fg.g, inactive_bg.g, inactive_fg.t, inactive_bg.t, ''])
       for modes in keys(a:palette)
         if modes != 'inactive' && has_key(a:palette[modes], 'airline_a')
           let a:palette[modes]['airline_a'][0] = mode_fg.g
@@ -372,6 +380,12 @@ NeoBundle 'bling/vim-airline' "{{{
           let a:palette[modes]['airline_b'][1] = branch_bg.g
           let a:palette[modes]['airline_b'][2] = branch_fg.t
           let a:palette[modes]['airline_b'][3] = branch_bg.t
+        endif
+        if modes != 'inactive' && has_key(a:palette[modes], 'airline_c')
+          let a:palette[modes]['airline_c'][0] = middle_fg.g
+          let a:palette[modes]['airline_c'][1] = middle_bg.g
+          let a:palette[modes]['airline_c'][2] = middle_fg.t
+          let a:palette[modes]['airline_c'][3] = middle_bg.t
         endif
         if modes != 'inactive' && has_key(a:palette[modes], 'airline_y')
           let a:palette[modes]['airline_y'][0] = branch_fg.g
@@ -385,6 +399,9 @@ NeoBundle 'bling/vim-airline' "{{{
         endif
       endfor
     endif
+
+    highlight VertSplit ctermfg=10 ctermbg=8 gui=reverse
+    set fillchars+=vert:│
   endfunction
 "}}}
 
