@@ -1,16 +1,82 @@
-set nocompatible          " We're running Vim, not Vi!
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 
 if has('vim_starting')
+  set nocompatible          " We're running Vim, not Vi!
   set runtimepath+=~/.vim/bundle/neobundle.vim/
   set runtimepath+=~/.vim/bundle/ultisnips/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim', { 'rev': 'master' }
+NeoBundleFetch 'Shougo/neobundle.vim'
 
+NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'tpope/vim-sensible'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'majutsushi/tagbar', { 'depends': 'bitc/lushtags' }
+
+" unimpaired pairs well with syntastic - provides location list
+" shortcuts
+NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-characterize'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-eunuch'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-rsi'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'IndentAnything'
+
+" Movements
+NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'wellle/targets.vim'
+NeoBundle 'terryma/vim-expand-region'
+
+NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': './install.sh' }}
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Raimondi/delimitMate'
+
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'kchmck/vim-coffee-script'
+
+NeoBundle 'lambdatoast/elm.vim'
+
+NeoBundle 'Twinside/vim-haskellConceal'
+NeoBundle 'idris-hackers/idris-vim'
+NeoBundle 'japesinator/vim-IdrisConceal'
+
+NeoBundle 'benmills/vimux'
+NeoBundle 'jpalardy/vim-slime'
+
+NeoBundle 'sotte/presenting.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'drmikehenry/vim-fontdetect'
+
+NeoBundle 'bling/vim-airline'
+
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'hallettj/tmux-config'
+NeoBundle 'tpope/vim-tbone'
+
+NeoBundle 'vim-scripts/gitignore'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 " Map <Leader> to , key
 let mapleader = " "
@@ -137,17 +203,7 @@ command! -bar -nargs=* Ssplit   call s:scratchEdit('split',  <q-args>)
 command! -bar -nargs=* Svsplit  call s:scratchEdit('vsplit', <q-args>)
 command! -bar -nargs=* Stabedit call s:scratchEdit('tabe',   <q-args>)
 
-" Recommended to install
-NeoBundleDepends 'Shougo/vimproc', {
-      \ 'build': {
-        \ 'mac': 'make -f make_mac.mak',
-        \ 'unix': 'make -f make_unix.mak',
-        \ 'cygwin': 'make -f make_cygwin.mak',
-        \ 'windows': '"C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\nmake.exe" make_msvc32.mak',
-      \ },
-    \ }
-
-NeoBundle 'kien/ctrlp.vim' "{{{
+" kien/ctrlp.vim {{{
   let g:ctrlp_clear_cache_on_exit=1
   let g:ctrlp_max_height=40
   let g:ctrlp_show_hidden=0
@@ -157,7 +213,7 @@ NeoBundle 'kien/ctrlp.vim' "{{{
   let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
 "}}}
 
-NeoBundle 'tpope/vim-fugitive' "{{{
+" tpope/vim-fugitive {{{
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -171,7 +227,7 @@ NeoBundle 'tpope/vim-fugitive' "{{{
   autocmd BufReadPost fugitive://* set bufhidden=delete
 "}}}
 
-NeoBundle 'mhinz/vim-signify' "{{{
+" mhinz/vim-signify {{{
   let g:signify_disable_by_default = 1
   let g:signify_mapping_next_hunk = '<leader>gj'
   let g:signify_mapping_prev_hunk = '<leader>gk'
@@ -179,7 +235,7 @@ NeoBundle 'mhinz/vim-signify' "{{{
   let g:signify_mapping_toggle           = '<leader>gt'
 "}}}
 
-NeoBundle 'scrooloose/syntastic' "{{{
+" scrooloose/syntastic {{{
   let g:syntastic_error_symbol = '✗'
   let g:syntastic_style_error_symbol = '✠'
   let g:syntastic_warning_symbol = '∆'
@@ -193,35 +249,12 @@ NeoBundle 'scrooloose/syntastic' "{{{
   nnoremap <silent> <leader>co :copen<cr>
 "}}}
 
-NeoBundle 'majutsushi/tagbar', { 'depends': 'bitc/lushtags' } "{{{
+" majutsushi/tagbar {{{
   nnoremap <silent> <Leader>] :TagbarToggle<cr>
   vnoremap <silent> <Leader>] :TagbarToggle<cr>
 "}}}
 
-" unimpaired pairs well with syntastic - provides location list
-" shortcuts
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-characterize'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-rsi'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'IndentAnything'
-
-" Movements
-NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'wellle/targets.vim'
-
-NeoBundle 'Valloric/YouCompleteMe', {
-      \ 'build': {
-        \ 'unix': './install.sh',
-      \ },
-    \ }
-"{{{
+" Valloric/YouCompleteMe {{{
   let g:ycm_autoclose_preview_window_after_completion = 1
   let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -234,14 +267,14 @@ NeoBundle 'Valloric/YouCompleteMe', {
     \ }
 "}}}
 
-NeoBundle 'pangloss/vim-javascript' "{{{
+" pangloss/vim-javascript {{{
   if has('conceal')
     let g:javascript_conceal=1
     autocmd FileType javascript set conceallevel=2 concealcursor=n
   endif
 "}}}
 
-NeoBundle 'marijnh/tern_for_vim' "{{{
+" marijnh/tern_for_vim {{{
   augroup Tern
     autocmd!
     autocmd FileType javascript nnoremap <buffer> <silent> <leader>td :TernDef<cr>
@@ -251,30 +284,21 @@ NeoBundle 'marijnh/tern_for_vim' "{{{
   augroup END
 "}}}
 
-NeoBundle 'maksimr/vim-jsbeautify' "{{{
+" maksimr/vim-jsbeautify {{{
   nnoremap <leader>fjs :call JsBeautify()<cr>
 "}}}
 
-NeoBundle 'kchmck/vim-coffee-script' "{{{
+" kchmck/vim-coffee-script {{{
   " Disable error highlighting on trailing spaces
   hi link coffeeSpaceError None
 "}}}
 
-NeoBundle 'Twinside/vim-haskellConceal'
-NeoBundle 'idris-hackers/idris-vim'
-NeoBundle 'japesinator/vim-IdrisConceal'
-
-NeoBundle 'lambdatoast/elm.vim'
-
-NeoBundle 'benmills/vimux'
-NeoBundle 'jpalardy/vim-slime' "{{{
+" jpalardy/vim-slime {{{
   " Run slime.vim sessions in tmux
   let g:slime_target = "tmux"
 "}}}
 
-NeoBundle 'sotte/presenting.vim'
-
-NeoBundle 'altercation/vim-colors-solarized' "{{{
+" altercation/vim-colors-solarized {{{
   set background=dark
   set t_Co=16
   if has('gui_running')
@@ -287,14 +311,12 @@ NeoBundle 'altercation/vim-colors-solarized' "{{{
   highlight SignColumn guibg=#002b36
 "}}}
 
-NeoBundle 'rking/ag.vim' "{{{
+" rking/ag.vim {{{
   nnoremap <leader>a :Ag<space>
   vnoremap <leader>a "*y:Ag<space>'<C-R>*'<CR>
 "}}}
 
-NeoBundle 'drmikehenry/vim-fontdetect'
-
-NeoBundle 'bling/vim-airline' "{{{
+" bling/vim-airline {{{
   if fontdetect#hasFontFamily('Ubuntu Mono derivative Powerline')
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12,Ubuntu\ Mono\ 12,DejaVu\ Sans\ Mono\ for\ Powerline\ 10
     let g:airline_powerline_fonts = 1
@@ -405,7 +427,7 @@ NeoBundle 'bling/vim-airline' "{{{
   endfunction
 "}}}
 
-NeoBundle 'SirVer/ultisnips' "{{{
+" SirVer/ultisnips {{{
   let g:UltiSnipsEditSplit = 'vertical'
   "let g:UltiSnipsExpandTrigger = '<C-j>'
 
@@ -430,23 +452,14 @@ NeoBundle 'SirVer/ultisnips' "{{{
   let g:UltiSnipsListSnippets="<c-e>"
 "}}}
 
-NeoBundle 'Raimondi/delimitMate' "{{{
+" Raimondi/delimitMate {{{
   let delimitMate_expand_cr          = 1
   let delimitMate_expand_space       = 1
   let delimitMate_balance_matchpairs = 1
   let delimitMate_jump_expansion     = 1
 "}}}
 
-NeoBundle 'terryma/vim-expand-region' "{{{
+" terryma/vim-expand-region {{{
   vmap v <Plug>(expand_region_expand)
   vmap <C-v> <Plug>(expand_region_shrink)
 "}}}
-
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'hallettj/tmux-config'
-NeoBundle 'tpope/vim-tbone'
-
-NeoBundle 'vim-scripts/gitignore'
-
-" Installation check.
-NeoBundleCheck
