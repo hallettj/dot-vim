@@ -43,7 +43,7 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Raimondi/delimitMate'
 
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'marijnh/tern_for_vim'
+NeoBundle 'marijnh/tern_for_vim', { 'build': { 'unix': 'npm install' } }
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'kchmck/vim-coffee-script'
 
