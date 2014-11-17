@@ -101,6 +101,11 @@ set wrap
 set textwidth=80
 set formatoptions=cqrn1
 
+" Default indentation options
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
+
 " Displays visible characters for tab and end-of-line characters.
 if has('gui_running')
   set list
