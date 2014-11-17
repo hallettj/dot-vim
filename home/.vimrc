@@ -4,7 +4,6 @@ if !1 | finish | endif
 if has('vim_starting')
   set nocompatible          " We're running Vim, not Vi!
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  set runtimepath+=~/.vim/bundle/ultisnips/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
