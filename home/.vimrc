@@ -330,7 +330,9 @@ nmap <leader>r :call Ranger()<cr>
     let g:solarized_visibility="low" "Specifies contrast of invisibles.
   endif
   colorscheme solarized
-  highlight SignColumn guibg=#002b36
+  highlight SignColumn ctermbg=0 guibg=#002b36
+  highlight SpecialKey ctermbg=8 ctermfg=10
+  highlight NonText    ctermbg=8 ctermfg=10
 "}}}
 
 " rking/ag.vim {{{
