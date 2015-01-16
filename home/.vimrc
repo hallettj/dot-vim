@@ -226,13 +226,23 @@ endfunction
 nmap <leader>r :call Ranger()<cr>
 
 " kien/ctrlp.vim {{{
+  let g:ctrlp_cmd='CtrlP'
   let g:ctrlp_clear_cache_on_exit=1
   let g:ctrlp_max_height=40
   let g:ctrlp_show_hidden=0
   let g:ctrlp_follow_symlinks=1
-  let g:ctrlp_working_path_mode=0
+  let g:ctrlp_working_path_mode='a'
   let g:ctrlp_max_files=60000
   let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
+
+  nnoremap <leader>f :CtrlP<CR>
+  nnoremap <leader>b :CtrlPBuffer<CR>
+  nnoremap <leader>T :CtrlPBufTag<CR>
+  nnoremap <leader>t :CtrlPTag<CR>
+  nnoremap <leader>F :CtrlPRoot<CR>
+  nnoremap <leader>M :CtrlPMRUFiles<CR>
+  nnoremap <leader>m :CtrlPMixed<CR>
+  nnoremap <leader>l :CtrlPLine<CR>
 "}}}
 
 " tpope/vim-fugitive {{{
@@ -265,8 +275,8 @@ nmap <leader>r :call Ranger()<cr>
   let g:syntastic_enable_signs=0
   nnoremap <silent> <Leader>e :SyntasticCheck<cr>:silent! Errors<cr>
   vnoremap <silent> <Leader>e :SyntasticCheck<cr>:silent! Errors<cr>
-  nnoremap <silent> <leader>lc :lclose<cr>:cclose<cr>
-  nnoremap <silent> <leader>lo :lopen<cr>
+  " nnoremap <silent> <leader>lc :lclose<cr>:cclose<cr>
+  " nnoremap <silent> <leader>lo :lopen<cr>
   nnoremap <silent> <leader>cc :cclose<cr>:lclose<cr>
   nnoremap <silent> <leader>co :copen<cr>
 "}}}
@@ -307,7 +317,7 @@ nmap <leader>r :call Ranger()<cr>
 "}}}
 
 " maksimr/vim-jsbeautify {{{
-  nnoremap <leader>fjs :call JsBeautify()<cr>
+  nnoremap <leader>js :call JsBeautify()<cr>
 "}}}
 
 " kchmck/vim-coffee-script {{{
