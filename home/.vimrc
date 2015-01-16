@@ -207,6 +207,24 @@ command! -bar -nargs=* Ssplit   call s:scratchEdit('split',  <q-args>)
 command! -bar -nargs=* Svsplit  call s:scratchEdit('vsplit', <q-args>)
 command! -bar -nargs=* Stabedit call s:scratchEdit('tabe',   <q-args>)
 
+" Use ranger as vim file manager
+function! Ranger()
+    " Get a temp file name without creating it
+    let tmpfile = substitute(system('mktemp -u'), '\n', '', '')
+    " Launch ranger, passing it the temp file name
+    silent exec '!RANGER_RETURN_FILE='.tmpfile.' ranger'
+    " If the temp file has been written by ranger
+    if filereadable(tmpfile)
+        " Get the selected file name from the temp file
+        let filetoedit = system('cat '.tmpfile)
+        exec 'edit '.filetoedit
+        call delete(tmpfile)
+    endif
+    redraw!
+endfunction
+
+nmap <leader>r :call Ranger()<cr>
+
 " kien/ctrlp.vim {{{
   let g:ctrlp_clear_cache_on_exit=1
   let g:ctrlp_max_height=40
