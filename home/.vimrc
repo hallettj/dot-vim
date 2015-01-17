@@ -114,7 +114,7 @@ else
   set t_ZR=[23m
 endif
 set listchars=tab:▸\ ,eol:¬
-set conceallevel=2 concealcursor=n
+set conceallevel=0 concealcursor=n
 
 " Highlights the given column.
 set colorcolumn=80
