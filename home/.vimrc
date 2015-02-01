@@ -196,6 +196,9 @@ vmap <Leader>P "+P
 nnoremap <Leader>s :Svsplit<cr>
 nnoremap <Leader>S :Ssplit<cr>
 
+" cd to directory of current file
+nnoremap <Leader>cd :cd %:p:h<cr>
+
 " Commands to create scratch buffers
 function! s:scratchEdit(cmd, options)
     exe a:cmd tempname()
@@ -235,7 +238,7 @@ nmap <leader>r :call Ranger()<cr>
   let g:ctrlp_max_files=60000
   let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
 
-  nnoremap <leader>f :CtrlP<CR>
+  nnoremap <leader>f :CtrlP getcwd()<CR>
   nnoremap <leader>b :CtrlPBuffer<CR>
   nnoremap <leader>T :CtrlPBufTag<CR>
   nnoremap <leader>t :CtrlPTag<CR>
