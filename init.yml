@@ -15,10 +15,6 @@
         - silversearcher-ag
         - npm
 
-    - shell: cabal update
-    - shell: cabal install lushtags
-             creates=~/.cabal/bin/lushtags
-
     - name: install neobundle, which manages vim plugins
       git: repo=https://github.com/Shougo/neobundle.vim.git
            dest=~/.vim/bundle/neobundle.vim
