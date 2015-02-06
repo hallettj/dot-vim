@@ -69,6 +69,8 @@ NeoBundle 'tpope/vim-tbone'
 
 NeoBundle 'vim-scripts/gitignore'
 
+NeoBundle 'wting/rust.vim'
+
 call neobundle#end()
 
 filetype plugin indent on
