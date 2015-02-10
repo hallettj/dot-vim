@@ -1,12 +1,15 @@
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
+" set vim home directory as vimrc is sourced
+let $VIMFILES=fnamemodify(globpath(&rtp, 'bundle'), ":h")
+
 if has('vim_starting')
   set nocompatible          " We're running Vim, not Vi!
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=$VIMFILES/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+call neobundle#begin($VIMFILES.'/bundle/')
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -38,7 +41,7 @@ NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'terryma/vim-expand-region'
 
-NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': './install.sh' }}
+NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.sh' }}
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Raimondi/delimitMate'
 
@@ -86,7 +89,9 @@ let maplocalleader = "  "
 set encoding=utf-8
 set scrolloff=3
 set wildmode=longest
-set ttyfast
+if has ('ttyfast')
+  set ttyfast
+endif
 
 " Fixes H and L movements for use with scrolloff
 execute 'nnoremap H H'.&l:scrolloff.'k'
@@ -142,6 +147,7 @@ set autowriteall
 set autoread
 set hidden
 au FocusLost * silent! wall
+let g:tmux_navigator_save_on_switch = 1
 
 " Don't keep swap files.
 set noswapfile
@@ -238,7 +244,7 @@ nmap <leader>r :call Ranger()<cr>
   let g:ctrlp_follow_symlinks=1
   let g:ctrlp_working_path_mode='a'
   let g:ctrlp_max_files=60000
-  let g:ctrlp_cache_dir='~/.vim/.cache/ctrlp'
+  let g:ctrlp_cache_dir=$VIMFILES.'/.cache/ctrlp'
 
   nnoremap <leader>f :CtrlP getcwd()<CR>
   nnoremap <leader>b :CtrlPBuffer<CR>
