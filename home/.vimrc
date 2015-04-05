@@ -18,7 +18,7 @@ NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mhinz/vim-signify'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'majutsushi/tagbar', { 'depends': 'bitc/lushtags' }
 
@@ -28,38 +28,30 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-characterize'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-rsi'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'IndentAnything'
 
 " Movements
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'terryma/vim-expand-region'
 
 NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.sh' }}
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'godlygeek/tabular'
 
+" Language support
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'marijnh/tern_for_vim', { 'build': { 'unix': 'npm install' } }
 NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'kchmck/vim-coffee-script'
-
+NeoBundle 'tpope/vim-markdown'
 NeoBundle 'lambdatoast/elm.vim'
-
-NeoBundle 'Twinside/vim-haskellConceal'
 NeoBundle 'idris-hackers/idris-vim'
-NeoBundle 'japesinator/vim-IdrisConceal'
+NeoBundle 'wting/rust.vim'
 
-NeoBundle 'benmills/vimux'
-NeoBundle 'jpalardy/vim-slime'
-
-NeoBundle 'sotte/presenting.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'drmikehenry/vim-fontdetect'
@@ -71,8 +63,6 @@ NeoBundle 'hallettj/tmux-config'
 NeoBundle 'tpope/vim-tbone'
 
 NeoBundle 'vim-scripts/gitignore'
-
-NeoBundle 'wting/rust.vim'
 
 call neobundle#end()
 
@@ -218,24 +208,6 @@ command! -bar -nargs=* Ssplit   call s:scratchEdit('split',  <q-args>)
 command! -bar -nargs=* Svsplit  call s:scratchEdit('vsplit', <q-args>)
 command! -bar -nargs=* Stabedit call s:scratchEdit('tabe',   <q-args>)
 
-" Use ranger as vim file manager
-function! Ranger()
-    " Get a temp file name without creating it
-    let tmpfile = substitute(system('mktemp -u'), '\n', '', '')
-    " Launch ranger, passing it the temp file name
-    silent exec '!RANGER_RETURN_FILE='.tmpfile.' ranger'
-    " If the temp file has been written by ranger
-    if filereadable(tmpfile)
-        " Get the selected file name from the temp file
-        let filetoedit = system('cat '.tmpfile)
-        exec 'edit '.filetoedit
-        call delete(tmpfile)
-    endif
-    redraw!
-endfunction
-
-nmap <leader>r :call Ranger()<cr>
-
 " kien/ctrlp.vim {{{
   let g:ctrlp_cmd='CtrlP'
   let g:ctrlp_clear_cache_on_exit=1
@@ -270,12 +242,11 @@ nmap <leader>r :call Ranger()<cr>
   autocmd BufReadPost fugitive://* set bufhidden=delete
 "}}}
 
-" mhinz/vim-signify {{{
-  let g:signify_disable_by_default = 1
-  let g:signify_mapping_next_hunk = '<leader>gj'
-  let g:signify_mapping_prev_hunk = '<leader>gk'
-  let g:signify_mapping_toggle_highlight = '<leader>gh'
-  let g:signify_mapping_toggle           = '<leader>gt'
+" airblaide/vim-gitgutter {{{
+  " let g:gitgutter_enabled = 0
+  nnoremap <leader>gh :GitGutterLineHighlightsToggle<cr>
+  nnoremap <leader>gt :GitGutterToggle<cr>
+  nnoremap <leader>gR :GitGutterAll<cr>
 "}}}
 
 " scrooloose/syntastic {{{
@@ -310,13 +281,6 @@ nmap <leader>r :call Ranger()<cr>
     \ }
 "}}}
 
-" pangloss/vim-javascript {{{
-  if has('conceal')
-    let g:javascript_conceal=1
-    autocmd FileType javascript set conceallevel=2 concealcursor=n
-  endif
-"}}}
-
 " marijnh/tern_for_vim {{{
   augroup Tern
     autocmd!
@@ -329,16 +293,6 @@ nmap <leader>r :call Ranger()<cr>
 
 " maksimr/vim-jsbeautify {{{
   nnoremap <leader>js :call JsBeautify()<cr>
-"}}}
-
-" kchmck/vim-coffee-script {{{
-  " Disable error highlighting on trailing spaces
-  hi link coffeeSpaceError None
-"}}}
-
-" jpalardy/vim-slime {{{
-  " Run slime.vim sessions in tmux
-  let g:slime_target = "tmux"
 "}}}
 
 " altercation/vim-colors-solarized {{{
@@ -357,8 +311,8 @@ nmap <leader>r :call Ranger()<cr>
 "}}}
 
 " rking/ag.vim {{{
-  nnoremap <leader>a :Ag<space>
-  vnoremap <leader>a "*y:Ag<space>'<C-R>*'<CR>
+  nnoremap <leader>ag :Ag<space>
+  vnoremap <leader>ag "*y:Ag<space>'<C-R>*'<CR>
 "}}}
 
 " bling/vim-airline {{{
@@ -504,7 +458,9 @@ nmap <leader>r :call Ranger()<cr>
   let delimitMate_jump_expansion     = 1
 "}}}
 
-" terryma/vim-expand-region {{{
-  vmap v <Plug>(expand_region_expand)
-  vmap <C-v> <Plug>(expand_region_shrink)
-"}}}
+" godlygeek/tabular {{{
+  nmap <leader>a= :Tabularize /=<cr>
+  vmap <leader>a= :Tabularize /=<cr>
+  nmap <leader>a: :Tabularize /:\zs<cr>
+  vmap <leader>a: :Tabularize /:\zs<cr>
+" }}}
