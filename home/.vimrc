@@ -27,6 +27,7 @@ NeoBundle 'majutsushi/tagbar', { 'depends': 'bitc/lushtags' }
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-characterize'
 NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-rsi'
@@ -184,7 +185,6 @@ nnoremap <C-_> <C-w>_
 " These come from:
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 vmap <Leader>y "+y
-vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 vmap <Leader>p "+p
@@ -207,6 +207,8 @@ command! -bar -nargs=* Sedit    call s:scratchEdit('edit',   <q-args>)
 command! -bar -nargs=* Ssplit   call s:scratchEdit('split',  <q-args>)
 command! -bar -nargs=* Svsplit  call s:scratchEdit('vsplit', <q-args>)
 command! -bar -nargs=* Stabedit call s:scratchEdit('tabe',   <q-args>)
+
+nnoremap <leader>d :Dispatch<cr>
 
 " kien/ctrlp.vim {{{
   let g:ctrlp_cmd='CtrlP'
