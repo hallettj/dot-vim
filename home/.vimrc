@@ -228,8 +228,8 @@ nnoremap <leader>d :Dispatch<cr>
   nnoremap <leader>T :CtrlPBufTag<CR>
   nnoremap <leader>t :CtrlPTag<CR>
   nnoremap <leader>F :CtrlPRoot<CR>
-  nnoremap <leader>M :CtrlPMRUFiles<CR>
-  nnoremap <leader>m :CtrlPMixed<CR>
+  nnoremap <leader>r :CtrlPMRUFiles<CR>
+  nnoremap <leader>M :CtrlPMixed<CR>
   nnoremap <leader>l :CtrlPLine<CR>
 "}}}
 
