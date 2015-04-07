@@ -35,6 +35,9 @@ NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-vinegar'
 
+NeoBundle 'vim-pandoc/vim-pandoc'
+NeoBundle 'vim-pandoc/vim-pandoc-syntax'
+
 " Movements
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
