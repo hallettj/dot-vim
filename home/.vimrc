@@ -248,7 +248,7 @@ nnoremap <leader>d :Dispatch<cr>
 "}}}
 
 " airblaide/vim-gitgutter {{{
-  " let g:gitgutter_enabled = 0
+  let g:gitgutter_enabled = 0
   nnoremap <leader>gh :GitGutterLineHighlightsToggle<cr>
   nnoremap <leader>gt :GitGutterToggle<cr>
   nnoremap <leader>gR :GitGutterAll<cr>
