@@ -1,5 +1,0 @@
-TMUX_AUTOSAVE=~/.vim/bundle/tmux-config/tmux-autowrite/autowrite-vim.zsh
-
-if [ -f $TMUX_AUTOSAVE ]; then
-  source $TMUX_AUTOSAVE
-fi
