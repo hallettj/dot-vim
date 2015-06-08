@@ -55,6 +55,7 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'lambdatoast/elm.vim'
 NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'eagletmt/ghcmod-vim'
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'rking/ag.vim'
