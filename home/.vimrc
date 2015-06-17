@@ -451,8 +451,8 @@ nnoremap <leader>d :Dispatch<cr>
 "}}}
 
 " godlygeek/tabular {{{
-  nnoremap <leader>a= :Tabularize /=<cr>
-  vnoremap <leader>a= :Tabularize /=<cr>
-  nnoremap <leader>a: :Tabularize /:\zs/l0l1<cr>
-  vnoremap <leader>a: :Tabularize /:\zs/l0l1<cr>
+  nnoremap <leader>a= :Tabularize / = /l0<cr>
+  vnoremap <leader>a= :Tabularize / = /l0<cr>
+  nnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
+  vnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
 " }}}
