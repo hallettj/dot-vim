@@ -98,6 +98,7 @@ execute 'vnoremap L L'.&l:scrolloff.'j'
 " Make searches case-sensitive only when capital letters are included.
 set ignorecase
 set smartcase
+set nohlsearch
 
 " Wrap long lines
 set wrap
