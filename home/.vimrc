@@ -67,6 +67,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'hallettj/tmux-config'
 NeoBundle 'tpope/vim-tbone'
 
+NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'vim-scripts/gitignore'
 
 call neobundle#end()
@@ -142,6 +143,9 @@ set autowriteall
 set autoread
 set hidden
 au FocusLost * silent! wall
+let g:auto_save = 1
+let g:auto_save_no_updatetime = 1
+let g:auto_save_in_insert_mode = 0
 let g:tmux_navigator_save_on_switch = 1
 
 " Don't keep swap files.
