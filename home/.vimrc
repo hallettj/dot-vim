@@ -288,7 +288,8 @@ nnoremap <leader>d :Dispatch<cr>
   let g:ycm_filetype_blacklist = {
     \ 'tex':      1,
     \ 'markdown': 1,
-    \ 'mail':     1
+    \ 'mail':     1,
+    \ 'pandoc':   1
     \ }
 "}}}
 
