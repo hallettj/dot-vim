@@ -42,6 +42,8 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
+NeoBundle 'tommcdo/vim-exchange'
+
 NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.sh' }}
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Raimondi/delimitMate'
