@@ -189,6 +189,12 @@ vnoremap > >gv
 " Makes Vim's visual mode more consistent with tmux's
 vnoremap <Enter> y
 
+" gJ operates like J, except it takes a motion instead of a count
+nnoremap gJ :set operatorfunc=JoinOperator<CR>g@
+func! JoinOperator(submode)
+  '[,']join
+endfunc
+
 " Window management shortcuts
 nnoremap <C-_> <C-w>_
 
