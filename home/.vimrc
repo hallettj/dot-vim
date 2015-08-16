@@ -17,10 +17,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'tpope/vim-sensible'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar', { 'depends': 'bitc/lushtags' }
 
 " unimpaired pairs well with syntastic - provides location list
 " shortcuts
@@ -42,22 +38,17 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
-NeoBundle 'tommcdo/vim-exchange'
-
-NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.sh' }}
-NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.sh' } }
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'godlygeek/tabular'
 
 " Language support
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'marijnh/tern_for_vim', { 'build': { 'unix': 'npm install' } }
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'lambdatoast/elm.vim'
 NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'eagletmt/ghcmod-vim'
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'rking/ag.vim'
@@ -430,31 +421,6 @@ nnoremap <leader>d :Dispatch<cr>
     highlight VertSplit ctermfg=10 ctermbg=8 gui=reverse
     set fillchars+=vert:│
   endfunction
-"}}}
-
-" SirVer/ultisnips {{{
-  let g:UltiSnipsEditSplit = 'vertical'
-  "let g:UltiSnipsExpandTrigger = '<C-j>'
-
-  " Allows the same trigger to operate UltiSnips and YouCompleteMe
-  function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-      if pumvisible()
-        return "\<C-n>"
-      else
-        call UltiSnips#JumpForwards()
-        if g:ulti_jump_forwards_res == 0
-          return "\<TAB>"
-        endif
-      endif
-    endif
-    return ""
-  endfunction
-
-  au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-  "let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsListSnippets="<c-e>"
 "}}}
 
 " Raimondi/delimitMate {{{
