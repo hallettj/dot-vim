@@ -230,8 +230,8 @@ nnoremap <leader>d :Dispatch<cr>
 
   nnoremap <leader>f :CtrlP getcwd()<CR>
   nnoremap <leader>b :CtrlPBuffer<CR>
-  nnoremap <leader>T :CtrlPBufTag<CR>
-  nnoremap <leader>t :CtrlPTag<CR>
+  "nnoremap <leader>T :CtrlPBufTag<CR>
+  "nnoremap <leader>t :CtrlPTag<CR>
   nnoremap <leader>F :CtrlPRoot<CR>
   nnoremap <leader>r :CtrlPMRUFiles<CR>
   nnoremap <leader>M :CtrlPMixed<CR>
@@ -239,17 +239,25 @@ nnoremap <leader>d :Dispatch<cr>
 "}}}
 
 " tpope/vim-fugitive {{{
-  nnoremap <silent> <leader>gs :Gstatus<CR>
+  "nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
   nnoremap <silent> <leader>gb :Gblame<CR>
   nnoremap          <leader>ge :Gedit<space>
-  nnoremap <silent> <leader>gl :silent Glog<CR>:copen<CR>
+  "nnoremap <silent> <leader>gl :silent Glog<CR>:copen<CR>
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
   nnoremap <silent> <leader>gr :Gremove<CR>
   autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
   autocmd BufReadPost fugitive://* set bufhidden=delete
+"}}}
+
+" more git/terminal shortcuts {{{
+  nnoremap <leader>t :vsplit term://zsh<CR>a
+  nnoremap <leader>T :split term://zsh<CR>a
+  nnoremap <leader>gs :split term://git\ status<CR>a
+  nnoremap <leader>gl :vsplit term://git\ lg<CR>a
+  nnoremap <leader>ga :split term://git\ add\ -p<CR>a
 "}}}
 
 " airblaide/vim-gitgutter {{{
