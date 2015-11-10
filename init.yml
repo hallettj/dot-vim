@@ -38,3 +38,9 @@
       shell: git submodule update --init --recursive chdir=~/.vim/bundle/YouCompleteMe
     - name: compile YouCompleteMe
       shell: ./install.sh chdir=~/.vim/bundle/YouCompleteMe
+
+    - name: create symlink to point Neovim to Vim config directory
+      file: state=link src=~/.vim dest=~/.config/nvim
+
+    - name: create symlink to point Neovim to Vim init script
+      file: state=link src=~/.vimrc dest=~/.config/nvim/init.vim
