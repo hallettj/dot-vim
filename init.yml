@@ -34,9 +34,6 @@
       sudo: yes
       when: no_sudo is not defined
 
-    - name: install tern, used by tern_for_vim plugin
-      npm: path={{ ansible_env.HOME }}/.vim/bundle/tern_for_vim
-
     - name: ensure that YouCompleteMe submodules are cloned and up-to-date
       shell: git submodule update --init --recursive chdir=~/.vim/bundle/YouCompleteMe
     - name: compile YouCompleteMe
