@@ -9,7 +9,6 @@
       sudo: yes
       with_items:
         - exuberant-ctags
-        - vim-gnome
         - cmake
         - python-dev
         - silversearcher-ag
