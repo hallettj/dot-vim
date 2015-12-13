@@ -38,7 +38,9 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
-NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.sh' } }
+if has('python')
+  NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.py' } }
+endif
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'godlygeek/tabular'
 
