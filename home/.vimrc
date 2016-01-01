@@ -52,6 +52,8 @@ NeoBundle 'lambdatoast/elm.vim'
 NeoBundle 'idris-hackers/idris-vim'
 NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'mtscout6/vim-cjsx'
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'rking/ag.vim'
