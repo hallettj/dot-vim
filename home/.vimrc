@@ -305,6 +305,10 @@ nnoremap <leader>d :Dispatch<cr>
     \ }
 "}}}
 
+" vim-pandoc/vim-pandoc {{{
+  let g:pandoc#modules#disabled = ["chdir"]
+"}}}
+
 " altercation/vim-colors-solarized {{{
   set background=dark
   set t_Co=16
