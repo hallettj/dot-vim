@@ -31,6 +31,8 @@ NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-vinegar'
 
+NeoBundle 'AndrewRadev/splitjoin.vim'
+
 NeoBundle 'vim-pandoc/vim-pandoc'
 NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 
