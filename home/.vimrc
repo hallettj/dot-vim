@@ -41,7 +41,9 @@ NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
 if has('python')
-  NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix': 'git submodule update --init --recursive && ./install.py' } }
+  NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix':
+    \ 'git submodule update --init --recursive && nix-shell --run ./install.py -p stdenv python'
+    \ } }
 endif
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'godlygeek/tabular'
