@@ -457,3 +457,8 @@ nnoremap <leader>d :Dispatch<cr>
   nnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
   vnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
 " }}}
+
+if has("autocmd")
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost * if line("'\"") | exe "'\"" | endif
+endif
