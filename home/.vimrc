@@ -40,10 +40,8 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
-if has('python')
-  NeoBundle 'Valloric/YouCompleteMe', { 'build': { 'unix':
-    \ 'git submodule update --init --recursive && nix-shell --run ./install.py -p stdenv python'
-    \ } }
+if has('python3')
+  NeoBundle 'Shougo/deoplete.nvim'
 endif
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'godlygeek/tabular'
@@ -290,23 +288,12 @@ nnoremap <leader>d :Dispatch<cr>
   nnoremap <silent> <leader>co :copen<cr>
 "}}}
 
-" majutsushi/tagbar {{{
-  nnoremap <silent> <Leader>] :TagbarToggle<cr>
-  vnoremap <silent> <Leader>] :TagbarToggle<cr>
-"}}}
+" Shougo/deoplete {{{
+  let g:deoplete#enable_at_startup = 1
 
-" Valloric/YouCompleteMe {{{
-  let g:ycm_autoclose_preview_window_after_completion = 1
-  let g:ycm_autoclose_preview_window_after_insertion = 1
-
-  " Disables autocompletion for certain filetypes.  I find it annoying
-  " when writing prose.
-  let g:ycm_filetype_blacklist = {
-    \ 'tex':      1,
-    \ 'markdown': 1,
-    \ 'mail':     1,
-    \ 'pandoc':   1
-    \ }
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
 "}}}
 
 " vim-pandoc/vim-pandoc {{{
