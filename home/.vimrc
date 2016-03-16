@@ -40,7 +40,7 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
-if has('python3')
+if has('nvim') && has('python3')
   NeoBundle 'Shougo/deoplete.nvim'
 endif
 NeoBundle 'Raimondi/delimitMate'
@@ -289,11 +289,13 @@ nnoremap <leader>d :Dispatch<cr>
 "}}}
 
 " Shougo/deoplete {{{
-  let g:deoplete#enable_at_startup = 1
+  if has('nvim') && has('python3')
+    let g:deoplete#enable_at_startup = 1
 
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+    " <C-h>, <BS>: close popup and delete backword char.
+    inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+  endif
 "}}}
 
 " vim-pandoc/vim-pandoc {{{
