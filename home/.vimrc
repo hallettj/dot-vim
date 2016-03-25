@@ -293,9 +293,26 @@ nnoremap <leader>d :Dispatch<cr>
   if has('nvim') && has('python3')
     let g:deoplete#enable_at_startup = 1
 
-    " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+    " <Tab> completion (from
+    " https://github.com/rafi/vim-config/blob/master/config/plugins/deoplete.vim):
+    " " 1. If popup menu is visible, select and insert next item
+    " " 2. Otherwise, if within a snippet, jump to next input
+    " " 3. Otherwise, if preceding chars are whitespace, insert tab char
+    " " 4. Otherwise, start manual autocomplete
+    imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+          \ : (<SID>is_whitespace() ? "\<Tab>"
+          \ : deoplete#mappings#manual_complete())
+
+    smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+          \ : (<SID>is_whitespace() ? "\<Tab>"
+          \ : deoplete#mappings#manual_complete())
+
+    inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+    function! s:is_whitespace()
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1] =~? '\s'
+    endfunction
   endif
 "}}}
 
