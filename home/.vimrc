@@ -56,6 +56,7 @@ NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'mtscout6/vim-cjsx'
+NeoBundle 'dag/vim-fish'
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'rking/ag.vim'
