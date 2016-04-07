@@ -40,6 +40,10 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'wellle/targets.vim'
 
+" Text objects
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-function'
+
 if has('nvim') && has('python3')
   NeoBundle 'Shougo/deoplete.nvim'
 endif
