@@ -44,6 +44,7 @@ NeoBundle 'wellle/targets.vim'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-function'
 NeoBundle 'gilligan/vim-textobj-haskell'
+NeoBundle 'glts/vim-textobj-comment'
 
 if has('nvim') && has('python3')
   NeoBundle 'Shougo/deoplete.nvim'
