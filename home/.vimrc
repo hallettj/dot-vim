@@ -42,6 +42,7 @@ NeoBundle 'wellle/targets.vim'
 
 " Text objects
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-function'
 NeoBundle 'gilligan/vim-textobj-haskell'
 NeoBundle 'glts/vim-textobj-comment'
