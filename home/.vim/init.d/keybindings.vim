@@ -81,14 +81,6 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <silent> <leader>gr :Gremove<CR>
 "}}}
 
-" more git/terminal shortcuts {{{
-  nnoremap <leader>t :vsplit term://zsh<CR>a
-  nnoremap <leader>T :split term://zsh<CR>a
-  nnoremap <leader>gs :split term://git\ status<CR>a
-  nnoremap <leader>gl :vsplit term://git\ lg<CR>a
-  nnoremap <leader>ga :split term://git\ add\ -p<CR>a
-"}}}
-
 " airblaide/vim-gitgutter {{{
   nnoremap <leader>gh :GitGutterLineHighlightsToggle<cr>
   nnoremap <leader>gt :GitGutterToggle<cr>
@@ -139,4 +131,13 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   vnoremap <leader>a= :Tabularize / = /l0<cr>
   nnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
   vnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
+" }}}
+
+" mtth/scratch.vim {{{
+  let g:scratch_no_mappings = 1
+  nmap <leader>s <plug>(scratch-insert-reuse)
+  nmap <leader>S <plug>(scratch-insert-clear)
+  nnoremap <silent> <leader>ts :ScratchPreview<cr>
+  xmap <leader>s <plug>(scratch-selection-reuse)
+  xmap <leader>S <plug>(scratch-selection-clear)
 " }}}

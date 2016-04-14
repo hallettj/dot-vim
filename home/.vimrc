@@ -68,16 +68,19 @@ NeoBundle 'dag/vim-fish'
 NeoBundle 'vim-pandoc/vim-pandoc'
 NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 
+" Visuals
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'drmikehenry/vim-fontdetect'
 NeoBundle 'bling/vim-airline'
 
+" Tmux integration
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'hallettj/tmux-config'
 NeoBundle 'tpope/vim-tbone'
 
 NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'vim-scripts/gitignore'
+NeoBundle 'mtth/scratch.vim'
 
 call neobundle#end()
 
