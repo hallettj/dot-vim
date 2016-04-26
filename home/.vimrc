@@ -169,14 +169,19 @@ endif
 set nofoldenable
 
 " kien/ctrlp.vim {{{
-  let g:ctrlp_cmd='CtrlP'
+  let g:ctrlp_extensions = [ 'mixed', 'quickfix', 'undo' ]
+  let g:ctrlp_cmd='CtrlPMixed'
   let g:ctrlp_clear_cache_on_exit=1
   let g:ctrlp_max_height=40
   let g:ctrlp_show_hidden=0
   let g:ctrlp_follow_symlinks=1
-  let g:ctrlp_working_path_mode='a'
+  let g:ctrlp_working_path_mode='ra'
   let g:ctrlp_max_files=60000
   let g:ctrlp_cache_dir=$VIMFILES.'/.cache/ctrlp'
+  let g:ctrlp_mruf_relative = 1
+  if executable('ag')
+    let g:ctrlp_user_command = 'ag %s --nocolor -g ""'
+  endif
 "}}}
 
 " tpope/vim-fugitive {{{
