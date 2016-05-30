@@ -133,7 +133,7 @@ set colorcolumn=80
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-set wildignore+=**/target,*.class,*.jar,*.o,*.hi
+set wildignore+=**/target,*.class,*.jar,*.o,*.hi,*/node_modules/*
 
 if has('gui_running')
   " Remove menu bar, toolbar, and scrollbars
@@ -177,8 +177,9 @@ set nofoldenable
   let g:ctrlp_max_height=40
   let g:ctrlp_show_hidden=0
   let g:ctrlp_follow_symlinks=1
-  let g:ctrlp_working_path_mode='ra'
-  let g:ctrlp_max_files=60000
+  let g:ctrlp_working_path_mode='a'
+  let g:ctrlp_max_files=1000
+  let g:ctrlp_max_depth=10
   let g:ctrlp_cache_dir=$VIMFILES.'/.cache/ctrlp'
   let g:ctrlp_mruf_relative = 1
   if executable('ag')
