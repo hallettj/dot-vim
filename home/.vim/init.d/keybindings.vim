@@ -87,9 +87,9 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <leader>gR :GitGutterAll<cr>
 "}}}
 
-" scrooloose/syntastic {{{
-  nnoremap <silent> <Leader>e :SyntasticCheck<cr>:silent! Errors<cr>
-  vnoremap <silent> <Leader>e :SyntasticCheck<cr>:silent! Errors<cr>
+" benekastah/neomake {{{
+  nnoremap <silent> <Leader>e :Neomake<cr>
+  vnoremap <silent> <Leader>e :Neomake<cr>
   " nnoremap <silent> <leader>lc :lclose<cr>:cclose<cr>
   " nnoremap <silent> <leader>lo :lopen<cr>
   nnoremap <silent> <leader>cc :cclose<cr>:lclose<cr>

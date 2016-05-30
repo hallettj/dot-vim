@@ -81,6 +81,8 @@ NeoBundle 'vim-scripts/vim-auto-save'
 NeoBundle 'vim-scripts/gitignore'
 NeoBundle 'mtth/scratch.vim'
 
+NeoBundle 'benekastah/neomake'
+
 call neobundle#end()
 
 filetype plugin indent on
@@ -191,14 +193,6 @@ set nofoldenable
 
 " airblaide/vim-gitgutter {{{
   let g:gitgutter_enabled = 0
-"}}}
-
-" scrooloose/syntastic {{{
-  let g:syntastic_error_symbol = '✗'
-  let g:syntastic_style_error_symbol = '✠'
-  let g:syntastic_warning_symbol = '∆'
-  let g:syntastic_style_warning_symbol = '≈'
-  let g:syntastic_enable_signs=0
 "}}}
 
 " Shougo/deoplete {{{
