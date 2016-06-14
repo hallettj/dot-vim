@@ -23,21 +23,6 @@
     - name: install plugins
       shell: ~/.vim/bundle/neobundle.vim/bin/neoinstall
 
-    - name: install jshint, used by syntastic plugin
-      npm: name=jshint global=yes executable=/usr/bin/npm
-      sudo: yes
-      when: no_sudo is not defined
-
-    - name: install jsctags
-      npm: name=jsctags global=yes executable=/usr/bin/npm
-      sudo: yes
-      when: no_sudo is not defined
-
-    - name: ensure that YouCompleteMe submodules are cloned and up-to-date
-      shell: git submodule update --init --recursive chdir=~/.vim/bundle/YouCompleteMe
-    - name: compile YouCompleteMe
-      shell: ./install.sh chdir=~/.vim/bundle/YouCompleteMe
-
     - name: create symlink to point Neovim to Vim config directory
       file: state=link src=~/.vim dest=~/.config/nvim
 
