@@ -70,7 +70,8 @@ NeoBundle 'vim-pandoc/vim-pandoc-syntax'
 " Visuals
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'drmikehenry/vim-fontdetect'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 " Tmux integration
 NeoBundle 'christoomey/vim-tmux-navigator'
@@ -208,7 +209,6 @@ set nofoldenable
 
 " altercation/vim-colors-solarized {{{
   set background=dark
-  set t_Co=16
   if has('gui_running')
     " I like the lower contrast for list characters.  But in a terminal
     " this makes them completely invisible and causes the cursor to
