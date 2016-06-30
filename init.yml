@@ -35,16 +35,16 @@
         - python3-neovim
       when: no_sudo is not defined
 
+    - name: create symlink to point Vim to Neovim config directory
+      file: state=link src=~/.config/nvim dest=~/.vim
+
+    - name: create symlink to point Vim to Neovim init script
+      file: state=link src=~/.config/nvim/init.vim dest=~/.vimrc
+
     - name: install neobundle, which manages vim plugins
       git: repo=https://github.com/Shougo/neobundle.vim.git
-           dest=~/.vim/bundle/neobundle.vim
+           dest=~/.config/nvim/bundle/neobundle.vim
            update=no
 
     - name: install plugins
-      shell: ~/.vim/bundle/neobundle.vim/bin/neoinstall
-
-    - name: create symlink to point Neovim to Vim config directory
-      file: state=link src=~/.vim dest=~/.config/nvim
-
-    - name: create symlink to point Neovim to Vim init script
-      file: state=link src=~/.vimrc dest=~/.config/nvim/init.vim
+      shell: ~/.config/nvim/bundle/neobundle.vim/bin/neoinstall
