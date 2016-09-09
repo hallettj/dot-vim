@@ -83,6 +83,7 @@ NeoBundle 'vim-scripts/gitignore'
 NeoBundle 'mtth/scratch.vim'
 
 NeoBundle 'benekastah/neomake'
+NeoBundle 'vim-scripts/anwolib'
 
 call neobundle#end()
 
