@@ -141,3 +141,9 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   xmap <leader>s <plug>(scratch-selection-reuse)
   xmap <leader>S <plug>(scratch-selection-clear)
 " }}}
+
+" snippets
+"
+" The command following snippet will read from a register with the snippet
+" value. For example, to insert the current date before the the cursor: <leader>=dP
+nnoremap <leader>=d "=strftime('%F')<enter>
