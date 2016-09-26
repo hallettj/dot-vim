@@ -20,7 +20,6 @@ NeoBundle 'tpope/vim-sensible'
 " Navigation
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'justinmk/vim-dirvish'
-NeoBundle 'rking/ag.vim'
 
 " unimpaired pairs well with syntastic - provides location list
 " shortcuts
@@ -46,9 +45,15 @@ NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-function'
 NeoBundle 'glts/vim-textobj-comment'
 
+" https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
 if has('nvim') && has('python3')
   NeoBundle 'Shougo/deoplete.nvim'
+  NeoBundle 'steelsojka/deoplete-flow'
 endif
+NeoBundle 'ervandew/supertab'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'godlygeek/tabular'
@@ -96,6 +101,7 @@ NeoBundleCheck
 " Don't need netrw - we are using dirvish instead
 let g:loaded_netrwPlugin = 1
 
+set shell=/bin/bash
 set encoding=utf-8
 set scrolloff=3
 set wildmode=longest
@@ -196,12 +202,6 @@ set nofoldenable
 
 " airblaide/vim-gitgutter {{{
   let g:gitgutter_enabled = 0
-"}}}
-
-" Shougo/deoplete {{{
-  if has('nvim') && has('python3')
-    let g:deoplete#enable_at_startup = 1
-  endif
 "}}}
 
 " vim-pandoc/vim-pandoc {{{
