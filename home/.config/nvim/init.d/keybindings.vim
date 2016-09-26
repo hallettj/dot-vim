@@ -29,10 +29,6 @@ nnoremap <C-_> <C-w>_
 vnoremap < <gv
 vnoremap > >gv
 
-" Bounce between bracket pairs with the <tab> key.
-nnoremap <tab> %
-vnoremap <tab> %
-
 " System copy/paste shortcuts
 " These come from:
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
