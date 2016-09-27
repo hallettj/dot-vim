@@ -49,8 +49,8 @@ NeoBundle 'glts/vim-textobj-comment'
 if has('nvim') && has('python3')
   NeoBundle 'Shougo/deoplete.nvim'
   NeoBundle 'steelsojka/deoplete-flow'
+  NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 endif
-NeoBundle 'ervandew/supertab'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
