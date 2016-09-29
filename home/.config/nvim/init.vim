@@ -51,8 +51,8 @@ call dein#add('glts/vim-textobj-comment')
 " https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
 if has('nvim') && has('python3')
   call dein#add('Shougo/deoplete.nvim')
-  call dein#add('steelsojka/deoplete-flow')
-  call dein#add('zchee/deoplete-go', {'build': 'make'})
+  call dein#add('steelsojka/deoplete-flow', {'on_ft': ['javascript']})
+  call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
 endif
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')

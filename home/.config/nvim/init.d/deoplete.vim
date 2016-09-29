@@ -1,6 +1,7 @@
 set completeopt=longest,menuone
 
-if has('nvim') && has('python3')
+" Check to make sure deoplete in installed before proceeding with initialization
+if !dein#check_install(['deoplete.nvim'])
   let g:deoplete#enable_at_startup = 1
 
   let g:deoplete#sources = {}
