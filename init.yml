@@ -8,11 +8,12 @@
       action: apt pkg={{ item }} state=present
       become: yes
       with_items:
-        - exuberant-ctags
         - cmake
+        - exuberant-ctags
+        - git
         - python-dev
+        - rsync
         - silversearcher-ag
-        - npm
 
         # Dependencies for apt_repository
         - python-apt
@@ -41,10 +42,10 @@
     - name: create symlink to point Vim to Neovim init script
       file: state=link src=~/.config/nvim/init.vim dest=~/.vimrc
 
-    - name: install neobundle, which manages vim plugins
-      git: repo=https://github.com/Shougo/neobundle.vim.git
-           dest=~/.config/nvim/bundle/neobundle.vim
+    - name: install dein, which manages vim plugins
+      git: repo=https://github.com/Shougo/dein.vim.git
+           dest=~/.cache/dein/repos/github.com/Shougo/dein.vim
            update=no
 
     - name: install plugins
-      shell: ~/.config/nvim/bundle/neobundle.vim/bin/neoinstall
+      shell: nvim -c "try | call dein#install() | finally | qall! | endtry" -i NONE +q

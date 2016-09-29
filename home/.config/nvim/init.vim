@@ -3,105 +3,101 @@ if !1 | finish | endif
 
 " set vim home directory as vimrc is sourced
 let $VIMFILES=fnamemodify(globpath(&rtp, 'bundle'), ":h")
+let $DEIN_PATH=expand('~/.cache/dein')
+let $DEIN_REPO=$DEIN_PATH.'/repos/github.com/Shougo/dein.vim'
 
 if has('vim_starting')
   set nocompatible          " We're running Vim, not Vi!
-  set runtimepath+=$VIMFILES/bundle/neobundle.vim/
+  set runtimepath+=$DEIN_REPO
 endif
 
-call neobundle#begin($VIMFILES.'/bundle/')
+set shell=/bin/bash
+call dein#begin($DEIN_PATH)
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
+" Let dein manage dein
+call dein#add('Shougo/dein.vim')
 
-NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
-NeoBundle 'tpope/vim-sensible'
+call dein#add('Shougo/vimproc', {'build': 'make'})
+call dein#add('tpope/vim-sensible')
 
 " Navigation
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'justinmk/vim-dirvish'
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('justinmk/vim-dirvish')
 
 " unimpaired pairs well with syntastic - provides location list
 " shortcuts
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'tpope/vim-characterize'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-rsi'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tpope/vim-surround'
+call dein#add('tpope/vim-unimpaired')
+call dein#add('tpope/vim-characterize')
+call dein#add('tpope/vim-commentary')
+call dein#add('tpope/vim-dispatch')
+call dein#add('tpope/vim-eunuch')
+call dein#add('tpope/vim-repeat')
+call dein#add('tpope/vim-rsi')
+call dein#add('tpope/vim-sleuth')
+call dein#add('tpope/vim-surround')
 
-NeoBundle 'AndrewRadev/splitjoin.vim'
+call dein#add('AndrewRadev/splitjoin.vim')
 
 " Movements
-NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'wellle/targets.vim'
+call dein#add('justinmk/vim-sneak')
+call dein#add('wellle/targets.vim')
 
 " Text objects
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-function'
-NeoBundle 'glts/vim-textobj-comment'
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-textobj-entire')
+call dein#add('kana/vim-textobj-function')
+call dein#add('glts/vim-textobj-comment')
 
 " https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
 if has('nvim') && has('python3')
-  NeoBundle 'Shougo/deoplete.nvim'
-  NeoBundle 'steelsojka/deoplete-flow'
-  NeoBundle 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('steelsojka/deoplete-flow')
+  call dein#add('zchee/deoplete-go', {'build': 'make'})
 endif
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
+call dein#add('SirVer/ultisnips')
+call dein#add('honza/vim-snippets')
 
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'godlygeek/tabular'
+call dein#add('tpope/vim-fugitive')
+call dein#add('Raimondi/delimitMate')
+call dein#add('godlygeek/tabular')
 
 " Language support
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'maksimr/vim-jsbeautify'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'lambdatoast/elm.vim'
-NeoBundle 'idris-hackers/idris-vim'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mtscout6/vim-cjsx'
-NeoBundle 'dag/vim-fish'
-NeoBundle 'vim-pandoc/vim-pandoc'
-NeoBundle 'vim-pandoc/vim-pandoc-syntax'
+call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript']})
+call dein#add('maksimr/vim-jsbeautify', {'on_ft': ['javascript']})
+call dein#add('tpope/vim-markdown')
+call dein#add('lambdatoast/elm.vim')
+call dein#add('idris-hackers/idris-vim')
+call dein#add('rust-lang/rust.vim')
+call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
+call dein#add('dag/vim-fish', {'on_ft': ['fish']})
+call dein#add('vim-pandoc/vim-pandoc')
+call dein#add('vim-pandoc/vim-pandoc-syntax')
 
 " Visuals
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'drmikehenry/vim-fontdetect'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('drmikehenry/vim-fontdetect')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 
 " Tmux integration
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'hallettj/tmux-config'
-NeoBundle 'tpope/vim-tbone'
+call dein#add('christoomey/vim-tmux-navigator')
+call dein#add('hallettj/tmux-config')
+call dein#add('tpope/vim-tbone')
 
-NeoBundle 'vim-scripts/vim-auto-save'
-NeoBundle 'vim-scripts/gitignore'
-NeoBundle 'mtth/scratch.vim'
+call dein#add('vim-scripts/vim-auto-save')
+call dein#add('vim-scripts/gitignore')
+call dein#add('mtth/scratch.vim')
 
-NeoBundle 'benekastah/neomake'
-NeoBundle 'vim-scripts/anwolib'
+call dein#add('benekastah/neomake')
+call dein#add('vim-scripts/anwolib')
 
-call neobundle#end()
+call dein#end()
 
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
 " Don't need netrw - we are using dirvish instead
 let g:loaded_netrwPlugin = 1
 
-set shell=/bin/bash
 set encoding=utf-8
 set scrolloff=3
 set wildmode=longest
