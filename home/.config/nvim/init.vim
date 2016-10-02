@@ -78,6 +78,9 @@ call dein#add('altercation/vim-colors-solarized')
 call dein#add('drmikehenry/vim-fontdetect')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
+if has('nvim')
+  call dein#add('machakann/vim-highlightedyank')
+endif
 
 " Tmux integration
 call dein#add('christoomey/vim-tmux-navigator')
