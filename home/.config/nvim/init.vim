@@ -17,7 +17,10 @@ call dein#begin($DEIN_PATH)
 " Let dein manage dein
 call dein#add('Shougo/dein.vim')
 
-call dein#add('Shougo/vimproc', {'build': 'make'})
+if !has('nvim')
+  call dein#add('Shougo/vimproc', {'build': 'make'})
+endif
+
 call dein#add('tpope/vim-sensible')
 
 " Navigation
