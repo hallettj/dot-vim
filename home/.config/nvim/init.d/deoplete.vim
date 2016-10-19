@@ -9,6 +9,9 @@ if !dein#check_install(['deoplete.nvim'])
   let g:deoplete#sources.go = ['ultisnips', 'go']
   let g:deoplete#sources.javascript = ['ultisnips', 'flow']
 
+  " Disable haskell-vim omnifunc
+  let g:haskellmode_completion_ghc = 0
+
   " Configure <tab> behavior
   " autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
   let g:UltiSnipsExpandTrigger = "<C-j>"

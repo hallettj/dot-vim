@@ -56,6 +56,7 @@ if has('nvim') && has('python3')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('steelsojka/deoplete-flow', {'on_ft': ['javascript']})
   call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
+  call dein#add('eagletmt/neco-ghc')
 endif
 call dein#add('SirVer/ultisnips')
 call dein#add('honza/vim-snippets')
