@@ -66,8 +66,9 @@ call dein#add('Raimondi/delimitMate')
 call dein#add('godlygeek/tabular')
 
 " Language support
-call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript']})
-call dein#add('maksimr/vim-jsbeautify', {'on_ft': ['javascript']})
+call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'jsx']})
+call dein#add('mxw/vim-jsx', {'on_ft': ['javascript', 'jsx']})
+call dein#add('maksimr/vim-jsbeautify', {'on_ft': ['javascript', 'jsx']})
 call dein#add('tpope/vim-markdown')
 call dein#add('lambdatoast/elm.vim')
 call dein#add('idris-hackers/idris-vim')
