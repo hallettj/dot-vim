@@ -77,6 +77,7 @@ call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
 call dein#add('dag/vim-fish', {'on_ft': ['fish']})
 call dein#add('vim-pandoc/vim-pandoc')
 call dein#add('vim-pandoc/vim-pandoc-syntax')
+call dein#add('jparise/vim-graphql')
 
 " Visuals
 call dein#add('altercation/vim-colors-solarized')
