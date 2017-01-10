@@ -131,13 +131,14 @@ set noexpandtab
 
 " Displays visible characters for tab and end-of-line characters.
 if has('gui_running')
-  set list
+  " do nothing
 else
   set t_ZH=[3m
   set t_ZR=[23m
 endif
-set listchars=tab:▸\ ,eol:¬
-set conceallevel=0 concealcursor=n
+set listchars=tab:▸\ ,trail:·
+set list
+set conceallevel=0 concealcursor=c
 
 " Highlights the given column.
 set colorcolumn=80
