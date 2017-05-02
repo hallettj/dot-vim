@@ -142,6 +142,9 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 
+" Ask vim-sleuth to respect the 4-space tabstop setting
+let g:SleuthDefaultWidth = &tabstop
+
 " Displays visible characters for tab and end-of-line characters.
 if has('gui_running')
   " do nothing
