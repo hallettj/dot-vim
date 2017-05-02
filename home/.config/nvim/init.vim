@@ -12,97 +12,110 @@ if has('vim_starting')
 endif
 
 set shell=/bin/bash
-call dein#begin($DEIN_PATH)
 
-" Let dein manage dein
-call dein#add('Shougo/dein.vim')
+if dein#load_state($DEIN_PATH)
+  call dein#begin($DEIN_PATH)
 
-if !has('nvim')
-  call dein#add('Shougo/vimproc', {'build': 'make'})
+  " Let dein manage dein
+  call dein#add($DEIN_REPO)
+
+  if !has('nvim')
+    call dein#add('Shougo/vimproc', {'build': 'make'})
+  endif
+
+  call dein#add('tpope/vim-sensible')
+
+  " Navigation
+  call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('justinmk/vim-dirvish')
+  call dein#add('airblade/vim-rooter')
+  call dein#add('tpope/vim-projectionist')
+
+  " unimpaired pairs well with syntastic - provides location list
+  " shortcuts
+  call dein#add('tpope/vim-unimpaired')
+  call dein#add('tpope/vim-characterize')
+  call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-dispatch')
+  call dein#add('tpope/vim-eunuch')
+  call dein#add('tpope/vim-repeat')
+  call dein#add('tpope/vim-rsi')
+  call dein#add('AndrewRadev/splitjoin.vim')
+
+  " Movements
+  call dein#add('tpope/vim-surround')
+  call dein#add('justinmk/vim-sneak')
+  call dein#add('wellle/targets.vim')
+
+  " Text objects
+  call dein#add('kana/vim-textobj-user')
+  call dein#add('kana/vim-textobj-entire')
+  call dein#add('kana/vim-textobj-function')
+  call dein#add('kana/vim-textobj-line')
+  call dein#add('coderifous/textobj-word-column.vim')
+
+  " more from kana
+  call dein#add('kana/vim-smartinput')
+  call dein#add('kana/vim-niceblock')
+
+  " https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
+  if has('nvim') && has('python3')
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('steelsojka/deoplete-flow', {'on_ft': ['javascript']})
+    call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
+    call dein#add('eagletmt/neco-ghc')
+  endif
+  call dein#add('SirVer/ultisnips')
+  call dein#add('honza/vim-snippets')
+
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('godlygeek/tabular')
+
+  " Language support
+  call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'jsx']})
+  call dein#add('mxw/vim-jsx', {'on_ft': ['javascript', 'jsx']})
+  call dein#add('maksimr/vim-jsbeautify', {'on_ft': ['javascript', 'jsx']})
+  call dein#add('tpope/vim-markdown')
+  call dein#add('lambdatoast/elm.vim')
+  call dein#add('idris-hackers/idris-vim')
+  call dein#add('rust-lang/rust.vim')
+  call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
+  call dein#add('dag/vim-fish', {'on_ft': ['fish']})
+  call dein#add('vim-pandoc/vim-pandoc')
+  call dein#add('vim-pandoc/vim-pandoc-syntax')
+  call dein#add('jparise/vim-graphql')
+  call dein#add('leafgarland/typescript-vim')
+
+  " Formatting
+  call dein#add('hallettj/vim-sleuth')
+  call dein#add('sbdchd/neoformat')
+
+  " Visuals
+  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('drmikehenry/vim-fontdetect')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  if has('nvim')
+    call dein#add('machakann/vim-highlightedyank')
+  endif
+
+  " Tmux integration
+  call dein#add('christoomey/vim-tmux-navigator')
+  call dein#add('hallettj/tmux-config')
+  call dein#add('tpope/vim-tbone')
+
+  call dein#add('vim-scripts/vim-auto-save')
+  call dein#add('vim-scripts/gitignore')
+  call dein#add('mtth/scratch.vim')
+
+  call dein#add('benekastah/neomake')
+
+  call dein#end()
+  call dein#save_state()
 endif
-
-call dein#add('tpope/vim-sensible')
-
-" Navigation
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('justinmk/vim-dirvish')
-
-" unimpaired pairs well with syntastic - provides location list
-" shortcuts
-call dein#add('tpope/vim-unimpaired')
-call dein#add('tpope/vim-characterize')
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-dispatch')
-call dein#add('tpope/vim-eunuch')
-call dein#add('tpope/vim-repeat')
-call dein#add('tpope/vim-rsi')
-call dein#add('tpope/vim-sleuth')
-call dein#add('tpope/vim-surround')
-
-call dein#add('AndrewRadev/splitjoin.vim')
-
-" Movements
-call dein#add('justinmk/vim-sneak')
-call dein#add('wellle/targets.vim')
-
-" Text objects
-call dein#add('kana/vim-textobj-user')
-call dein#add('kana/vim-textobj-entire')
-call dein#add('kana/vim-textobj-function')
-call dein#add('glts/vim-textobj-comment')
-
-" https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
-if has('nvim') && has('python3')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('steelsojka/deoplete-flow', {'on_ft': ['javascript']})
-  call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
-  call dein#add('eagletmt/neco-ghc')
-endif
-call dein#add('SirVer/ultisnips')
-call dein#add('honza/vim-snippets')
-
-call dein#add('tpope/vim-fugitive')
-call dein#add('Raimondi/delimitMate')
-call dein#add('godlygeek/tabular')
-
-" Language support
-call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'jsx']})
-call dein#add('mxw/vim-jsx', {'on_ft': ['javascript', 'jsx']})
-call dein#add('maksimr/vim-jsbeautify', {'on_ft': ['javascript', 'jsx']})
-call dein#add('tpope/vim-markdown')
-call dein#add('lambdatoast/elm.vim')
-call dein#add('idris-hackers/idris-vim')
-call dein#add('rust-lang/rust.vim')
-call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
-call dein#add('dag/vim-fish', {'on_ft': ['fish']})
-call dein#add('vim-pandoc/vim-pandoc')
-call dein#add('vim-pandoc/vim-pandoc-syntax')
-call dein#add('jparise/vim-graphql')
-
-" Visuals
-call dein#add('altercation/vim-colors-solarized')
-call dein#add('drmikehenry/vim-fontdetect')
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-if has('nvim')
-  call dein#add('machakann/vim-highlightedyank')
-endif
-
-" Tmux integration
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('hallettj/tmux-config')
-call dein#add('tpope/vim-tbone')
-
-call dein#add('vim-scripts/vim-auto-save')
-call dein#add('vim-scripts/gitignore')
-call dein#add('mtth/scratch.vim')
-
-call dein#add('benekastah/neomake')
-call dein#add('vim-scripts/anwolib')
-
-call dein#end()
 
 filetype plugin indent on
+syntax enable
 
 " Don't need netrw - we are using dirvish instead
 let g:loaded_netrwPlugin = 1
