@@ -173,6 +173,9 @@ if has('gui_running')
   set guifont=Ubuntu\ Mono\ 12
 endif
 
+" Reduce time to, e.g., CursorHold event
+set updatetime=750
+
 " Automatically save when the window loses focus or when a buffer is
 " hidden.
 set autowriteall
