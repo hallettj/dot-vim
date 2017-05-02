@@ -153,7 +153,6 @@ else
   set t_ZR=[23m
 endif
 set listchars=tab:▸\ ,trail:·
-set list
 set conceallevel=0 concealcursor=c
 
 " Highlights the given column.
