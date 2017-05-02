@@ -135,7 +135,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nmap <leader>S <plug>(scratch-insert-clear)
   nnoremap <silent> <leader>ts :ScratchPreview<cr>
   xmap <leader>s <plug>(scratch-selection-reuse)
-  xmap <leader>S <plug>(scratch-selection-clear)
+  xmap <leader>s <plug>(scratch-selection-clear)
 " }}}
 
 " magic registers
