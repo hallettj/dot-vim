@@ -5,5 +5,5 @@ nnoremap <buffer> <leader><leader> :KeepView %!gofmt<enter>
 
 augroup gofmt
   autocmd!
-  autocmd CursorHold *.go Neoformat
+  autocmd BufWritePre *.go Neoformat
 augroup end

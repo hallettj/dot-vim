@@ -104,7 +104,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('hallettj/tmux-config')
   call dein#add('tpope/vim-tbone')
 
-  call dein#add('vim-scripts/vim-auto-save')
+  call dein#add('907th/vim-auto-save')
   call dein#add('vim-scripts/gitignore')
   call dein#add('mtth/scratch.vim')
 
@@ -172,20 +172,6 @@ if has('gui_running')
   " Overridden in airline customization
   set guifont=Ubuntu\ Mono\ 12
 endif
-
-" Reduce time to, e.g., CursorHold event
-set updatetime=750
-
-" Automatically save when the window loses focus or when a buffer is
-" hidden.
-set autowriteall
-set autoread
-set hidden
-au FocusLost * silent! wall
-let g:auto_save = 1
-let g:auto_save_no_updatetime = 1
-let g:auto_save_in_insert_mode = 0
-let g:tmux_navigator_save_on_switch = 1
 
 " Don't keep swap files.
 set noswapfile
