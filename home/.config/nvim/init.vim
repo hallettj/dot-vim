@@ -108,7 +108,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('vim-scripts/gitignore')
   call dein#add('mtth/scratch.vim')
 
-  call dein#add('benekastah/neomake')
+  call dein#add('neomake/neomake')
 
   call dein#end()
   call dein#save_state()

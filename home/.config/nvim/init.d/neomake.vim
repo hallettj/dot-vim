@@ -6,7 +6,11 @@ let g:neomake_javascript_flow_maker = {
   \ 'mapexpr': 'substitute(v:val, "\\\\n", " ", "g")',
   \ }
 
+let g:neomake_go_gometalinter_exe = 'gometalinter.v1'
+let g:neomake_go_gometalinter_args = ['--vendor', '--disable-all', '--enable=vet', '--enable=vetshadow', '--enable=golint', '--enable=ineffassign', '--enable=goconst', '--enable=errcheck', '--tests']
+
 augroup myNeomakeAutogroup
   autocmd!
   autocmd BufWritePost *.js,*.flow Neomake
+  autocmd BufWritePost *.go, Neomake gometalinter
 augroup END
