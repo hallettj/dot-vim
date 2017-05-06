@@ -1,11 +1,5 @@
 let g:neomake_javascript_enabled_makers = ['flow']
 
-let g:neomake_javascript_flow_maker = {
-  \ 'args': ['--old-output-format'],
-  \ 'errorformat': '%f:%l:%c\,%n: %m',
-  \ 'mapexpr': 'substitute(v:val, "\\\\n", " ", "g")',
-  \ }
-
 let g:neomake_go_gometalinter_exe = 'gometalinter.v1'
 let g:neomake_go_gometalinter_args = ['--vendor', '--disable-all', '--enable=vet', '--enable=vetshadow', '--enable=golint', '--enable=ineffassign', '--enable=goconst', '--enable=errcheck', '--tests']
 

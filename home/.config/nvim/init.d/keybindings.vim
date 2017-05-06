@@ -93,7 +93,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
 "}}}
 
 " Shougo/deoplete {{{
-  if has('nvim') && has('python3')
+  if dein#tap('deoplete.nvim')
     " <Tab> completion (from
     " https://github.com/rafi/vim-config/blob/master/config/plugins/deoplete.vim):
     " " 1. If popup menu is visible, select and insert next item

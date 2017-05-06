@@ -58,10 +58,9 @@ if dein#load_state($DEIN_PATH)
   call dein#add('kana/vim-smartinput')
   call dein#add('kana/vim-niceblock')
 
-  " https://www.gregjs.com/vim/2016/neovim-deoplete-jspc-ultisnips-and-tern-a-config-for-kickass-autocompletion/
   if has('nvim') && has('python3')
     call dein#add('Shougo/deoplete.nvim')
-    call dein#add('steelsojka/deoplete-flow', {'on_ft': ['javascript']})
+    call dein#add('hallettj/autocomplete-flow', { 'rev': 'feature/option-to-disable-paren-insertion' })
     call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
     call dein#add('eagletmt/neco-ghc')
   endif
