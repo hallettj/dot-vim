@@ -197,7 +197,7 @@ set nofoldenable
   let g:ctrlp_working_path_mode='a'
   let g:ctrlp_max_files=1000
   let g:ctrlp_max_depth=10
-  let g:ctrlp_cache_dir=$VIMFILES.'/.cache/ctrlp'
+  let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
   let g:ctrlp_mruf_relative = 1
   if executable('ag')
     let g:ctrlp_user_command = 'ag %s --nocolor -g ""'
