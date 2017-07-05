@@ -144,3 +144,6 @@ nnoremap <Leader>cd :cd %:p:h<cr>
 " a register with a computed value. For example, to insert the current date
 " before the the cursor: <leader>"dP
 nnoremap <leader>"d "=strftime('%F')<enter>
+
+" mundo
+nnoremap <leader>u :MundoToggle<cr>

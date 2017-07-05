@@ -30,6 +30,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('justinmk/vim-dirvish')
   call dein#add('airblade/vim-rooter')
   call dein#add('tpope/vim-projectionist')
+  call dein#add('simnalamburt/vim-mundo')
 
   " unimpaired pairs well with syntastic - provides location list
   " shortcuts
