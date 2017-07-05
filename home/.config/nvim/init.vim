@@ -61,7 +61,7 @@ if dein#load_state($DEIN_PATH)
 
   if has('nvim') && has('python3')
     call dein#add('Shougo/deoplete.nvim')
-    call dein#add('hallettj/autocomplete-flow', { 'rev': 'feature/option-to-disable-paren-insertion' })
+    call dein#add('wokalski/autocomplete-flow')
     call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
     call dein#add('eagletmt/neco-ghc')
   endif
