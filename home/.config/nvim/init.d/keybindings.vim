@@ -140,3 +140,5 @@ nnoremap <leader>"p "=expand('%:p:h')<cr>
 
 " mundo
 nnoremap <leader>u :MundoToggle<cr>
+
+nnoremap <leader><space> :Neoformat<cr>
