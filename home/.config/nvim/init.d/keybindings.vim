@@ -54,19 +54,21 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <leader>d :Dispatch<cr>
 "}}}
 
-" kien/ctrlp.vim {{{
-  nnoremap <leader>f :CtrlP getcwd()<CR>
-  nnoremap <leader>b :CtrlPBuffer<CR>
-  "nnoremap <leader>T :CtrlPBufTag<CR>
-  "nnoremap <leader>t :CtrlPTag<CR>
-  nnoremap <leader>F :CtrlPRoot<CR>
-  nnoremap <leader>r :CtrlPMRUFiles<CR>
-  nnoremap <leader>M :CtrlPMixed<CR>
-  nnoremap <leader>l :CtrlPLine<CR>
+" Shougo/denite.vim {{{
+  nnoremap <leader>f :Denite -default-action=switch buffer file_rec<cr>
+  nnoremap <leader>F :Denite file_rec:~<cr>
+  nnoremap <leader>r :Denite -no-empty grep<cr>
+  xnoremap <leader>r ygv:Denite -no-empty grep:::<C-R>"<cr>
+  nnoremap <leader>h :Denite command_history<cr>
+
+  " git integration
+  nnoremap <leader>gl :Denite gitlog<cr>
+  nnoremap <leader>gL :Denite gitlog:all<cr>
+  nnoremap <leader>gs :Denite gitstatus<cr>
 "}}}
 
-" tpope/vim-fugitive {{{
-  "nnoremap <silent> <leader>gs :Gstatus<CR>
+" tpope/vim-fugitive / neoclide/vim-easygit {{{
+  " nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
   nnoremap <silent> <leader>gb :Gblame<CR>
@@ -75,12 +77,6 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
   nnoremap <silent> <leader>gr :Gremove<CR>
-"}}}
-
-" airblaide/vim-gitgutter {{{
-  nnoremap <leader>gh :GitGutterLineHighlightsToggle<cr>
-  nnoremap <leader>gt :GitGutterToggle<cr>
-  nnoremap <leader>gR :GitGutterAll<cr>
 "}}}
 
 " benekastah/neomake {{{
@@ -117,11 +113,6 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   endif
 "}}}
 
-" rking/ag.vim {{{
-  nnoremap <leader>ag :Ag<space>
-  vnoremap <leader>ag "*y:Ag<space>'<C-R>*'<CR>
-"}}}
-
 " godlygeek/tabular {{{
   nnoremap <leader>a= :Tabularize / = /l0<cr>
   vnoremap <leader>a= :Tabularize / = /l0<cr>
@@ -143,7 +134,10 @@ nnoremap <Leader>cd :cd %:p:h<cr>
 " The command performed after one of these keybindings is invoked will read from
 " a register with a computed value. For example, to insert the current date
 " before the the cursor: <leader>"dP
-nnoremap <leader>"d "=strftime('%F')<enter>
+nnoremap <leader>"d "=strftime('%F')<cr>
+
+" put directory of the open file in the default register
+nnoremap <leader>"p "=expand('%:p:h')<cr>
 
 " mundo
 nnoremap <leader>u :MundoToggle<cr>

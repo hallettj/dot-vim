@@ -26,11 +26,14 @@ if dein#load_state($DEIN_PATH)
   call dein#add('tpope/vim-sensible')
 
   " Navigation
-  call dein#add('ctrlpvim/ctrlp.vim')
   call dein#add('justinmk/vim-dirvish')
   call dein#add('airblade/vim-rooter')
   call dein#add('tpope/vim-projectionist')
   call dein#add('simnalamburt/vim-mundo')
+  if has('nvim') && has('python3')
+    call dein#add('Shougo/denite.nvim')
+    call dein#add('neoclide/denite-git')
+  endif
 
   " unimpaired pairs well with syntastic - provides location list
   " shortcuts
@@ -68,7 +71,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('SirVer/ultisnips')
   call dein#add('honza/vim-snippets')
 
-  call dein#add('tpope/vim-fugitive')
+  call dein#add('neoclide/vim-easygit')
   call dein#add('godlygeek/tabular')
 
   " Language support
@@ -80,10 +83,8 @@ if dein#load_state($DEIN_PATH)
   call dein#add('idris-hackers/idris-vim')
   call dein#add('rust-lang/rust.vim')
   call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
-  call dein#add('dag/vim-fish', {'on_ft': ['fish']})
   call dein#add('vim-pandoc/vim-pandoc')
   call dein#add('vim-pandoc/vim-pandoc-syntax')
-  call dein#add('jparise/vim-graphql')
   call dein#add('leafgarland/typescript-vim')
 
   " Formatting
@@ -187,32 +188,6 @@ endif
 
 " I don't want code to be folded when I open a file.
 set nofoldenable
-
-" kien/ctrlp.vim {{{
-  let g:ctrlp_extensions = [ 'mixed', 'quickfix', 'undo' ]
-  let g:ctrlp_cmd='CtrlPMixed'
-  let g:ctrlp_clear_cache_on_exit=1
-  let g:ctrlp_max_height=40
-  let g:ctrlp_show_hidden=0
-  let g:ctrlp_follow_symlinks=1
-  let g:ctrlp_working_path_mode='a'
-  let g:ctrlp_max_files=1000
-  let g:ctrlp_max_depth=10
-  let g:ctrlp_cache_dir=$HOME.'/.cache/ctrlp'
-  let g:ctrlp_mruf_relative = 1
-  if executable('ag')
-    let g:ctrlp_user_command = 'ag %s --nocolor -g ""'
-  endif
-"}}}
-
-" tpope/vim-fugitive {{{
-  autocmd FileType gitcommit nmap <buffer> U :Git checkout -- <C-r><C-g><CR>
-  autocmd FileType dirvish call fugitive#detect(@%)
-"}}}
-
-" airblaide/vim-gitgutter {{{
-  let g:gitgutter_enabled = 0
-"}}}
 
 " vim-pandoc/vim-pandoc {{{
   let g:pandoc#modules#disabled = ["chdir"]
