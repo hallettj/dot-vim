@@ -2,7 +2,6 @@
 
 " Map <Leader> to , key
 let mapleader = " "
-let maplocalleader = "  "
 
 " Swap : and ,
 nnoremap , :
