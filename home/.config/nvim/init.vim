@@ -87,6 +87,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('vim-pandoc/vim-pandoc')
   call dein#add('vim-pandoc/vim-pandoc-syntax')
   call dein#add('leafgarland/typescript-vim')
+  call dein#add('fatih/vim-go', {'on_ft': ['go']})
 
   " Formatting
   call dein#add('hallettj/vim-sleuth')
