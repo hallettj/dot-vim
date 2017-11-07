@@ -8,3 +8,7 @@ augroup myNeomakeAutogroup
   autocmd BufWritePost *.js,*.flow Neomake
   autocmd BufWritePost *.go, Neomake gometalinter
 augroup END
+
+" Disable vim-flow's save hook - we just want the jump-to-definition feature
+let g:flow#enable = 0
+let g:flow#omnifunc = 0

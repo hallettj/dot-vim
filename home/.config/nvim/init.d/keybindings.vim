@@ -66,6 +66,12 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <leader>gs :Denite gitstatus<cr>
 "}}}
 
+" navigate in code
+augroup codeNavigation
+  autocmd!
+  autocmd FileType javascript nnoremap <buffer> <C-]> :FlowJumpToDef<cr>
+augroup END
+
 " tpope/vim-fugitive / neoclide/vim-easygit {{{
   " nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
