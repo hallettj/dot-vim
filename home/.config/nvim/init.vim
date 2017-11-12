@@ -108,7 +108,6 @@ if dein#load_state($DEIN_PATH)
   call dein#add('tpope/vim-tbone')
 
   call dein#add('907th/vim-auto-save')
-  call dein#add('vim-scripts/gitignore')
   call dein#add('mtth/scratch.vim')
 
   call dein#add('neomake/neomake')
@@ -164,8 +163,6 @@ set colorcolumn=80
 " Store temp files in a central location
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-set wildignore+=**/target,*.class,*.jar,*.o,*.hi,*/node_modules/*
 
 if has('gui_running')
   " Remove menu bar, toolbar, and scrollbars
