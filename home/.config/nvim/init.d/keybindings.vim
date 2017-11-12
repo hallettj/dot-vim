@@ -64,7 +64,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   " git integration
   nnoremap <leader>gl :Denite gitlog<cr>
   nnoremap <leader>gL :Denite gitlog:all<cr>
-  nnoremap <leader>gs :Denite gitstatus<cr>
+  " nnoremap <leader>gs :Denite gitstatus<cr>
 "}}}
 
 " navigate in code
@@ -74,12 +74,12 @@ augroup codeNavigation
 augroup END
 
 " tpope/vim-fugitive / neoclide/vim-easygit {{{
-  " nnoremap <silent> <leader>gs :Gstatus<CR>
+  nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
   nnoremap <silent> <leader>gb :Gblame<CR>
   nnoremap          <leader>ge :Gedit<space>
-  "nnoremap <silent> <leader>gl :silent Glog<CR>:copen<CR>
+  " nnoremap <silent> <leader>gl :silent Glog<CR>:copen<CR>
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
   nnoremap <silent> <leader>gr :Gremove<CR>

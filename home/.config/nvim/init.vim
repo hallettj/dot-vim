@@ -71,8 +71,12 @@ if dein#load_state($DEIN_PATH)
   call dein#add('SirVer/ultisnips')
   call dein#add('honza/vim-snippets')
 
-  call dein#add('neoclide/vim-easygit')
   call dein#add('godlygeek/tabular')
+
+  " git integration
+  call dein#add('neoclide/vim-easygit') " used by denite-git
+  call dein#add('tpope/vim-fugitive') " used by vim-rhubarb
+  call dein#add('tpope/vim-rhubarb') " provides Github integration
 
   " Language support
   call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'jsx']})
