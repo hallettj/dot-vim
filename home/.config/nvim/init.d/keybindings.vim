@@ -58,6 +58,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <leader>F :Denite file_rec:~<cr>
   nnoremap <leader>r :Denite -no-empty grep<cr>
   xnoremap <leader>r ygv:Denite -no-empty grep:::<C-R>"<cr>
+  nnoremap <leader>R :Denite register<cr>
   nnoremap <leader>h :Denite command_history<cr>
 
   " git integration
