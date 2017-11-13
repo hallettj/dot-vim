@@ -26,52 +26,50 @@ if dein#load_state($DEIN_PATH)
   call dein#add('tpope/vim-sensible')
 
   " Navigation
-  call dein#add('justinmk/vim-dirvish')
-  call dein#add('airblade/vim-rooter')
-  call dein#add('tpope/vim-projectionist')
-  call dein#add('simnalamburt/vim-mundo')
+  call dein#add('justinmk/vim-dirvish') " file browser to replace netrw
+  call dein#add('airblade/vim-rooter') " set working directory based on `.git/`
+  call dein#add('simnalamburt/vim-mundo') " UI for navigating undo history
   if has('nvim') && has('python3')
-    call dein#add('Shougo/denite.nvim')
-    call dein#add('neoclide/denite-git')
+    call dein#add('Shougo/denite.nvim') " general-purpose fuzzy finder
+    call dein#add('neoclide/denite-git') " navigate git commits and staged files with denite
   endif
 
-  " unimpaired pairs well with syntastic - provides location list
-  " shortcuts
-  call dein#add('tpope/vim-unimpaired')
-  call dein#add('tpope/vim-characterize')
-  call dein#add('tpope/vim-commentary')
-  call dein#add('tpope/vim-dispatch')
-  call dein#add('tpope/vim-eunuch')
-  call dein#add('tpope/vim-repeat')
-  call dein#add('tpope/vim-rsi')
-  call dein#add('AndrewRadev/splitjoin.vim')
+  call dein#add('tpope/vim-unimpaired') " shortcuts for cycling/toggling different things
+  call dein#add('tpope/vim-characterize') " show information about character under cursor
+  call dein#add('tpope/vim-commentary') " manipulate code comments
+  call dein#add('tpope/vim-eunuch') " commands for manipulating files and directories
+  call dein#add('tpope/vim-repeat') " makes the `.` command work with third-party actions
+  call dein#add('tpope/vim-rsi') " add Emacs-like shortcuts to command mode
+  call dein#add('AndrewRadev/splitjoin.vim') " `gS` and `gJ` commands split or join lines
 
   " Movements
-  call dein#add('tpope/vim-surround')
-  call dein#add('justinmk/vim-sneak')
-  call dein#add('wellle/targets.vim')
+  call dein#add('tpope/vim-surround') " `ds`, `cs`, `ys`, and `S` commands manage delimiters
+  call dein#add('justinmk/vim-sneak') " `s` command jumps to occurrence of a pair of characters
+  call dein#add('wellle/targets.vim') " more options for movements like `i` and `a`
 
   " Text objects
-  call dein#add('kana/vim-textobj-user')
-  call dein#add('kana/vim-textobj-entire')
-  call dein#add('kana/vim-textobj-function')
-  call dein#add('kana/vim-textobj-line')
-  call dein#add('coderifous/textobj-word-column.vim')
+  call dein#add('kana/vim-textobj-user') " dependency for third-party text objects
+  call dein#add('kana/vim-textobj-entire') " `ae`: entire buffer, `ie`: excludes empty lines
+  call dein#add('kana/vim-textobj-function') " `af`, `if`, `aF`, `iF` operate on functions
+  call dein#add('kana/vim-textobj-line') " `al`: entire line, `il` excludes whitespace
+  call dein#add('coderifous/textobj-word-column.vim') " `ac`, `ic`, `aC`, `iC` select columns
 
   " more from kana
-  call dein#add('kana/vim-smartinput')
-  call dein#add('kana/vim-niceblock')
+  call dein#add('kana/vim-niceblock') " makes `I` and `A` work in line-wise visual mode
 
+  " Writing assistance
+  call dein#add('cohama/lexima.vim') " automatically closes delimiter pairs when typing
+  call dein#add('godlygeek/tabular')
+  call dein#add('SirVer/ultisnips')
+  call dein#add('honza/vim-snippets')
+
+  " Code completion
   if has('nvim') && has('python3')
     call dein#add('Shougo/deoplete.nvim')
     call dein#add('wokalski/autocomplete-flow')
     call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
     call dein#add('eagletmt/neco-ghc')
   endif
-  call dein#add('SirVer/ultisnips')
-  call dein#add('honza/vim-snippets')
-
-  call dein#add('godlygeek/tabular')
 
   " git integration
   call dein#add('neoclide/vim-easygit') " used by denite-git
@@ -94,8 +92,8 @@ if dein#load_state($DEIN_PATH)
   call dein#add('fatih/vim-go', {'on_ft': ['go']})
 
   " Formatting
-  call dein#add('hallettj/vim-sleuth')
-  call dein#add('sbdchd/neoformat')
+  call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files
+  call dein#add('sbdchd/neoformat') " reformats code using external formatter
 
   " Visuals
   call dein#add('altercation/vim-colors-solarized')
@@ -103,7 +101,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   if has('nvim')
-    call dein#add('machakann/vim-highlightedyank')
+    call dein#add('machakann/vim-highlightedyank') " highlight text after it has been yanked
   endif
 
   " Tmux integration
