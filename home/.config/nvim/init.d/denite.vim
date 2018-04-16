@@ -1,6 +1,7 @@
 " Customize colors
 call denite#custom#option('default', {
-     \ 'highlight_matched_char': 'IncSearch',
+     \ 'highlight_matched_char': 'Visual',
+     \ 'highlight_matched_range': 'None',
      \ 'smartcase': v:true,
      \ 'vertical_preview': v:true,
      \})
@@ -22,6 +23,8 @@ call denite#custom#var('grep', 'final_opts', [])
 call denite#custom#map('insert', '<C-X>', '<denite:do_action:split>')
 call denite#custom#map('insert', '<C-J>', '<denite:move_to_next_line>')
 call denite#custom#map('insert', '<C-K>', '<denite:move_to_previous_line>')
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>')
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>')
 
 call denite#custom#map(
       \ 'normal',
