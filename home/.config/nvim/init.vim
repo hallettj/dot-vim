@@ -58,7 +58,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('kana/vim-niceblock') " makes `I` and `A` work in line-wise visual mode
 
   " Writing assistance
-  call dein#add('cohama/lexima.vim') " automatically closes delimiter pairs when typing
+  call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
   call dein#add('godlygeek/tabular')
   call dein#add('SirVer/ultisnips')
   call dein#add('honza/vim-snippets')
