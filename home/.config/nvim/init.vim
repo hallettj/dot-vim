@@ -88,7 +88,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
   call dein#add('vim-pandoc/vim-pandoc', {'on_ft': ['md', 'markdown']})
   call dein#add('vim-pandoc/vim-pandoc-syntax', {'on_ft': ['md', 'markdown']})
-  call dein#add('leafgarland/typescript-vim', {'on_ft': ['ts']})
+  call dein#add('leafgarland/typescript-vim', {'on_ft': ['ts', 'typescript']})
   call dein#add('fatih/vim-go', {'on_ft': ['go']})
 
   " Formatting
