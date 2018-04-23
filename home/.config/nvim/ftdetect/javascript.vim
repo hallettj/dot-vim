@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.es6,*.flow set filetype=javascript.jsx
+au BufRead,BufNewFile *.es6,*.flow,*.jsx,*.mjs set filetype=javascript.jsx

@@ -79,7 +79,6 @@ if dein#load_state($DEIN_PATH)
   " Language support
   call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'jsx']})
   call dein#add('mxw/vim-jsx', {'on_ft': ['javascript', 'jsx']})
-  call dein#add('flowtype/vim-flow', {'on_ft': ['javascript', 'jsx'], 'augroup': 'vim_flow'})
   call dein#add('maksimr/vim-jsbeautify', {'on_ft': ['javascript', 'jsx']})
   call dein#add('tpope/vim-markdown', {'on_ft': ['md', 'markdown']})
   call dein#add('lambdatoast/elm.vim', {'on_ft': ['elm']})
