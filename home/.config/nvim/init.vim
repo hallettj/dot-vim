@@ -57,12 +57,6 @@ if dein#load_state($DEIN_PATH)
   " more from kana
   call dein#add('kana/vim-niceblock') " makes `I` and `A` work in line-wise visual mode
 
-  " Writing assistance
-  call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
-  call dein#add('godlygeek/tabular')
-  call dein#add('SirVer/ultisnips')
-  call dein#add('honza/vim-snippets')
-
   " Code completion
   if has('nvim') && has('python3')
     call dein#add('Shougo/deoplete.nvim')
@@ -70,6 +64,12 @@ if dein#load_state($DEIN_PATH)
     call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
     call dein#add('eagletmt/neco-ghc')
   endif
+
+  " Writing assistance
+  call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
+  call dein#add('godlygeek/tabular')
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
 
   " git integration
   call dein#add('neoclide/vim-easygit') " used by denite-git
