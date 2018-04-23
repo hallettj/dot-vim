@@ -85,14 +85,11 @@ augroup END
   nnoremap <silent> <leader>gr :Gremove<CR>
 "}}}
 
-" benekastah/neomake {{{
-  nnoremap <silent> <Leader>e :Neomake<cr>
-  vnoremap <silent> <Leader>e :Neomake<cr>
-  " nnoremap <silent> <leader>lc :lclose<cr>:cclose<cr>
-  " nnoremap <silent> <leader>lo :lopen<cr>
-  nnoremap <silent> <leader>cc :cclose<cr>:lclose<cr>
-  nnoremap <silent> <leader>co :copen<cr>
-"}}}
+" quickfix and location list
+nnoremap <silent> <leader>lc :lclose<cr>:cclose<cr>
+nnoremap <silent> <leader>lo :lopen<cr>
+nnoremap <silent> <leader>cc :cclose<cr>:lclose<cr>
+nnoremap <silent> <leader>co :copen<cr>
 
 " Shougo/deoplete {{{
   if dein#tap('deoplete.nvim')
