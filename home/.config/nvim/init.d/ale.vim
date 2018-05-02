@@ -19,4 +19,16 @@ endfunction
 
 " I want to disable xml linting while I am working with Salesforce's DTD-less
 " XML file formats.
-let g:ale_linters = { 'xml': [], }
+let g:ale_linters = {
+      \ 'go': ['gometalinter'],
+      \ 'xml': [],
+      \}
+
+let g:ale_fixers = {
+      \ 'go': ['gofmt', 'goimports'],
+      \ 'javascript': ['prettier-standard'],
+      \}
+
+" options for golang
+let g:ale_go_gometalinter_executable = 'gometalinter.v2'
+let g:ale_go_gometalinter_options = '--fast'
