@@ -59,10 +59,9 @@ if dein#load_state($DEIN_PATH)
 
   " Code completion
   if has('nvim') && has('python3')
+    call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'rev': 'next' })
     call dein#add('Shougo/deoplete.nvim')
-    call dein#add('wokalski/autocomplete-flow')
     call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
-    call dein#add('eagletmt/neco-ghc')
   endif
 
   " Writing assistance
@@ -79,15 +78,13 @@ if dein#load_state($DEIN_PATH)
   " Language support
   call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'jsx']})
   call dein#add('mxw/vim-jsx', {'on_ft': ['javascript', 'jsx']})
-  call dein#add('flowtype/vim-flow', {'on_ft': ['javascript', 'jsx']})
-  call dein#add('maksimr/vim-jsbeautify', {'on_ft': ['javascript', 'jsx']})
   call dein#add('lambdatoast/elm.vim', {'on_ft': ['elm']})
   call dein#add('idris-hackers/idris-vim', {'on_ft': ['idr']})
   call dein#add('rust-lang/rust.vim', {'on_ft': ['rs']})
   call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
   call dein#add('vim-pandoc/vim-pandoc', {'on_ft': ['md', 'markdown']})
   call dein#add('vim-pandoc/vim-pandoc-syntax', {'on_ft': ['md', 'markdown']})
-  call dein#add('leafgarland/typescript-vim', {'on_ft': ['ts', 'typescript']})
+  call dein#add('leafgarland/typescript-vim', {'on_ft': ['ts', 'tsx', 'typescript']})
   call dein#add('fatih/vim-go', {'on_ft': ['go']})
 
   " Formatting
@@ -112,7 +109,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('907th/vim-auto-save')
   call dein#add('mtth/scratch.vim')
 
-  call dein#add('w0rp/ale')
+  call dein#add('w0rp/ale', {'on_ft': ['go']})
 
   call dein#end()
   call dein#save_state()

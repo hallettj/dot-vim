@@ -67,12 +67,6 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   " nnoremap <leader>gs :Denite gitstatus<cr>
 "}}}
 
-" navigate in code
-augroup codeNavigation
-  autocmd!
-  autocmd FileType javascript nnoremap <buffer> <C-]> :FlowJumpToDef<cr>
-augroup END
-
 " tpope/vim-fugitive / neoclide/vim-easygit {{{
   nnoremap <silent> <leader>gs :Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -133,4 +127,9 @@ nnoremap <leader>"p "=expand('%:p:h')<cr>
 " mundo
 nnoremap <leader>u :MundoToggle<cr>
 
-nmap <leader><space> <Plug>(ale_fix)
+" IDE features
+nnoremap <leader><space> :Neoformat<cr>
+nnoremap <F5> :call LanguageClient_contextMenu()<cr>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<cr>

@@ -1,8 +1,8 @@
 " Enable syntax highlighting for Flow
 let g:javascript_plugin_flow = 1
 
-" Apply JSX syntax highlighting to all javascript files (via vim-jsx plugin)
-let g:jsx_ext_required = 0
+" Prevent vim-jsx from overriding my own filetype detection.
+let g:jsx_ext_required = 1
 
 let g:javascript_conceal_function                  = "ƒ"
 let g:javascript_conceal_null                      = "ø"
