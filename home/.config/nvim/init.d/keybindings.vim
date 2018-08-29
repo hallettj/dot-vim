@@ -56,6 +56,10 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <leader>d :Dispatch<cr>
 "}}}
 
+" junegunn/fzf {{{
+  nnoremap <C-p> :Files<cr>
+" }}}
+
 " Shougo/denite.vim {{{
   nnoremap <leader>f :Denite -default-action=switch buffer file_rec<cr>
   nnoremap <leader>F :Denite file_rec:~<cr>

@@ -33,6 +33,8 @@ if dein#load_state($DEIN_PATH)
     call dein#add('Shougo/denite.nvim') " general-purpose fuzzy finder
     call dein#add('neoclide/denite-git') " navigate git commits and staged files with denite
   endif
+  call dein#add('junegunn/fzf', { 'merged': 0 })
+  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('andymass/vim-tradewinds')
 
   call dein#add('tpope/vim-unimpaired') " shortcuts for cycling/toggling different things
