@@ -166,9 +166,6 @@ if has('gui_running')
   " Remove menu bar, toolbar, and scrollbars
   set guioptions+=mTLlRrb
   set guioptions-=mTLlRrb
-
-  " Overridden in airline customization
-  set guifont=Ubuntu\ Mono\ 12
 endif
 
 " Load matchit to bounce between do and end in Ruby and between opening
