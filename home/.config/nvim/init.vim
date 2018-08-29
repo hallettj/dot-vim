@@ -172,35 +172,11 @@ if has('gui_running')
   set guifont=Ubuntu\ Mono\ 12
 endif
 
-" Don't keep swap files.
-set noswapfile
-set nobackup
-set writebackup
-
 " Load matchit to bounce between do and end in Ruby and between opening
 " and closing tags in HTML.
 if !has('gui_running')
   set noshowmatch
   let loaded_matchparen = 1  " Prevents DoMatchParen plugin from loading.
-endif
-
-" I don't want code to be folded when I open a file.
-set nofoldenable
-
-" vim-pandoc/vim-pandoc {{{
-  let g:pandoc#modules#disabled = ["chdir"]
-"}}}
-
-" Raimondi/delimitMate {{{
-  let delimitMate_expand_cr          = 1
-  let delimitMate_expand_space       = 1
-  let delimitMate_balance_matchpairs = 1
-  let delimitMate_jump_expansion     = 1
-"}}}
-
-if has("autocmd")
-  " When editing a file, always jump to the last cursor position
-  autocmd BufReadPost * if line("'\"") && &filetype != 'gitcommit' | exe "'\"" | endif
 endif
 
 runtime! init.d/*.vim
