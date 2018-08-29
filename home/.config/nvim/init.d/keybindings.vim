@@ -23,6 +23,9 @@ execute 'vnoremap L L'.&l:scrolloff.'j'
 
 " Window management shortcuts
 nnoremap <C-_> <C-w>_
+nnoremap <C--> <C-w>_
+nnoremap <Leader>- <C-w>_
+nnoremap <Leader>= <C-w>=
 
 " Retains selection in visual mode when indenting blocks
 vnoremap < <gv

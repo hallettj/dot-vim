@@ -33,6 +33,7 @@ if dein#load_state($DEIN_PATH)
     call dein#add('Shougo/denite.nvim') " general-purpose fuzzy finder
     call dein#add('neoclide/denite-git') " navigate git commits and staged files with denite
   endif
+  call dein#add('andymass/vim-tradewinds')
 
   call dein#add('tpope/vim-unimpaired') " shortcuts for cycling/toggling different things
   call dein#add('tpope/vim-characterize') " show information about character under cursor
