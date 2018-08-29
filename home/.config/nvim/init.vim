@@ -92,8 +92,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('sbdchd/neoformat') " reformats code using external formatter
 
   " Visuals
-  call dein#add('altercation/vim-colors-solarized')
-  call dein#add('JulioJu/neovim-qt-colors-solarized-truecolor-only')
+  call dein#add('iCyMind/NeoSolarized')
   call dein#add('drmikehenry/vim-fontdetect')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')

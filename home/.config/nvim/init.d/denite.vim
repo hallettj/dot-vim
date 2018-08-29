@@ -1,6 +1,6 @@
 " Customize colors
 call denite#custom#option('default', {
-     \ 'highlight_matched_char': 'Visual',
+     \ 'highlight_matched_char': 'None',
      \ 'highlight_matched_range': 'None',
      \ 'smartcase': v:true,
      \ 'vertical_preview': v:true,

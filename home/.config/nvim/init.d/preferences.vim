@@ -7,3 +7,6 @@ if has("autocmd")
   " When editing a file, always jump to the last cursor position
   autocmd BufReadPost * if line("'\"") && &filetype != 'gitcommit' | exe "'\"" | endif
 endif
+
+set background=dark
+colorscheme NeoSolarized
