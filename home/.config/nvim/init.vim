@@ -111,7 +111,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('907th/vim-auto-save')
   call dein#add('mtth/scratch.vim')
 
-  call dein#add('w0rp/ale', {'on_ft': ['go']})
+  call dein#add('w0rp/ale', {'on_ft': ['go', 'typescript']})
 
   call dein#end()
   call dein#save_state()
