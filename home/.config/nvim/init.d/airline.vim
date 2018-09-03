@@ -1,5 +1,8 @@
 " settings for vim-airline/vim-airline
+
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#languageclient#error_symbol = '✖'
+let g:airline#extensions#languageclient#warning_symbol = '⚠'
 
 set noshowmode  " Mode is indicated in status line instead.
 
