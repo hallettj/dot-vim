@@ -140,3 +140,7 @@ nnoremap <F5> :call LanguageClient_contextMenu()<cr>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<cr>
+
+nnoremap <F4> :ActivateTerminalPane<CR>
+inoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
+tnoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
