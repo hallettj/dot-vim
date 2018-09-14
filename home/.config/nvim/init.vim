@@ -27,6 +27,7 @@ if dein#load_state($DEIN_PATH)
 
   " Navigation
   call dein#add('justinmk/vim-dirvish') " file browser to replace netrw
+  call dein#add('kristijanhusak/vim-dirvish-git')
   call dein#add('airblade/vim-rooter') " set working directory based on `.git/`
   call dein#add('simnalamburt/vim-mundo') " UI for navigating undo history
   if has('nvim') && has('python3')
