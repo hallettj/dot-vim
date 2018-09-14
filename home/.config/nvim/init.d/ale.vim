@@ -18,5 +18,3 @@ let g:ale_fixers = {
 " options for golang
 let g:ale_go_gometalinter_executable = 'gometalinter.v2'
 let g:ale_go_gometalinter_options = '--fast'
-
-endif
