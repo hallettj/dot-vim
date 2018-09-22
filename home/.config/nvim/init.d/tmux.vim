@@ -58,16 +58,18 @@ function! s:SetPaneWidth()
   let targetWidth = vimColCount * (s:ClientWidth() / (vimColCount + 1))
   " Allow for a margin of one column to accommodate rounding issues.
   if abs(targetWidth - &columns) > 1
-    call s:TmuxCommand('resize-pane -x' . targetWidth)
+    call s:TmuxCommand('resize-pane -t ' . $TMUX_PANE . ' -x ' . targetWidth)
   endif
 endfunction
 
 augroup TmuxDynamicPaneSize
   autocmd!
-  " Use `timer_start` so that vim can update window sizes before we update the
-  " pane width.
-  autocmd BufWinLeave,WinLeave,WinNew * call timer_start(10, { -> s:SetPaneWidth() })
-  autocmd VimResized * call <SID>SetWindowsToEqualWidths() | call <SID>SetPaneWidth()
+  if !empty($TMUX)
+    " Use `timer_start` so that vim can update window sizes before we update the
+    " pane width.
+    autocmd BufWinLeave,WinLeave,WinNew * call timer_start(10, { -> s:SetPaneWidth() })
+    autocmd VimResized * call <SID>SetWindowsToEqualWidths() | call <SID>SetPaneWidth()
+  endif
 augroup END
 
 function! s:ActivateTerminalPane()
