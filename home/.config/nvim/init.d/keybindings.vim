@@ -70,8 +70,8 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   nnoremap <leader>h :Denite command_history<cr>
 
   " git integration
-  nnoremap <leader>gl :Denite gitlog<cr>
-  nnoremap <leader>gL :Denite gitlog:all<cr>
+  " nnoremap <leader>gl :Denite gitlog<cr>
+  " nnoremap <leader>gL :Denite gitlog:all<cr>
   " nnoremap <leader>gs :Denite gitstatus<cr>
 "}}}
 
