@@ -57,6 +57,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
 "}}}
 
 " junegunn/fzf {{{
+  nnoremap <C-b> :Buffers<cr>
   nnoremap <C-p> :Files<cr>
 " }}}
 
