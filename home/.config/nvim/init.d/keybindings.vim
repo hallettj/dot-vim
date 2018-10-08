@@ -141,6 +141,15 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<cr>
 
+augroup TypescriptKeybindings
+  autocmd!
+  autocmd FileType typescript nnoremap <buffer> <silent> gd :TSDef<cr>
+  autocmd FileType typescript nnoremap <buffer> <silent> K :TSDoc<cr>
+  autocmd FileType typescript nnoremap <buffer> <leader>tdp :TSDefPreview<cr>
+  autocmd FileType typescript nnoremap <buffer> <c-]> :TSTypeDef<cr>
+  autocmd FileType typescript nnoremap <buffer> <silent> <F2> :TSRename<cr>
+augroup END
+
 nnoremap <F4> :ActivateTerminalPane<CR>
 inoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
 tnoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>

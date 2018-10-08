@@ -88,8 +88,13 @@ if dein#load_state($DEIN_PATH)
   call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
   call dein#add('vim-pandoc/vim-pandoc', {'on_ft': ['md', 'markdown']})
   call dein#add('vim-pandoc/vim-pandoc-syntax', {'on_ft': ['md', 'markdown']})
-  call dein#add('leafgarland/typescript-vim', {'on_ft': ['ts', 'tsx', 'typescript']})
   call dein#add('fatih/vim-go', {'on_ft': ['go']})
+
+  " Typescript
+  call dein#add('HerringtonDarkholme/yats.vim')
+  if has('nvim')
+    call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
+  endif
 
   " Formatting
   call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files
