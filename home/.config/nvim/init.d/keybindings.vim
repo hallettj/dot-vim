@@ -149,6 +149,7 @@ augroup TypescriptKeybindings
   autocmd FileType typescript nnoremap <buffer> <leader>tdp :TSDefPreview<cr>
   autocmd FileType typescript nnoremap <buffer> <c-]> :TSTypeDef<cr>
   autocmd FileType typescript nnoremap <buffer> <silent> <F2> :TSRename<cr>
+  autocmd FileType typescript nnoremap <buffer> <silent> <leader>. :TSImport<cr>
 augroup END
 
 nnoremap <F4> :ActivateTerminalPane<CR>
