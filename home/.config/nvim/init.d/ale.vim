@@ -18,3 +18,8 @@ let g:ale_fixers = {
 " options for golang
 let g:ale_go_gometalinter_executable = 'gometalinter.v2'
 let g:ale_go_gometalinter_options = '--fast'
+
+" disable linting for node_modules/
+let g:ale_pattern_options = {
+      \ '.*/node_modules/.*': { 'ale_enabled': 0 },
+      \}
