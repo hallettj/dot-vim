@@ -1,0 +1,13 @@
+{
+  "coc.preferences.noselect": true,
+  "languageserver": {
+    "flow": {
+      "command": "flow-language-server",
+      "args": ["--stdio", "--try-flow-bin"],
+      "filetypes": ["javascript", "javascript.jsx"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
+  "tsserver.enableJavascript": false
+}

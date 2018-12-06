@@ -1,10 +1,18 @@
 " settings for vim-airline/vim-airline
 
+set noshowmode  " Mode is indicated in status line instead.
+
 let g:airline_powerline_fonts = 1
+
 let g:airline#extensions#languageclient#error_symbol = '✖'
 let g:airline#extensions#languageclient#warning_symbol = '⚠'
 
-set noshowmode  " Mode is indicated in status line instead.
+let g:airline#extensions#coc#error_symbol = '✖'
+let g:airline#extensions#coc#warning_symbol = '⚠'
+
+call airline#parts#define_empty(['coc_error_count', 'coc_warning_count'])
+let g:airline_section_error = airline#section#create(['coc_error_count', 'ale_error_count'])
+let g:airline_section_warning = airline#section#create(['coc_warning_count', 'ale_warning_count'])
 
 " certain number of spaces are allowed after tabs, but not in between
 let g:airline#extensions#whitespace#mixed_indent_algo = 1

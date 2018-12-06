@@ -53,7 +53,7 @@ endfunc
 nnoremap <Leader>cd :cd %:p:h<cr>
 
 " tpop/vim-dispatch {{{
-  nnoremap <leader>d :Dispatch<cr>
+  " nnoremap <leader>d :Dispatch<cr>
 "}}}
 
 " junegunn/fzf {{{
@@ -93,19 +93,6 @@ nnoremap <silent> <leader>lo :lopen<cr>
 nnoremap <silent> <leader>cc :cclose<cr>:lclose<cr>
 nnoremap <silent> <leader>co :copen<cr>
 
-" Shougo/deoplete {{{
-  imap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  smap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-  inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-  snoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-"}}}
-
-" Shougo/neosnippet {{{
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-"}}}
-
 " godlygeek/tabular {{{
   nnoremap <leader>a= :Tabularize / = /l0<cr>
   vnoremap <leader>a= :Tabularize / = /l0<cr>
@@ -137,21 +124,82 @@ nnoremap <leader>u :MundoToggle<cr>
 
 " IDE features
 nnoremap <leader><space> :Neoformat<cr>
-nnoremap <F5> :call LanguageClient_contextMenu()<cr>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<cr>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<cr>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<cr>
-
-augroup TypescriptKeybindings
-  autocmd!
-  autocmd FileType typescript nnoremap <buffer> <silent> gd :TSDef<cr>
-  autocmd FileType typescript nnoremap <buffer> <silent> K :TSDoc<cr>
-  autocmd FileType typescript nnoremap <buffer> <leader>tdp :TSDefPreview<cr>
-  autocmd FileType typescript nnoremap <buffer> <c-]> :TSTypeDef<cr>
-  autocmd FileType typescript nnoremap <buffer> <silent> <F2> :TSRename<cr>
-  autocmd FileType typescript nnoremap <buffer> <silent> <leader>. :TSImport<cr>
-augroup END
 
 nnoremap <F4> :ActivateTerminalPane<CR>
 inoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
 tnoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
+
+" coc
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> for trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+
+
+" Shortcuts for denite interface
+" Show extension list
+nnoremap <silent> <space>de  :<C-u>Denite coc-extension<cr>
+" Show symbols of current buffer
+nnoremap <silent> <space>do  :<C-u>Denite coc-symbols<cr>
+" Search symbols of current workspace
+nnoremap <silent> <space>dt  :<C-u>Denite coc-workspace<cr>
+" Show diagnostics of current workspace
+nnoremap <silent> <space>da  :<C-u>Denite coc-diagnostic<cr>
+" Show available commands
+nnoremap <silent> <space>dc  :<C-u>Denite coc-command<cr>
+" Show available services
+nnoremap <silent> <space>ds  :<C-u>Denite coc-service<cr>
+" Show links of current buffer
+nnoremap <silent> <space>dl  :<C-u>Denite coc-link<cr>

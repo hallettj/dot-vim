@@ -62,17 +62,11 @@ if dein#load_state($DEIN_PATH)
   call dein#add('kana/vim-niceblock') " makes `I` and `A` work in line-wise visual mode
 
   " Code completion
-  if has('nvim') && has('python3')
-    call dein#add('autozimu/LanguageClient-neovim', { 'build': 'bash install.sh', 'rev': 'next' })
-    call dein#add('Shougo/deoplete.nvim')
-    call dein#add('zchee/deoplete-go', {'build': 'make', 'on_ft': ['go']})
-  endif
+  call dein#add('neoclide/coc.nvim', {'rev': '*', 'build': 'yarn install'})
 
   " Writing assistance
   call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
   call dein#add('godlygeek/tabular')
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
 
   " git integration
   call dein#add('neoclide/vim-easygit') " used by denite-git
@@ -89,12 +83,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('vim-pandoc/vim-pandoc', {'on_ft': ['md', 'markdown']})
   call dein#add('vim-pandoc/vim-pandoc-syntax', {'on_ft': ['md', 'markdown']})
   call dein#add('fatih/vim-go', {'on_ft': ['go']})
-
-  " Typescript
   call dein#add('HerringtonDarkholme/yats.vim')
-  if has('nvim')
-    call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
-  endif
 
   " Formatting
   call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files

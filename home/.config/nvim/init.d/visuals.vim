@@ -7,4 +7,5 @@ let g:neosolarized_underline = 1
 let g:neosolarized_italic = 1
 colorscheme NeoSolarized
 
+highlight CocHighlightText ctermbg=black guibg=black
 highlight TermCursor ctermfg=red guifg=red
