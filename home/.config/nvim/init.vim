@@ -92,7 +92,7 @@ if dein#load_state($DEIN_PATH)
   " Visuals
   call dein#add('iCyMind/NeoSolarized')
   call dein#add('drmikehenry/vim-fontdetect')
-  call dein#add('vim-airline/vim-airline', { 'path': '/home/jesse/projects/vim/vim-airline' })
+  call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   if has('nvim')
     call dein#add('machakann/vim-highlightedyank') " highlight text after it has been yanked
