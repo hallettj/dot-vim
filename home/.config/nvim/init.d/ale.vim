@@ -1,5 +1,11 @@
 " settings for w0rp/ale
 
+let g:ale_sign_error = ""
+let g:ale_sign_warning = ""
+let g:ale_sign_info = ""
+let g:ale_sign_style_error = ""
+let g:ale_sign_style_warning = ""
+
 " I want to disable xml linting while I am working with Salesforce's DTD-less
 " XML file formats.
 let g:ale_linters = {
