@@ -147,9 +147,11 @@ endfunction
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <cr> for confirm completion. Defer to smartinput behavior if not
+" auto-completing. `<C-g>u` means break undo chain at current position. Coc only
+" does snippet and additional edit on confirm.
+call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>SmartinputCR"
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
