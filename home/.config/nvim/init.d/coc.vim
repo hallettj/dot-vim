@@ -25,6 +25,7 @@ endfunction
 
 if dein#tap('coc.nvim')
   set cmdheight=2
+  set completeopt=menuone,preview
   set signcolumn=yes
 
   let g:coc_auto_open = 0 " do not open quickfix automatically

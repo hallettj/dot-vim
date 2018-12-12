@@ -147,11 +147,15 @@ endfunction
 " Use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> for confirm completion. Defer to smartinput behavior if not
-" auto-completing. `<C-g>u` means break undo chain at current position. Coc only
-" does snippet and additional edit on confirm.
+" Pressing enter closes popupmenu if it is open, and inserts a line break.
+" Defer to vim-smartinput when the popupmenu is not visible.
+"
+" It seems that coc.nvim incorrectly puts the popupmenu into state 2 (as
+" described in the popupmenu-completion documentation) when it should be in
+" state 3. In state 2 <Enter> inserts the currently selected match instead of
+" inserting a line break.
 call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
-imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>SmartinputCR"
+imap <expr> <cr> pumvisible() ? " \<bs>\<cr>" : "\<C-g>u\<Plug>SmartinputCR"
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
