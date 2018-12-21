@@ -68,7 +68,7 @@ augroup TmuxDynamicPaneSize
     " Use `timer_start` so that vim can update window sizes before we update the
     " pane width.
     autocmd BufWinLeave,WinLeave,WinNew * call timer_start(10, { -> s:SetPaneWidth() })
-    autocmd VimResized * call <SID>SetWindowsToEqualWidths() | call <SID>SetPaneWidth()
+    autocmd VimResized * call <SID>SetWindowsToEqualWidths() | call <SID>SetPaneWidth() | redraw
   endif
 augroup END
 
