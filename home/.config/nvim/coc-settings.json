@@ -9,7 +9,8 @@
       "args": ["--stdio", "--try-flow-bin"],
       "filetypes": ["javascript", "javascript.jsx"],
       "initializationOptions": {},
-      "settings": {}
+      "settings": {},
+      "rootPatterns": [".flowconfig"]
     }
   },
   "tsserver.enableJavascript": false
