@@ -52,9 +52,12 @@ func! s:getExitStatus() abort
 endfunc
 
 func! s:afterTermClose() abort
-  if s:getExitStatus() == 0
-    bdelete!
-  endif
+  try
+    if s:getExitStatus() == 0
+      bdelete!
+    endif
+  catch /^Could not determine exit status/
+  endtry
 endfunc
 
 augroup MyNeoterm

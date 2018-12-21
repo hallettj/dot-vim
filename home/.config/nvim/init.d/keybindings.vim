@@ -155,7 +155,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " state 3. In state 2 <Enter> inserts the currently selected match instead of
 " inserting a line break.
 call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
-imap <expr> <cr> pumvisible() ? " \<bs>\<cr>" : "\<C-g>u\<Plug>SmartinputCR"
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>SmartinputCR"
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -191,6 +191,8 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
+
+nmap <leader>cl <Plug>(coc-codelens-action)
 
 
 
