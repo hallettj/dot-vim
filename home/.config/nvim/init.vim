@@ -84,6 +84,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('vim-pandoc/vim-pandoc-syntax', {'on_ft': ['md', 'markdown']})
   call dein#add('fatih/vim-go', {'on_ft': ['go']})
   call dein#add('HerringtonDarkholme/yats.vim')
+  call dein#add('ejholmes/vim-forcedotcom')
 
   " Formatting
   call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files
