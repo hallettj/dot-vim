@@ -1,6 +1,6 @@
 {
   "coc.preferences.noselect": true,
-  "coc.preferences.diagnostic.errorSign": "",
+  "coc.preferences.diagnostic.errorSign": "✘",
   "coc.preferences.diagnostic.warningSign": "",
   "coc.preferences.diagnostic.infoSign": "",
   "languageserver": {
@@ -11,6 +11,14 @@
       "initializationOptions": {},
       "settings": {},
       "rootPatterns": [".flowconfig"]
+    },
+    "scala": {
+      "command": "node",
+      "args": ["/home/jesse/bin/sbt-server-stdio.js"],
+      "filetypes": ["scala"],
+      "initializationOptions": {},
+      "settings": {},
+      "rootPatterns": ["build.sbt"]
     }
   },
   "tsserver.enableJavascript": false
