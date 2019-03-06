@@ -18,20 +18,7 @@
         # Dependencies for apt_repository
         - python-apt
         - python-pycurl
-      when: no_sudo is not defined
 
-    - apt_key: id=941C42E6
-      become: yes
-      when: no_sudo is not defined
-
-    - apt_repository: repo='deb http://debian.sur5r.net/neovim stretch main'
-      become: yes
-      when: no_sudo is not defined
-
-    - name: install neovim from above repo
-      action: apt pkg={{ item }} state=present
-      become: yes
-      with_items:
         - neovim
         - python3-neovim
       when: no_sudo is not defined
