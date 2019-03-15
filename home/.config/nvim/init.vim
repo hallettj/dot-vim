@@ -63,6 +63,7 @@ if dein#load_state($DEIN_PATH)
 
   " Code completion
   call dein#add('neoclide/coc.nvim', {'rev': '*', 'build': 'yarn install'})
+  call dein#add('neoclide/coc-denite')
 
   " Writing assistance
   call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
