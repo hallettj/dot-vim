@@ -21,5 +21,6 @@
       "rootPatterns": ["build.sbt"]
     }
   },
+  "rust.clippy_preference": "on",
   "tsserver.enableJavascript": false
 }
