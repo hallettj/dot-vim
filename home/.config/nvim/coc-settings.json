@@ -1,8 +1,8 @@
 {
-  "coc.preferences.noselect": true,
-  "coc.preferences.diagnostic.errorSign": "✘",
-  "coc.preferences.diagnostic.warningSign": "",
-  "coc.preferences.diagnostic.infoSign": "",
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "suggest.noselect": true,
   "languageserver": {
     "flow": {
       "command": "flow-language-server",
