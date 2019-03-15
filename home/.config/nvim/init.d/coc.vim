@@ -38,3 +38,6 @@ if dein#tap('coc.nvim')
   " Use `:Fold` for fold current buffer
   command! -nargs=? Fold :call CocAction('fold', <f-args>)
 endif
+
+" coc-settings.json uses jsonc, which adds comment syntax
+autocmd FileType json syntax match Comment +\/\/.\+$+"
