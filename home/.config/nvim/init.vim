@@ -87,6 +87,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('ejholmes/vim-forcedotcom')
   call dein#add('vmchale/just-vim')
+  call dein#add('jparise/vim-graphql')
 
   " Formatting
   call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files
