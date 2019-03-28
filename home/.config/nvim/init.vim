@@ -112,6 +112,8 @@ if dein#load_state($DEIN_PATH)
 
   call dein#add('w0rp/ale', {'on_ft': ['go', 'sh', 'typescript', 'zsh']})
 
+  call dein#add('wakatime/vim-wakatime')
+
   call dein#end()
   call dein#save_state()
 endif
