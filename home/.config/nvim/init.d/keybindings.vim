@@ -76,7 +76,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
 "}}}
 
 " tpope/vim-fugitive / neoclide/vim-easygit {{{
-  nnoremap <silent> <leader>gs :Gstatus<CR>
+  nnoremap <silent> <leader>gs :vert Gstatus<CR>
   nnoremap <silent> <leader>gd :Gdiff<CR>
   nnoremap <silent> <leader>gc :Gcommit<CR>
   nnoremap <silent> <leader>gb :Gblame<CR>
