@@ -26,3 +26,5 @@ let g:ale_go_gometalinter_options = '--fast'
 let g:ale_pattern_options = {
       \ '.*/node_modules/.*': { 'ale_enabled': 0 },
       \}
+
+let g:ale_fix_on_save = 1
