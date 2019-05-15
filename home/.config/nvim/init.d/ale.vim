@@ -27,4 +27,5 @@ let g:ale_pattern_options = {
       \ '.*/node_modules/.*': { 'ale_enabled': 0 },
       \}
 
-let g:ale_fix_on_save = 1
+" do not turn on linting by default
+let g:ale_enabled = 0

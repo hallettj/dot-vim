@@ -123,7 +123,7 @@ nnoremap <leader>"p "=expand('%:p:h')<cr>
 nnoremap <leader>u :MundoToggle<cr>
 
 " IDE features
-nnoremap <leader><space> :Neoformat<cr>
+nnoremap <leader><space> :ALEFix<cr>
 
 nnoremap <F4> :ActivateTerminalPane<CR>
 inoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
