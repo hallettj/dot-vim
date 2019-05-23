@@ -7,14 +7,15 @@ let g:ale_sign_style_error = ""
 let g:ale_sign_style_warning = ""
 
 let g:ale_linters = {
-      \ 'javascript': [],
       \ 'go': ['gometalinter'],
+      \ 'javascript': [],
       \ 'typescript': ['eslint']
       \}
 
 let g:ale_fixers = {
       \ 'go': ['gofmt', 'goimports'],
-      \ 'javascript': [],
+      \ 'graphql': ['prettier'],
+      \ 'javascript': ['prettier'],
       \ 'typescript': ['prettier'],
       \}
 
