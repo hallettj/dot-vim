@@ -16,6 +16,7 @@ let g:ale_fixers = {
       \ 'go': ['gofmt', 'goimports'],
       \ 'graphql': ['prettier'],
       \ 'javascript': ['prettier'],
+      \ 'rust': ['rustfmt'],
       \ 'typescript': ['prettier'],
       \}
 
