@@ -148,14 +148,8 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Pressing enter closes popupmenu if it is open, and inserts a line break.
-" Defer to vim-smartinput when the popupmenu is not visible.
-"
-" It seems that coc.nvim incorrectly puts the popupmenu into state 2 (as
-" described in the popupmenu-completion documentation) when it should be in
-" state 3. In state 2 <Enter> inserts the currently selected match instead of
-" inserting a line break.
-call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
-imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>SmartinputCR"
+" Defer to pear-tree when the popupmenu is not visible.
+imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<Plug>(PearTreeExpand)"
 
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)

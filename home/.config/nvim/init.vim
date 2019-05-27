@@ -66,7 +66,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('neoclide/coc-denite')
 
   " Writing assistance
-  call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
+  call dein#add('tmsvg/pear-tree') " automatically closes delimiters as they are typed
   call dein#add('godlygeek/tabular')
 
   " git integration
