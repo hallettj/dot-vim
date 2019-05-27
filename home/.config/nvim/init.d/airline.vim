@@ -10,6 +10,9 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 let g:airline#extensions#coc#error_symbol = '✘'
 let g:airline#extensions#coc#warning_symbol = ''
 
+call airline#parts#define_function('coc_status', 'coc#status')
+let g:airline_section_y = airline#section#create_right(['ffenc', 'coc_status'])
+
 " certain number of spaces are allowed after tabs, but not in between
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
