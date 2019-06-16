@@ -188,6 +188,7 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>cl <Plug>(coc-codelens-action)
 nmap <leader>q <plug>(coc-fix-current)
 nnoremap <leader>ef :CocCommand eslint.executeAutofix<cr>
+nmap <leader>ev <plug>(coc-diagnostic-info)
 
 " Shortcuts for denite interface
 " Show extension list
