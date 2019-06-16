@@ -123,7 +123,7 @@ nnoremap <leader>"p "=expand('%:p:h')<cr>
 nnoremap <leader>u :MundoToggle<cr>
 
 " IDE features
-nnoremap <leader><space> :ALEFix<cr>
+nmap <leader><space> <plug>(coc-format)
 
 nnoremap <F4> :ActivateTerminalPane<CR>
 inoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
@@ -188,7 +188,6 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>cl <Plug>(coc-codelens-action)
 nmap <leader>q <plug>(coc-fix-current)
 nnoremap <leader>ef :CocCommand eslint.executeAutofix<cr>
-
 
 " Shortcuts for denite interface
 " Show extension list
