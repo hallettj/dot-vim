@@ -13,7 +13,6 @@ set writebackup
 set updatetime=300
 
 let g:auto_save = 1
-let g:auto_save_events = ["BufLeave", "CursorHold", "FocusLost"]
 let g:auto_save_silent = 1
 let g:auto_save_write_all_buffers = 1
 
