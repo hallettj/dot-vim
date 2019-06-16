@@ -110,7 +110,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('907th/vim-auto-save')
   call dein#add('mtth/scratch.vim')
 
-  call dein#add('hallettj/ale', {'on_ft': ['go', 'sh', 'typescript', 'zsh'], 'rev': 'undojoin-when-fix-on-save'})
+  call dein#add('hallettj/ale', {'on_ft': ['go', 'sh', 'zsh'], 'rev': 'undojoin-when-fix-on-save'})
 
   call dein#add('wakatime/vim-wakatime')
 

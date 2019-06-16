@@ -84,7 +84,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
   " nnoremap <silent> <leader>gl :silent Glog<CR>:copen<CR>
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
-  nnoremap <silent> <leader>gr :Gremove<CR>
+  nnoremap <silent> <leader>gR :Gremove<CR>
 "}}}
 
 " quickfix and location list
@@ -186,7 +186,8 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 
 nmap <leader>cl <Plug>(coc-codelens-action)
-
+nmap <leader>q <plug>(coc-fix-current)
+nnoremap <leader>ef :CocCommand eslint.executeAutofix<cr>
 
 
 " Shortcuts for denite interface

@@ -9,7 +9,7 @@ let g:ale_sign_style_warning = ""
 let g:ale_linters = {
       \ 'go': ['gometalinter'],
       \ 'javascript': [],
-      \ 'typescript': ['eslint']
+      \ 'typescript': []
       \}
 
 let g:ale_fixers = {
