@@ -21,10 +21,10 @@
       "rootPatterns": ["build.sbt"]
     }
   },
-  "python.condaPath": "/opt/conda/bin/conda",
-  "python.linting.mypyEnabled": true,
   "rust.clippy_preference": "on",
   "tsserver.enableJavascript": false,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.noSemicolons": true,
   "typescript.preferences.quoteStyle": "double"
 }
