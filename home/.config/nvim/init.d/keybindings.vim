@@ -62,8 +62,8 @@ nnoremap <Leader>cd :cd %:p:h<cr>
 " }}}
 
 " Shougo/denite.vim {{{
-  nnoremap <leader>f :Denite -default-action=switch buffer file_rec<cr>
-  nnoremap <leader>F :Denite file_rec:~<cr>
+  nnoremap <leader>f :Denite -default-action=switch buffer file/rec<cr>
+  nnoremap <leader>F :Denite file/rec:~<cr>
   nnoremap <leader>r :Denite -no-empty grep<cr>
   xnoremap <leader>r ygv:Denite -no-empty grep:::<C-R>"<cr>
   nnoremap <leader>R :Denite register<cr>

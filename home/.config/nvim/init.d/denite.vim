@@ -7,8 +7,8 @@ call denite#custom#option('default', {
      \})
 
 " configure command to recursively list files
-call denite#custom#var('file_rec', 'command', ['fd', '--follow', '.'])
-call denite#custom#var('file_rec', 'min_cache_files', 0)
+call denite#custom#var('file/rec', 'command', ['fd', '--follow', '.'])
+call denite#custom#var('file/rec', 'min_cache_files', 0)
 
 " configure command to search for strings within files
 call denite#custom#var('grep', 'command', ['rg'])
