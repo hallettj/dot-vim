@@ -62,7 +62,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('kana/vim-niceblock') " makes `I` and `A` work in line-wise visual mode
 
   " Code completion
-  call dein#add('neoclide/coc.nvim', {'rev': '*', 'build': 'yarn install'})
+  call dein#add('neoclide/coc.nvim', {'rev': 'release'})
   call dein#add('neoclide/coc-denite')
 
   " Writing assistance
