@@ -1,3 +1,5 @@
+nnoremap <buffer> <leader><space> :CocCommand tsserver.organizeImports<cr>:CocCommand prettier.formatFile<cr>
+
 " Pear Tree - A painless, powerful Vim auto-pair plugin
 " Maintainer: Thomas Savage <thomasesavage@gmail.com>
 " Version: 0.8
