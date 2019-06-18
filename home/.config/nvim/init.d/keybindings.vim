@@ -190,6 +190,14 @@ nmap <leader>q <plug>(coc-fix-current)
 nnoremap <leader>ef :CocCommand eslint.executeAutofix<cr>
 nmap <leader>ev <plug>(coc-diagnostic-info)
 
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit ad current position
+nmap gC <Plug>(coc-git-commit)
+
 " Shortcuts for denite interface
 " Show extension list
 nnoremap <silent> <space>de  :<C-u>Denite coc-extension<cr>

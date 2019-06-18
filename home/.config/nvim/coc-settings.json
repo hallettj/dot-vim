@@ -9,6 +9,7 @@
     "typescript",
     "typescriptreact"
   ],
+  "git.realtimeGutters": false,
   "suggest.noselect": true,
   "languageserver": {
     "flow": {
