@@ -9,7 +9,7 @@
     "typescript",
     "typescriptreact"
   ],
-  "git.realtimeGutters": false,
+  "git.realtimeGutters": true,
   "suggest.noselect": true,
   "languageserver": {
     "flow": {
@@ -34,5 +34,6 @@
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.noSemicolons": true,
-  "typescript.preferences.quoteStyle": "double"
+  "typescript.preferences.quoteStyle": "double",
+  "git.enableGutters": false
 }
