@@ -26,12 +26,6 @@ if dein#load_state($DEIN_PATH)
   call dein#add('kristijanhusak/vim-dirvish-git')
   call dein#add('airblade/vim-rooter') " set working directory based on `.git/`
   call dein#add('simnalamburt/vim-mundo') " UI for navigating undo history
-  if has('nvim') && has('python3')
-    call dein#add('Shougo/denite.nvim') " general-purpose fuzzy finder
-    call dein#add('neoclide/denite-git') " navigate git commits and staged files with denite
-  endif
-  call dein#add('junegunn/fzf', { 'merged': 0 })
-  call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
   call dein#add('andymass/vim-tradewinds')
 
   call dein#add('tpope/vim-unimpaired') " shortcuts for cycling/toggling different things
@@ -59,7 +53,6 @@ if dein#load_state($DEIN_PATH)
 
   " IDE features
   call dein#add('neoclide/coc.nvim', {'rev': 'release'})
-  call dein#add('neoclide/coc-denite')
   call dein#add('w0rp/ale', {'on_ft': ['go', 'sh', 'zsh']})
 
   " Writing assistance
@@ -67,7 +60,6 @@ if dein#load_state($DEIN_PATH)
   call dein#add('godlygeek/tabular')
 
   " git integration
-  call dein#add('neoclide/vim-easygit') " used by denite-git
   call dein#add('tpope/vim-fugitive') " used by vim-rhubarb
   call dein#add('tpope/vim-rhubarb') " provides Github integration
 

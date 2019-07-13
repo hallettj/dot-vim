@@ -29,6 +29,16 @@
       "rootPatterns": ["build.sbt"]
     }
   },
+  "list.insertMappings": {
+    "<C-x>": "action:split",
+    "<C-v>": "action:vsplit"
+  },
+  "list.normalMappings": {
+    "s": "action:split",
+    "v": "action:vsplit"
+  },
+  "list.source.files.command": "fd",
+  "list.source.files.args": ["--type", "f"],
   "rust.clippy_preference": "on",
   "tsserver.enableJavascript": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,

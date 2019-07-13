@@ -52,28 +52,20 @@ endfunc
 " cd to directory of current file
 nnoremap <Leader>cd :cd %:p:h<cr>
 
-" tpop/vim-dispatch {{{
-  " nnoremap <leader>d :Dispatch<cr>
-"}}}
+" navigation
+nnoremap <silent> <C-p> :<C-u>CocList files<cr>
+nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>
 
-" junegunn/fzf {{{
-  nnoremap <C-b> :Buffers<cr>
-  nnoremap <C-p> :Files<cr>
-" }}}
-
-" Shougo/denite.vim {{{
-  nnoremap <leader>f :Denite -default-action=switch buffer file/rec<cr>
-  nnoremap <leader>F :Denite file/rec:~<cr>
-  nnoremap <leader>r :Denite -no-empty grep<cr>
-  xnoremap <leader>r ygv:Denite -no-empty grep:::<C-R>"<cr>
-  nnoremap <leader>R :Denite register<cr>
-  nnoremap <leader>h :Denite command_history<cr>
-
-  " git integration
-  " nnoremap <leader>gl :Denite gitlog<cr>
-  " nnoremap <leader>gL :Denite gitlog:all<cr>
-  " nnoremap <leader>gs :Denite gitstatus<cr>
-"}}}
+" Show extension list
+nnoremap <silent> <leader>de  :<C-u>CocList extensions<cr>
+" Show symbols of current buffer
+nnoremap <silent> <leader>do  :<C-u>CocList -A symbols<cr>
+" Show diagnostics of current workspace
+nnoremap <silent> <leader>da  :<C-u>CocList diagnostics<cr>
+" Show available commands
+nnoremap <silent> <leader>dc  :<C-u>CocList commands<cr>
+" Show available services
+nnoremap <silent> <leader>ds  :<C-u>CocList services<cr>
 
 " tpope/vim-fugitive / neoclide/vim-easygit {{{
   nnoremap <silent> <leader>gs :vert Gstatus<CR>
@@ -197,19 +189,3 @@ nmap ]g <Plug>(coc-git-nextchunk)
 nmap gs <Plug>(coc-git-chunkinfo)
 " show commit ad current position
 nmap gC <Plug>(coc-git-commit)
-
-" Shortcuts for denite interface
-" Show extension list
-nnoremap <silent> <space>de  :<C-u>Denite coc-extension<cr>
-" Show symbols of current buffer
-nnoremap <silent> <space>do  :<C-u>Denite coc-symbols<cr>
-" Search symbols of current workspace
-nnoremap <silent> <space>dt  :<C-u>Denite coc-workspace<cr>
-" Show diagnostics of current workspace
-nnoremap <silent> <space>da  :<C-u>Denite coc-diagnostic<cr>
-" Show available commands
-nnoremap <silent> <space>dc  :<C-u>Denite coc-command<cr>
-" Show available services
-nnoremap <silent> <space>ds  :<C-u>Denite coc-service<cr>
-" Show links of current buffer
-nnoremap <silent> <space>dl  :<C-u>Denite coc-link<cr>
