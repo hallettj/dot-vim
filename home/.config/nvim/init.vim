@@ -56,7 +56,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('w0rp/ale', {'on_ft': ['go', 'sh', 'zsh']})
 
   " Writing assistance
-  call dein#add('tmsvg/pear-tree') " automatically closes delimiters as they are typed
+  call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
   call dein#add('godlygeek/tabular')
 
   " git integration
