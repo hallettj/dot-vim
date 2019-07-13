@@ -19,10 +19,6 @@ if dein#load_state($DEIN_PATH)
   " Let dein manage dein
   call dein#add($DEIN_REPO)
 
-  if !has('nvim')
-    call dein#add('Shougo/vimproc', {'build': 'make'})
-  endif
-
   call dein#add('tpope/vim-sensible')
 
   " Navigation
@@ -61,9 +57,10 @@ if dein#load_state($DEIN_PATH)
   " more from kana
   call dein#add('kana/vim-niceblock') " makes `I` and `A` work in line-wise visual mode
 
-  " Code completion
+  " IDE features
   call dein#add('neoclide/coc.nvim', {'rev': 'release'})
   call dein#add('neoclide/coc-denite')
+  call dein#add('w0rp/ale', {'on_ft': ['go', 'sh', 'zsh']})
 
   " Writing assistance
   call dein#add('tmsvg/pear-tree') " automatically closes delimiters as they are typed
@@ -75,23 +72,12 @@ if dein#load_state($DEIN_PATH)
   call dein#add('tpope/vim-rhubarb') " provides Github integration
 
   " Language support
-  call dein#add('pangloss/vim-javascript', {'on_ft': ['javascript', 'jsx']})
-  call dein#add('mxw/vim-jsx', {'on_ft': ['javascript', 'jsx']})
-  call dein#add('lambdatoast/elm.vim', {'on_ft': ['elm']})
-  call dein#add('idris-hackers/idris-vim', {'on_ft': ['idr']})
-  call dein#add('rust-lang/rust.vim', {'on_ft': ['rs']})
-  call dein#add('derekwyatt/vim-scala', {'on_ft': ['scala']})
-  call dein#add('vim-pandoc/vim-pandoc', {'on_ft': ['md', 'markdown']})
-  call dein#add('vim-pandoc/vim-pandoc-syntax', {'on_ft': ['md', 'markdown']})
-  call dein#add('fatih/vim-go', {'on_ft': ['go']})
-  call dein#add('HerringtonDarkholme/yats.vim')
-  call dein#add('ejholmes/vim-forcedotcom')
+  call dein#add('sheerun/vim-polyglot')
   call dein#add('vmchale/just-vim')
   call dein#add('jparise/vim-graphql')
 
   " Formatting
   call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files
-  call dein#add('sbdchd/neoformat') " reformats code using external formatter
 
   " Visuals
   call dein#add('iCyMind/NeoSolarized')
@@ -109,8 +95,6 @@ if dein#load_state($DEIN_PATH)
 
   call dein#add('907th/vim-auto-save')
   call dein#add('mtth/scratch.vim')
-
-  call dein#add('hallettj/ale', {'on_ft': ['go', 'sh', 'zsh'], 'rev': 'undojoin-when-fix-on-save'})
 
   call dein#add('wakatime/vim-wakatime')
 
