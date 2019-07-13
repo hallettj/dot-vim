@@ -1,3 +1,16 @@
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-eslint',
+  \ 'coc-git',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-lists',
+  \ 'coc-prettier',
+  \ 'coc-rls',
+  \ 'coc-tsserver',
+  \ 'coc-yaml',
+  \ ]
+
 function! s:isPreviewWindowOpen()
   for nr in range(1, winnr('$'))
     if getwinvar(nr, "&pvw") == 1
