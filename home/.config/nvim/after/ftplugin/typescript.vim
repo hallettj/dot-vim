@@ -16,3 +16,5 @@ let b:pear_tree_pairs = extend(deepcopy(g:pear_tree_pairs), {
 
 let &cpoptions = s:save_cpo
 unlet s:save_cpo
+
+nnoremap <buffer> gI :<C-u>CocCommand tsserver.organizeImports<cr>
