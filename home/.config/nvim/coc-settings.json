@@ -3,6 +3,7 @@
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "eslint.enable": false,
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",
