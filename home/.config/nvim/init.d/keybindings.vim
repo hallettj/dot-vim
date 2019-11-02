@@ -3,6 +3,8 @@
 " Map <Leader> to , key
 let mapleader = " "
 
+nnoremap <silent> <leader> :WhichKey '<space>'<cr>
+
 " Swap : and ,
 nnoremap , :
 vnoremap , :
