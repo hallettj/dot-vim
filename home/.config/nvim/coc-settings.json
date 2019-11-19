@@ -47,7 +47,6 @@
   "tsserver.enableJavascript": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
-  "typescript.preferences.noSemicolons": true,
   "typescript.preferences.quoteStyle": "double",
   "typescript.referencesCodeLens.enable": false,
   "git.enableGutters": false
