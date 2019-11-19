@@ -3,6 +3,9 @@
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
   "eslint.enable": false,
   "eslint.filetypes": [
     "javascript",

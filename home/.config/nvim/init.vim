@@ -53,7 +53,6 @@ if dein#load_state($DEIN_PATH)
 
   " IDE features
   call dein#add('neoclide/coc.nvim', {'rev': 'release'})
-  call dein#add('w0rp/ale', {'on_ft': ['go', 'sh', 'zsh']})
 
   " Writing assistance
   call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
