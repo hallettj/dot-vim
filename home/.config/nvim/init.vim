@@ -86,9 +86,6 @@ if dein#load_state($DEIN_PATH)
   call dein#add('tpope/vim-tbone')
 
   call dein#add('907th/vim-auto-save')
-  call dein#add('mtth/scratch.vim')
-
-  call dein#add('wakatime/vim-wakatime')
 
   call dein#end()
   call dein#save_state()
