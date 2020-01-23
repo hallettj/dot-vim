@@ -37,7 +37,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('AndrewRadev/splitjoin.vim') " `gS` and `gJ` commands split or join lines
 
   " Movements
-  call dein#add('tpope/vim-surround') " `ds`, `cs`, `ys`, and `S` commands manage delimiters
+  call dein#add('machakann/vim-sandwich') " `ds`, `cs`, `ys`, and `S` commands manage delimiters
   call dein#add('justinmk/vim-sneak') " `s` command jumps to occurrence of a pair of characters
   call dein#add('wellle/targets.vim') " more options for movements like `i` and `a`
 
