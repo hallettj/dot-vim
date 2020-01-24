@@ -79,6 +79,7 @@ if dein#load_state($DEIN_PATH)
     call dein#add('machakann/vim-highlightedyank') " highlight text after it has been yanked
   endif
   call dein#add('liuchengxu/vim-which-key', { 'on_cmd': ['WhichKey', 'WhichKey!'] })
+  call dein#add('psliwka/vim-smoothie')
 
   " Tmux integration
   call dein#add('christoomey/vim-tmux-navigator')
