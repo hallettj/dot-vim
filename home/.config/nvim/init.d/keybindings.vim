@@ -56,6 +56,7 @@ nnoremap <Leader>cd :cd %:p:h<cr>
 
 " navigation
 nnoremap <silent> <C-p> :<C-u>CocList files<cr>
+nnoremap <silent> <leader>b :<C-u>CocList buffers<cr>
 nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>
 
 " Show extension list
