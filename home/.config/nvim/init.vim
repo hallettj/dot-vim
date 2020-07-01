@@ -66,6 +66,7 @@ if dein#load_state($DEIN_PATH)
   call dein#add('sheerun/vim-polyglot')
   call dein#add('vmchale/just-vim')
   call dein#add('jparise/vim-graphql')
+  call dein#add('DeltaWhy/vim-mcfunction')
 
   " Formatting
   call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files
