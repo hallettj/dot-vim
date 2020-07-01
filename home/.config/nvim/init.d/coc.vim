@@ -8,7 +8,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-lists',
   \ 'coc-prettier',
-  \ 'coc-rls',
+  \ 'coc-rust-analyzer',
   \ 'coc-sh',
   \ 'coc-tsserver',
   \ 'coc-yaml',
