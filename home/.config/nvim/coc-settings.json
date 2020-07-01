@@ -16,14 +16,10 @@
   "git.realtimeGutters": true,
   "suggest.noselect": true,
   "languageserver": {
-    //"flow": {
-    //  "command": "flow-language-server",
-    //  "args": ["--stdio", "--try-flow-bin"],
-    //  "filetypes": ["javascript", "javascript.jsx"],
-    //  "initializationOptions": {},
-    //  "settings": {},
-    //  "rootPatterns": [".flowconfig"]
-    //},
+    "dhall": {
+      "command": "dhall-lsp-server",
+      "filetypes": ["dhall"]
+    },
     "scala": {
       "command": "node",
       "args": ["/home/jesse/bin/sbt-server-stdio.js"],
