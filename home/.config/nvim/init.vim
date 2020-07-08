@@ -64,6 +64,7 @@ if dein#load_state($DEIN_PATH)
 
   " Language support
   call dein#add('sheerun/vim-polyglot')
+  call dein#add('neoclide/jsonc.vim')
   call dein#add('vmchale/just-vim')
   call dein#add('jparise/vim-graphql')
   call dein#add('DeltaWhy/vim-mcfunction')
