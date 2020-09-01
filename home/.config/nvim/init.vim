@@ -88,6 +88,9 @@ if dein#load_state($DEIN_PATH)
   call dein#add('hallettj/tmux-config')
   call dein#add('tpope/vim-tbone')
 
+  " Embedding support
+  call dein#add('glacambre/firenvim', { 'hook_post_update': { -> firenvim#install(0) } })
+
   call dein#add('907th/vim-auto-save')
 
   call dein#end()
