@@ -62,15 +62,15 @@ function! s:SetPaneWidth()
   endif
 endfunction
 
-" augroup TmuxDynamicPaneSize
-"   autocmd!
-"   if !empty($TMUX)
-"     " Use `timer_start` so that vim can update window sizes before we update the
-"     " pane width.
-"     autocmd BufWinLeave,WinLeave,WinNew * call timer_start(10, { -> s:SetPaneWidth() })
-"     autocmd VimResized * call <SID>SetWindowsToEqualWidths() | call <SID>SetPaneWidth() | redraw
-"   endif
-" augroup END
+augroup TmuxDynamicPaneSize
+  autocmd!
+  if !empty($TMUX)
+    " Use `timer_start` so that vim can update window sizes before we update the
+    " pane width.
+    autocmd BufWinLeave,WinLeave,WinNew * call timer_start(10, { -> s:SetPaneWidth() })
+    autocmd VimResized * call <SID>SetWindowsToEqualWidths() | call <SID>SetPaneWidth() | redraw
+  endif
+augroup END
 
 function! s:ActivateTerminalPane()
   call s:TmuxCommand('select-pane -l')
