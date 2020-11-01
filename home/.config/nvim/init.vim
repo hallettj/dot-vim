@@ -69,9 +69,6 @@ if dein#load_state($DEIN_PATH)
   call dein#add('jparise/vim-graphql')
   call dein#add('DeltaWhy/vim-mcfunction')
 
-  " Formatting
-  call dein#add('hallettj/vim-sleuth') " configures tab and indent per-file based on nearby files
-
   " Visuals
   call dein#add('iCyMind/NeoSolarized')
   call dein#add('drmikehenry/vim-fontdetect')
@@ -119,14 +116,6 @@ set nohlsearch
 set wrap
 set textwidth=80
 set formatoptions=cqrn1
-
-" Default indentation options
-set tabstop=4
-set shiftwidth=4
-set noexpandtab
-
-" Ask vim-sleuth to respect the 4-space tabstop setting
-let g:SleuthDefaultWidth = &tabstop
 
 " Displays visible characters for tab and end-of-line characters.
 if has('gui_running')
