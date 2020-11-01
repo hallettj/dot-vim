@@ -184,7 +184,10 @@ vmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>ac  <Plug>(coc-codeaction-line)
+
+" Remap for do codeAction of current file
+nmap <leader>af  <Plug>(coc-codeaction)
 
 nmap <leader>cl <Plug>(coc-codelens-action)
 nmap <leader>qf <plug>(coc-fix-current)
