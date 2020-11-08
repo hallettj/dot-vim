@@ -3,96 +3,83 @@ if !1 | finish | endif
 
 " set vim home directory as vimrc is sourced
 let $VIMFILES=fnamemodify(globpath(&rtp, 'bundle'), ":h")
-let $DEIN_PATH=expand('~/.cache/dein')
-let $DEIN_REPO=$DEIN_PATH.'/repos/github.com/Shougo/dein.vim'
 
 if has('vim_starting')
   set nocompatible          " We're running Vim, not Vi!
-  set runtimepath+=$DEIN_REPO
 endif
 
 set shell=/bin/bash
 
-if dein#load_state($DEIN_PATH)
-  call dein#begin($DEIN_PATH)
+call plug#begin(stdpath('data') . '/plugged')
 
-  " Let dein manage dein
-  call dein#add($DEIN_REPO)
+Plug 'tpope/vim-sensible'
 
-  call dein#add('tpope/vim-sensible')
+" Navigation
+Plug 'justinmk/vim-dirvish' " file browser to replace netrw
+Plug 'kristijanhusak/vim-dirvish-git'
+Plug 'airblade/vim-rooter' " set working directory based on `.git/`
+Plug 'simnalamburt/vim-mundo' " UI for navigating undo history
+Plug 'andymass/vim-tradewinds'
 
-  " Navigation
-  call dein#add('justinmk/vim-dirvish') " file browser to replace netrw
-  call dein#add('kristijanhusak/vim-dirvish-git')
-  call dein#add('airblade/vim-rooter') " set working directory based on `.git/`
-  call dein#add('simnalamburt/vim-mundo') " UI for navigating undo history
-  call dein#add('andymass/vim-tradewinds')
+Plug 'tpope/vim-unimpaired' " shortcuts for cycling/toggling different things
+Plug 'tpope/vim-characterize' " show information about character under cursor
+Plug 'tpope/vim-commentary' " manipulate code comments
+Plug 'tpope/vim-eunuch' " commands for manipulating files and directories
+Plug 'tpope/vim-repeat' " makes the `.` command work with third-party actions
+Plug 'tpope/vim-rsi' " add Emacs-like shortcuts to command mode
+Plug 'AndrewRadev/splitjoin.vim' " `gS` and `gJ` commands split or join lines
 
-  call dein#add('tpope/vim-unimpaired') " shortcuts for cycling/toggling different things
-  call dein#add('tpope/vim-characterize') " show information about character under cursor
-  call dein#add('tpope/vim-commentary') " manipulate code comments
-  call dein#add('tpope/vim-eunuch') " commands for manipulating files and directories
-  call dein#add('tpope/vim-repeat') " makes the `.` command work with third-party actions
-  call dein#add('tpope/vim-rsi') " add Emacs-like shortcuts to command mode
-  call dein#add('AndrewRadev/splitjoin.vim') " `gS` and `gJ` commands split or join lines
+" Movements
+Plug 'machakann/vim-sandwich' " `ds`, `cs`, `ys`, and `S` commands manage delimiters
+Plug 'justinmk/vim-sneak' " `s` command jumps to occurrence of a pair of characters
+Plug 'wellle/targets.vim' " more options for movements like `i` and `a`
 
-  " Movements
-  call dein#add('machakann/vim-sandwich') " `ds`, `cs`, `ys`, and `S` commands manage delimiters
-  call dein#add('justinmk/vim-sneak') " `s` command jumps to occurrence of a pair of characters
-  call dein#add('wellle/targets.vim') " more options for movements like `i` and `a`
+" Text objects
+Plug 'kana/vim-textobj-user' " dependency for third-party text objects
+Plug 'kana/vim-textobj-entire' " `ae`: entire buffer, `ie`: excludes empty lines
+Plug 'kana/vim-textobj-function' " `af`, `if`, `aF`, `iF` operate on functions
+Plug 'kana/vim-textobj-line' " `al`: entire line, `il` excludes whitespace
+Plug 'coderifous/textobj-word-column.vim' " `ac`, `ic`, `aC`, `iC` select columns
 
-  " Text objects
-  call dein#add('kana/vim-textobj-user') " dependency for third-party text objects
-  call dein#add('kana/vim-textobj-entire') " `ae`: entire buffer, `ie`: excludes empty lines
-  call dein#add('kana/vim-textobj-function') " `af`, `if`, `aF`, `iF` operate on functions
-  call dein#add('kana/vim-textobj-line') " `al`: entire line, `il` excludes whitespace
-  call dein#add('coderifous/textobj-word-column.vim') " `ac`, `ic`, `aC`, `iC` select columns
+" more from kana
+Plug 'kana/vim-niceblock' " makes `I` and `A` work in line-wise visual mode
 
-  " more from kana
-  call dein#add('kana/vim-niceblock') " makes `I` and `A` work in line-wise visual mode
+" IDE features
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-  " IDE features
-  call dein#add('neoclide/coc.nvim', {'rev': 'release'})
+" Writing assistance
+Plug 'kana/vim-smartinput' " automatically closes delimiters as they are typed
+Plug 'godlygeek/tabular'
 
-  " Writing assistance
-  call dein#add('kana/vim-smartinput') " automatically closes delimiters as they are typed
-  call dein#add('godlygeek/tabular')
+" git integration
+Plug 'tpope/vim-fugitive' " used by vim-rhubarb
+Plug 'tpope/vim-rhubarb' " provides Github integration
 
-  " git integration
-  call dein#add('tpope/vim-fugitive') " used by vim-rhubarb
-  call dein#add('tpope/vim-rhubarb') " provides Github integration
+" Language support
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/jsonc.vim'
+Plug 'vmchale/just-vim'
+Plug 'jparise/vim-graphql'
+Plug 'DeltaWhy/vim-mcfunction'
 
-  " Language support
-  call dein#add('sheerun/vim-polyglot')
-  call dein#add('neoclide/jsonc.vim')
-  call dein#add('vmchale/just-vim')
-  call dein#add('jparise/vim-graphql')
-  call dein#add('DeltaWhy/vim-mcfunction')
-
-  " Visuals
-  call dein#add('iCyMind/NeoSolarized')
-  call dein#add('drmikehenry/vim-fontdetect')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  if has('nvim')
-    call dein#add('machakann/vim-highlightedyank') " highlight text after it has been yanked
-  endif
-  call dein#add('liuchengxu/vim-which-key', { 'on_cmd': ['WhichKey', 'WhichKey!'] })
-  call dein#add('psliwka/vim-smoothie')
-
-  " Tmux integration
-  call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('hallettj/tmux-config')
-  call dein#add('tpope/vim-tbone')
-
-  call dein#add('907th/vim-auto-save')
-
-  call dein#end()
-  call dein#save_state()
+" Visuals
+Plug 'iCyMind/NeoSolarized'
+Plug 'drmikehenry/vim-fontdetect'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+if has('nvim')
+  Plug 'machakann/vim-highlightedyank' " highlight text after it has been yanked
 endif
+Plug 'psliwka/vim-smoothie'
 
-filetype plugin indent on
-syntax enable
+" Tmux integration
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'hallettj/tmux-config'
+Plug 'tpope/vim-tbone'
+
+Plug '907th/vim-auto-save'
+
+call plug#end()
 
 " Don't need netrw - we are using dirvish instead
 let g:loaded_netrwPlugin = 1

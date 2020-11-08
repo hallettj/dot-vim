@@ -14,7 +14,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ ]
 
-if dein#tap('coc.nvim')
+" if dein#tap('coc.nvim')
   set cmdheight=2
   set completeopt=noinsert,noselect,menuone
   set signcolumn=yes
@@ -26,7 +26,7 @@ if dein#tap('coc.nvim')
 
   " Use `:Fold` for fold current buffer
   command! -nargs=? Fold :call CocAction('fold', <f-args>)
-endif
+" endif
 
 function! s:isPreviewWindowOpen()
   for nr in range(1, winnr('$'))
