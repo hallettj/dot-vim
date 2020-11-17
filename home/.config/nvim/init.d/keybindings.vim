@@ -88,22 +88,6 @@ nnoremap <silent> <leader>lo :lopen<cr>
 nnoremap <silent> <leader>cc :cclose<cr>:lclose<cr>
 nnoremap <silent> <leader>co :copen<cr>
 
-" godlygeek/tabular {{{
-  nnoremap <leader>a= :Tabularize / = /l0<cr>
-  vnoremap <leader>a= :Tabularize / = /l0<cr>
-  nnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
-  vnoremap <leader>a: :Tabularize /^[^:]*:\zs/l0l1<cr>
-" }}}
-
-" mtth/scratch.vim {{{
-  let g:scratch_no_mappings = 1
-  nmap <leader>s <plug>(scratch-insert-reuse)
-  nmap <leader>S <plug>(scratch-insert-clear)
-  nnoremap <silent> <leader>ts :ScratchPreview<cr>
-  xmap <leader>s <plug>(scratch-selection-reuse)
-  xmap <leader>s <plug>(scratch-selection-clear)
-" }}}
-
 " magic registers
 "
 " The command performed after one of these keybindings is invoked will read from

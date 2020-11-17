@@ -34,33 +34,34 @@ Plug 'machakann/vim-sandwich' " `ds`, `cs`, `ys`, and `S` commands manage delimi
 Plug 'justinmk/vim-sneak' " `s` command jumps to occurrence of a pair of characters
 Plug 'wellle/targets.vim' " more options for movements like `i` and `a`
 
+" Language support
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/jsonc.vim'
+Plug 'vmchale/just-vim'
+Plug 'jparise/vim-graphql'
+Plug 'DeltaWhy/vim-mcfunction'
+
 " Text objects
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'kana/vim-textobj-user' " dependency for third-party text objects
 Plug 'kana/vim-textobj-entire' " `ae`: entire buffer, `ie`: excludes empty lines
-Plug 'kana/vim-textobj-function' " `af`, `if`, `aF`, `iF` operate on functions
 Plug 'kana/vim-textobj-line' " `al`: entire line, `il` excludes whitespace
-Plug 'coderifous/textobj-word-column.vim' " `ac`, `ic`, `aC`, `iC` select columns
 
 " more from kana
 Plug 'kana/vim-niceblock' " makes `I` and `A` work in line-wise visual mode
 
 " IDE features
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'nvim-treesitter/playground'
 
 " Writing assistance
 Plug 'kana/vim-smartinput' " automatically closes delimiters as they are typed
-Plug 'godlygeek/tabular'
 
 " git integration
 Plug 'tpope/vim-fugitive' " used by vim-rhubarb
 Plug 'tpope/vim-rhubarb' " provides Github integration
-
-" Language support
-Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/jsonc.vim'
-Plug 'vmchale/just-vim'
-Plug 'jparise/vim-graphql'
-Plug 'DeltaWhy/vim-mcfunction'
 
 " Visuals
 Plug 'iCyMind/NeoSolarized'
