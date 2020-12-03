@@ -37,7 +37,7 @@
     "s": "action:split",
     "v": "action:vsplit"
   },
-  "list.source.files.command": "fd",
+  "list.source.files.command": "fdfind",
   "list.source.files.args": ["--type", "f"],
   "rust.clippy_preference": "on",
   "tsserver.enableJavascript": true,

@@ -8,12 +8,13 @@
       action: apt pkg={{ item }} state=present
       become: yes
       with_items:
+        - fd-find
         - cmake
         - exuberant-ctags
         - git
         - python-dev
+        - ripgrep
         - rsync
-        - silversearcher-ag
 
         # Dependencies for apt_repository
         - python-apt
