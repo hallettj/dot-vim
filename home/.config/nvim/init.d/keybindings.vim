@@ -65,19 +65,19 @@ let g:which_key_map.b = 'list buffers'
 nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>
 let g:which_key_map.h = 'list command history'
 
-nnoremap <silent> <leader>de :<C-u>CocList extensions<cr>
-nnoremap <silent> <leader>do :<C-u>CocList outline<cr>
 nnoremap <silent> <leader>da :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <leader>dc :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>de :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>do :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>dp :<C-u>CocList project<cr>
 nnoremap <silent> <leader>ds :<C-u>CocList services<cr>
 let g:which_key_map.d = {
   \ 'name' : '+list',
-  \ 'b' : 'buffers',
-  \ 'h' : 'command history',
-  \ 'e' : 'coc extensions',
-  \ 'o' : 'document outline',
   \ 'a' : 'project diagnostics',
   \ 'c' : 'coc commands',
+  \ 'e' : 'coc extensions',
+  \ 'o' : 'document outline',
+  \ 'p' : 'projects',
   \ 's' : 'coc services',
   \ }
 

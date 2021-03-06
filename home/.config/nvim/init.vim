@@ -26,7 +26,6 @@ Plug 'tpope/vim-sensible'
 " Navigation
 Plug 'justinmk/vim-dirvish' " file browser to replace netrw
 Plug 'kristijanhusak/vim-dirvish-git'
-Plug 'airblade/vim-rooter' " set working directory based on `.git/`
 Plug 'simnalamburt/vim-mundo' " UI for navigating undo history
 Plug 'andymass/vim-tradewinds'
 Plug 'lotabout/skim', { 'dir': '~/opt/skim', 'do': './install' } " Install skim for zsh integration
