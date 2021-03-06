@@ -29,6 +29,7 @@ Plug 'kristijanhusak/vim-dirvish-git'
 Plug 'airblade/vim-rooter' " set working directory based on `.git/`
 Plug 'simnalamburt/vim-mundo' " UI for navigating undo history
 Plug 'andymass/vim-tradewinds'
+Plug 'lotabout/skim', { 'dir': '~/opt/skim', 'do': './install' } " Install skim for zsh integration
 
 Plug 'tpope/vim-unimpaired' " shortcuts for cycling/toggling different things
 Plug 'tpope/vim-characterize' " show information about character under cursor
