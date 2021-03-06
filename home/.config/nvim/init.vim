@@ -88,6 +88,7 @@ Plug 'hallettj/tmux-config'
 Plug 'tpope/vim-tbone'
 
 Plug '907th/vim-auto-save'
+Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
 
