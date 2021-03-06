@@ -41,10 +41,13 @@ vnoremap > >gv
 " These come from:
 " http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 vnoremap <Leader>y "+y
+let g:which_key_map.y = 'yank to system clipboard'
 nnoremap <Leader>p "+p
 nnoremap <Leader>P "+P
 vnoremap <Leader>p "+p
 vnoremap <Leader>P "+P
+let g:which_key_map.p = 'put after cursor from system clipboard'
+let g:which_key_map.P = 'put before cursor from system clipboard'
 
 " Makes Vim's visual mode more consistent with tmux's
 vnoremap <Enter> y
