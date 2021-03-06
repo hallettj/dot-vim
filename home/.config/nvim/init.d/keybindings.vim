@@ -128,6 +128,14 @@ let g:which_key_map.g = {
   \ 'R' : 'git rm',
   \ }
 
+nmap <leader>ma <plug>(coc-calc-result-append)
+nmap <leader>mr <plug>(coc-calc-result-replace)
+let g:which_key_map.m = {
+  \ 'name' : '+math',
+  \ 'a' : 'evaluate math expression on line, and append result',
+  \ 'r' : 'evaluate math expression on line, and replace with result',
+  \ }
+
 " magic registers
 "
 " The command performed after one of these keybindings is invoked will read from
