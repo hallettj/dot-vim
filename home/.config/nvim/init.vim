@@ -44,7 +44,7 @@ Plug 'justinmk/vim-sneak' " `s` command jumps to occurrence of a pair of charact
 Plug 'wellle/targets.vim' " more options for movements like `i` and `a`
 
 " Language support
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/jsonc.vim'
 Plug 'vmchale/just-vim'
