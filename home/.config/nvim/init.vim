@@ -45,10 +45,6 @@ Plug 'wellle/targets.vim' " more options for movements like `i` and `a`
 
 " Language support
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/jsonc.vim'
-Plug 'vmchale/just-vim'
-Plug 'jparise/vim-graphql'
 Plug 'DeltaWhy/vim-mcfunction'
 
 " Text objects
@@ -73,7 +69,7 @@ Plug 'tpope/vim-fugitive' " used by vim-rhubarb
 Plug 'tpope/vim-rhubarb' " provides Github integration
 
 " Visuals
-Plug 'iCyMind/NeoSolarized'
+Plug 'overcache/NeoSolarized'
 Plug 'drmikehenry/vim-fontdetect'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
