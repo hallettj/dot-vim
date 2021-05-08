@@ -214,3 +214,13 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " inserting a line break.
 call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
 imap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Plug>SmartinputCR"
+
+" Scroll neovim floating windows
+if has('nvim-0.4.0')
+  nnoremap <silent><nowait><expr> <PageDown> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <PageUp> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <PageDown> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <PageUp> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <PageDown> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <PageUp> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
