@@ -70,6 +70,7 @@
   "list.source.files.args": ["--type", "f"],
   "rust.clippy_preference": "on",
   "tsserver.enableJavascript": true,
+  "typescript.autoClosingTags": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.quoteStyle": "double",
