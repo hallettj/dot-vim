@@ -62,7 +62,7 @@ function! s:SetPaneWidth()
   endif
 endfunction
 
-function! s:ReallocateWindowWidths()
+function! s:SetPaneWidthAndSsetWindowsToEqualWidths()
   " Floating windows mess up width calculations, so abort if one is open.
   if coc#float#has_float()
     return
@@ -78,7 +78,7 @@ augroup TmuxDynamicPaneSize
     " Use `timer_start` so that vim can update window sizes before we update the
     " pane width.
     autocmd BufWinLeave,WinLeave,WinNew * call timer_start(10, { -> s:SetPaneWidth() })
-    autocmd VimResized * call <SID>ReallocateWindowWidths()
+    autocmd VimResized * call <SID>SetPaneWidthAndSsetWindowsToEqualWidths()
   endif
 augroup END
 
