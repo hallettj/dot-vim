@@ -34,7 +34,7 @@ return require('packer').startup(function()
   
   -- Movements
   use 'machakann/vim-sandwich' -- `ds`, `cs`, `ys`, and `S` commands manage delimiters
-  use 'justinmk/vim-sneak' -- `s` command jumps to occurrence of a pair of characters
+  use 'ggandor/lightspeed.nvim' -- `s`/`S` command jumps to occurrence of a pair of characters
   use 'wellle/targets.vim' -- more options for movements like `i` and `a`
   
   -- Language support
