@@ -215,6 +215,14 @@ inoremap <silent><expr> <c-space> coc#refresh()
 call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
 imap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Plug>SmartinputCR"
 
+" snippets
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+xmap <leader>x <Plug>(coc-convert-snippet)
+
 " Scroll neovim floating windows
 if has('nvim-0.4.0')
   nnoremap <silent><nowait><expr> <PageDown> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"

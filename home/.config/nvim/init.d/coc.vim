@@ -13,6 +13,7 @@ let g:coc_global_extensions = [
   \ 'coc-react-refactor',
   \ 'coc-rust-analyzer',
   \ 'coc-sh',
+  \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-yaml',
   \ ]
