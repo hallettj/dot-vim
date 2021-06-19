@@ -10,84 +10,12 @@ endif
 
 set shell=/bin/bash
 
-" Bootstrap Plug
-let autoload_plug_path = stdpath('data') . '/site/autoload/plug.vim'
-if !filereadable(autoload_plug_path)
-  silent execute '!curl -fLo ' . autoload_plug_path . '  --create-dirs 
-      \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-unlet autoload_plug_path
-
-call plug#begin(stdpath('data') . '/plugged')
-
-Plug 'tpope/vim-sensible'
-
-" Navigation
-Plug 'justinmk/vim-dirvish' " file browser to replace netrw
-Plug 'kristijanhusak/vim-dirvish-git'
-Plug 'simnalamburt/vim-mundo' " UI for navigating undo history
-Plug 'andymass/vim-tradewinds'
-Plug 'lotabout/skim', { 'dir': '~/opt/skim', 'do': './install' } " Install skim for zsh integration
-
-Plug 'tpope/vim-unimpaired' " shortcuts for cycling/toggling different things
-Plug 'tpope/vim-characterize' " show information about character under cursor
-Plug 'tpope/vim-commentary' " manipulate code comments
-Plug 'tpope/vim-eunuch' " commands for manipulating files and directories
-Plug 'tpope/vim-repeat' " makes the `.` command work with third-party actions
-Plug 'tpope/vim-rsi' " add Emacs-like shortcuts to command mode
-Plug 'AndrewRadev/splitjoin.vim' " `gS` and `gJ` commands split or join lines
-
-" Movements
-Plug 'machakann/vim-sandwich' " `ds`, `cs`, `ys`, and `S` commands manage delimiters
-Plug 'justinmk/vim-sneak' " `s` command jumps to occurrence of a pair of characters
-Plug 'wellle/targets.vim' " more options for movements like `i` and `a`
-
-" Language support
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'DeltaWhy/vim-mcfunction'
-Plug 'vmchale/dhall-vim'
-
-" Text objects
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'kana/vim-textobj-user' " dependency for third-party text objects
-Plug 'kana/vim-textobj-entire' " `ae`: entire buffer, `ie`: excludes empty lines
-Plug 'kana/vim-textobj-line' " `al`: entire line, `il` excludes whitespace
-
-" more from kana
-Plug 'kana/vim-niceblock' " makes `I` and `A` work in line-wise visual mode
-
-" IDE features
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
-Plug 'nvim-treesitter/playground'
-
-" Writing assistance
-Plug 'kana/vim-smartinput' " automatically closes delimiters as they are typed
-
-" git integration
-Plug 'tpope/vim-fugitive' " used by vim-rhubarb
-Plug 'tpope/vim-rhubarb' " provides Github integration
-
-" Visuals
-Plug 'overcache/NeoSolarized'
-Plug 'drmikehenry/vim-fontdetect'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-if has('nvim')
-  Plug 'machakann/vim-highlightedyank' " highlight text after it has been yanked
-endif
-Plug 'psliwka/vim-smoothie'
-
-" Tmux integration
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'hallettj/tmux-config'
-Plug 'tpope/vim-tbone'
-
-Plug '907th/vim-auto-save'
-Plug 'liuchengxu/vim-which-key'
-
-call plug#end()
+" Install plugins by requiring ~/.config/nivm/lua/plugins.lua
+lua require('plugins')
+augroup CompilePluginLazyLoaders
+  autocmd!
+  autocmd BufWritePost plugins.lua PackerCompile
+augroup END
 
 " Don't need netrw - we are using dirvish instead
 let g:loaded_netrwPlugin = 1
