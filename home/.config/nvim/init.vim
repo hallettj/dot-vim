@@ -46,6 +46,7 @@ Plug 'wellle/targets.vim' " more options for movements like `i` and `a`
 " Language support
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'DeltaWhy/vim-mcfunction'
+Plug 'vmchale/dhall-vim'
 
 " Text objects
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
