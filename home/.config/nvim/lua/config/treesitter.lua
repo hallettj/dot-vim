@@ -1,4 +1,3 @@
-lua <<EOF
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- "all", "maintained", or list of languages
   highlight = {
@@ -72,4 +71,3 @@ require 'nvim-treesitter.configs'.setup {
     },
   },
 }
-EOF
