@@ -17,9 +17,6 @@ augroup CompilePluginLazyLoaders
   autocmd BufWritePost plugins.lua PackerCompile
 augroup END
 
-" Don't need netrw - we are using dirvish instead
-let g:loaded_netrwPlugin = 1
-
 set encoding=utf-8
 set scrolloff=3
 set wildmode=longest
