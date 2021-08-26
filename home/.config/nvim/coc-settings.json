@@ -65,7 +65,9 @@
   "typescript.autoClosingTags": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.format.semicolons": "remove",
   "typescript.preferences.quoteStyle": "double",
   "typescript.referencesCodeLens.enable": false,
+  "typescript.preferences.useAliasesForRenames": true,
   "git.enableGutters": false
 }
