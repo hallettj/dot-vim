@@ -6,13 +6,6 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
-  "eslint.enable": false,
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
   "git.realtimeGutters": true,
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
