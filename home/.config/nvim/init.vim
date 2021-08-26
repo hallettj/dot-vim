@@ -4,10 +4,6 @@ if !1 | finish | endif
 " set vim home directory as vimrc is sourced
 let $VIMFILES=fnamemodify(globpath(&rtp, 'bundle'), ":h")
 
-if has('vim_starting')
-  set nocompatible          " We're running Vim, not Vi!
-endif
-
 set shell=/bin/bash
 
 " Install plugins by requiring ~/.config/nivm/lua/plugins.lua
