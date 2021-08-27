@@ -62,8 +62,6 @@ endfunc
 nnoremap <silent> <C-p> :<C-u>CocList files<cr>
 nnoremap <silent> <leader>b :<C-u>CocList buffers<cr>
 let g:which_key_map.b = 'list buffers'
-nnoremap <silent> <leader>h :<C-u>CocList cmdhistory<cr>
-let g:which_key_map.h = 'list command history'
 
 nnoremap <silent> <leader>da :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <leader>dc :<C-u>CocList commands<cr>
@@ -106,26 +104,41 @@ let g:which_key_map.c = {
   \ 'R' : 'refactor',
   \ }
 
-" tpope/vim-fugitive / neoclide/vim-easygit {{{
-  nnoremap <silent> <leader>gs :vert Gstatus<CR>
-  nnoremap <silent> <leader>gd :Gdiff<CR>
-  nnoremap <silent> <leader>gc :Gcommit<CR>
-  nnoremap <silent> <leader>gb :Gblame<CR>
+" tpope/vim-fugitive {{{
+  nnoremap <silent> <leader>gs :Gstatus<CR>
+  nnoremap <silent> <leader>gd :Gvdiffsplit<CR>
+  nnoremap <silent> <leader>gc :Git commit<CR>
+  nnoremap <silent> <leader>gb :Git blame<CR>
   nnoremap          <leader>ge :Gedit<space>
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
+  nnoremap <silent> <leader>gr :GRename<space>
   nnoremap <silent> <leader>gR :Gremove<CR>
 "}}}
 let g:which_key_map.g = {
   \ 'name' : '+git',
-  \ 's' : 'git status in vert split',
-  \ 'd' : 'git diff',
+  \ 's' : 'git status in split',
+  \ 'd' : 'git diff in vert split',
   \ 'c' : 'git commit',
   \ 'b' : 'git blame',
-  \ 'e' : 'edit a fugitive object',
+  \ 'e' : 'open file from history, e.g. :Gedit HEAD^:%',
   \ 'p' : 'git push',
   \ 'w' : 'write file and stage',
+  \ 'r' : 'rename file - enter path relative to current file',
   \ 'R' : 'git rm',
+  \ }
+
+" keybindings are defined in plugins.lua
+let g:which_key_map.h = {
+  \ 'name' : '+gitsigns',
+  \ 's' : 'stage hunk',
+  \ 'u' : 'undo stage hunk',
+  \ 'r' : 'reset hunk',
+  \ 'R' : 'reset buffer',
+  \ 'p' : 'preview hunk',
+  \ 'b' : 'blame line',
+  \ 'S' : 'stage buffer',
+  \ 'U' : 'reset buffer index',
   \ }
 
 nmap <leader>ma <plug>(coc-calc-result-append)
@@ -170,14 +183,6 @@ nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <silent> [C <Plug>(coc-diagnostic-prev-error)
 nmap <silent> ]C <Plug>(coc-diagnostic-next-error)
-
-" navigate chunks of current buffer
-nmap [g <Plug>(coc-git-prevchunk)
-nmap ]g <Plug>(coc-git-nextchunk)
-" show chunk diff at current position
-nmap gs <Plug>(coc-git-chunkinfo)
-" show commit at current position
-nmap gC <Plug>(coc-git-commit)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
