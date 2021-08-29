@@ -109,6 +109,8 @@ let g:which_key_map.c = {
   nnoremap <silent> <leader>gd :Gvdiffsplit<CR>
   nnoremap <silent> <leader>gc :Git commit<CR>
   nnoremap <silent> <leader>gb :Git blame<CR>
+  nnoremap <silent> <leader>gl :vert Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit<cr>
+  nnoremap <silent> <leader>ga :vert Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --all<cr>
   nnoremap          <leader>ge :Gedit<space>
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
@@ -118,9 +120,11 @@ let g:which_key_map.c = {
 let g:which_key_map.g = {
   \ 'name' : '+git',
   \ 's' : 'git status in vert split',
-  \ 'd' : 'git diff in vert split',
+  \ 'd' : 'git diff in vert splits',
   \ 'c' : 'git commit',
   \ 'b' : 'git blame',
+  \ 'l' : 'git log in graph format',
+  \ 'a' : 'git log in graph format (all branches)',
   \ 'e' : 'open file from history, e.g. :Gedit HEAD^:%',
   \ 'p' : 'git push',
   \ 'w' : 'write file and stage',
@@ -178,11 +182,11 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> [C <Plug>(coc-diagnostic-prev-error)
-nmap <silent> ]C <Plug>(coc-diagnostic-next-error)
+" Use `[.` and `].` for navigate diagnostics
+nmap <silent> [. <Plug>(coc-diagnostic-prev)
+nmap <silent> ]. <Plug>(coc-diagnostic-next)
+nmap <silent> [> <Plug>(coc-diagnostic-prev-error)
+nmap <silent> ]> <Plug>(coc-diagnostic-next-error)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
