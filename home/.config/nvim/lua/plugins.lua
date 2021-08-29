@@ -62,6 +62,7 @@ return require('packer').startup(function()
   -- git integration
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
+  use 'junegunn/gv.vim'
   use {'sindrets/diffview.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   use {
     'lewis6991/gitsigns.nvim',

@@ -109,8 +109,8 @@ let g:which_key_map.c = {
   nnoremap <silent> <leader>gd :Gvdiffsplit<CR>
   nnoremap <silent> <leader>gc :Git commit<CR>
   nnoremap <silent> <leader>gb :Git blame<CR>
-  nnoremap <silent> <leader>gl :vert Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit<cr>
-  nnoremap <silent> <leader>ga :vert Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --all<cr>
+  nnoremap <silent> <leader>gl :GV<cr>
+  nnoremap <silent> <leader>ga :GV --all<cr>
   nnoremap          <leader>ge :Gedit<space>
   nnoremap <silent> <leader>gp :Git push<CR>
   nnoremap <silent> <leader>gw :Gwrite<CR>
