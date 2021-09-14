@@ -105,7 +105,7 @@ let g:which_key_map.c = {
   \ }
 
 " tpope/vim-fugitive {{{
-  nnoremap <silent> <leader>gs :vert Gstatus<CR>
+  nnoremap <silent> <leader>gs :vert Git<CR>
   nnoremap <silent> <leader>gd :Gvdiffsplit<CR>
   nnoremap <silent> <leader>gc :Git commit<CR>
   nnoremap <silent> <leader>gb :Git blame<CR>
