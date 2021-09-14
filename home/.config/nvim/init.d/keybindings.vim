@@ -188,6 +188,8 @@ nmap <silent> ]. <Plug>(coc-diagnostic-next)
 nmap <silent> [> <Plug>(coc-diagnostic-prev-error)
 nmap <silent> ]> <Plug>(coc-diagnostic-next-error)
 
+nnoremap <silent> <leader>? :call CocAction('diagnosticInfo')<cr>
+
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()

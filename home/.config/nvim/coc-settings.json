@@ -3,10 +3,12 @@
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
-  "git.realtimeGutters": true,
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.completionItemKindLabels": {
@@ -68,6 +70,5 @@
   "typescript.format.semicolons": "remove",
   "typescript.preferences.quoteStyle": "double",
   "typescript.referencesCodeLens.enable": false,
-  "typescript.preferences.useAliasesForRenames": true,
-  "git.enableGutters": false
+  "typescript.preferences.useAliasesForRenames": true
 }
