@@ -1,4 +1,5 @@
 {
+  "coc.source.emoji.filetypes": ["markdown"],
   "codeLens.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
