@@ -74,6 +74,7 @@ return require('packer').startup(function()
   
   -- Visuals
   use 'overcache/NeoSolarized'
+  use {'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim'}
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
   use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked

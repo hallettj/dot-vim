@@ -1,3 +1,5 @@
+set termguicolors
+
 set background=dark
 let g:neosolarized_contrast = "normal"
 let g:neosolarized_visibility = "normal"
