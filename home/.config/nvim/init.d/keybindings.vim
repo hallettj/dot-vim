@@ -33,6 +33,12 @@ nnoremap <Leader>= <C-w>=
 let g:which_key_map['-'] = ['<C-w>_', 'maximize window vertically']
 let g:which_key_map['='] = ['<C-w>=', 'set windows to equal sizes']
 
+" Replace ; and : with Lightspeed versions
+nmap <silent> ; <Plug>Lightspeed_;_ft
+xmap <silent> ; <Plug>Lightspeed_;_ft
+nmap <silent> : <Plug>Lightspeed_,_ft
+xmap <silent> : <Plug>Lightspeed_,_ft
+
 " Retains selection in visual mode when indenting blocks
 vnoremap < <gv
 vnoremap > >gv
