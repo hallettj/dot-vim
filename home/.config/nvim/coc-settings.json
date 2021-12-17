@@ -10,6 +10,7 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
+  "Lua.diagnostics.globals": ["vim"],
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.completionItemKindLabels": {
