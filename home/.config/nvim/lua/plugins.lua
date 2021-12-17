@@ -73,7 +73,7 @@ return require('packer').startup(function()
   }
   
   -- Visuals
-  use 'overcache/NeoSolarized'
+  use 'ishan9299/nvim-solarized-lua'
   use {'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim'}
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
@@ -84,6 +84,9 @@ return require('packer').startup(function()
   use 'christoomey/vim-tmux-navigator'
   use 'hallettj/tmux-config'
   use 'tpope/vim-tbone'
+
+  -- Lua support
+  use 'jakelinnzy/autocmd-lua'
   
   use '907th/vim-auto-save'
   use 'liuchengxu/vim-which-key'
