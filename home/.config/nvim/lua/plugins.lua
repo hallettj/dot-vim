@@ -65,7 +65,7 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
-  use {'sindrets/diffview.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'sindrets/diffview.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
@@ -77,8 +77,7 @@ return require('packer').startup(function()
   -- Visuals
   use 'ishan9299/nvim-solarized-lua'
   use {'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim'}
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked
   use 'psliwka/vim-smoothie'
   
