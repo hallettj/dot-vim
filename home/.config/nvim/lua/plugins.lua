@@ -22,6 +22,8 @@ return require('packer').startup(function()
   use 'kristijanhusak/vim-dirvish-git'
   use {'simnalamburt/vim-mundo', cmd = 'MundoToggle'} -- UI for navigating undo history
   use {'andymass/vim-tradewinds', keys = {'<C-w>gh', '<C-w>gl'}}
+  use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
   use {'lotabout/skim', run = './install'} -- Install skim for zsh integration
   
   use 'tpope/vim-unimpaired' -- shortcuts for cycling/toggling different things

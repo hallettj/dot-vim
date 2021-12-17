@@ -69,6 +69,20 @@ nnoremap <silent> <C-p> :<C-u>CocList files<cr>
 nnoremap <silent> <leader>b :<C-u>CocList buffers<cr>
 let g:which_key_map.b = 'list buffers'
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fc <cmd>Telescope colorscheme<cr>
+let g:which_key_map.f = {
+  \ 'name' : '+Telescope',
+  \ 'f' : 'find files',
+  \ 'r' : 'live grep',
+  \ 'b' : 'buffers',
+  \ 'h' : 'help tags',
+  \ 'c' : 'color schemes',
+  \ }
+
 nnoremap <silent> <leader>da :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <leader>dc :<C-u>CocList commands<cr>
 nnoremap <silent> <leader>de :<C-u>CocList extensions<cr>
