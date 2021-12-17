@@ -13,7 +13,7 @@
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.completionItemKindLabels": {
-    "keyword":  "\uf1de", //  sliders
+    "keyword": "\uf1de", //  sliders
     "variable": "\ue79b", //  isometric box
     "value": "\uf89f", //  digits 123
     "operator": "\u03a8", // Ψ greek letter psi
