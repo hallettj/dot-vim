@@ -2,6 +2,7 @@
 vim.o.showmode = false
 
 local filetype_aliases = {
+  typescript = 'ts',
   typescriptreact = 'tsx',
 }
 
