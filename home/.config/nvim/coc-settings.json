@@ -65,6 +65,8 @@
   },
   "list.source.files.command": "fdfind",
   "list.source.files.args": ["--type", "f"],
+  "rust-analyzer.lens.implementations": true,
+  "rust-analyzer.inlayHints.enable": true,
   "tsserver.enableJavascript": true,
   "typescript.autoClosingTags": true,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
