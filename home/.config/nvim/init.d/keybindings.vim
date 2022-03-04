@@ -156,13 +156,19 @@ let g:which_key_map.g = {
 let g:which_key_map.h = {
   \ 'name' : '+gitsigns',
   \ 's' : 'stage hunk',
+  \ 'S' : 'stage buffer',
   \ 'u' : 'undo stage hunk',
   \ 'r' : 'reset hunk',
   \ 'R' : 'reset buffer',
   \ 'p' : 'preview hunk',
   \ 'b' : 'blame line',
-  \ 'S' : 'stage buffer',
-  \ 'U' : 'reset buffer index',
+  \ 'd' : 'diffthis',
+  \ 'D' : 'diffthis("~")',
+  \ }
+let g:which_key_map.t = {
+  \ 'name' : '+toggles',
+  \ 'b' : 'toggle current line blame',
+  \ 'd' : 'toggle deleted'
   \ }
 
 nmap <leader>ma <plug>(coc-calc-result-append)
