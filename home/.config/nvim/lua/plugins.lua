@@ -16,7 +16,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   use 'tpope/vim-sensible'
-  
+
   -- Navigation
   use 'justinmk/vim-dirvish' -- file browser to replace netrw
   use 'kristijanhusak/vim-dirvish-git'
@@ -25,7 +25,7 @@ return require('packer').startup(function()
   use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
   use {'lotabout/skim', run = './install'} -- Install skim for zsh integration
-  
+
   use 'tpope/vim-unimpaired' -- shortcuts for cycling/toggling different things
   use 'tpope/vim-characterize' -- show information about character under cursor
   use 'tpope/vim-commentary' -- manipulate code comments
@@ -33,34 +33,34 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat' -- makes the `.` command work with third-party actions
   use 'tpope/vim-rsi' -- add Emacs-like shortcuts to command mode
   use 'AndrewRadev/splitjoin.vim' -- `gS` and `gJ` commands split or join lines
-  
+
   -- Movements
   use 'machakann/vim-sandwich' -- `ds`, `cs`, `ys`, and `S` commands manage delimiters
   use 'ggandor/lightspeed.nvim' -- `s`/`S` command jumps to occurrence of a pair of characters
   use 'wellle/targets.vim' -- more options for movements like `i` and `a`
-  
+
   -- Language support
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use {'DeltaWhy/vim-mcfunction', ft = 'mcfunction'}
   use {'vmchale/dhall-vim', ft = 'dhall'}
-  
+
   -- Text objects
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'kana/vim-textobj-user' -- dependency for third-party text objects
   use 'kana/vim-textobj-entire' -- `ae`: entire buffer, `ie`: excludes empty lines
   use 'kana/vim-textobj-line' -- `al`: entire line, `il` excludes whitespace
-  
+
   -- more from kana
   use 'kana/vim-niceblock' -- makes `I` and `A` work in line-wise visual mode
-  
+
   -- IDE features
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'nvim-treesitter/playground'
-  
+
   -- Writing assistance
   use 'kana/vim-smartinput' -- automatically closes delimiters as they are typed
-  
+
   -- git integration
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -73,14 +73,14 @@ return require('packer').startup(function()
       require('gitsigns').setup()
     end,
   }
-  
+
   -- Visuals
   use 'ishan9299/nvim-solarized-lua'
   use {'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim'}
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked
   use 'psliwka/vim-smoothie'
-  
+
   -- Tmux integration
   use 'christoomey/vim-tmux-navigator'
   use 'hallettj/tmux-config'
@@ -88,7 +88,7 @@ return require('packer').startup(function()
 
   -- Lua support
   use 'jakelinnzy/autocmd-lua'
-  
+
   use '907th/vim-auto-save'
   use 'liuchengxu/vim-which-key'
 end)
