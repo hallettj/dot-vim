@@ -269,3 +269,8 @@ if has('nvim-0.4.0')
   vnoremap <silent><nowait><expr> <PageDown> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <PageUp> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+nnoremap <silent> <leader>H :echo expand('%:p')<cr>
+let g:which_key_map.H = {
+  \ 'name' : 'echo file path',
+  \ }
