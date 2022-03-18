@@ -1,0 +1,8 @@
+# Custom options for Neovide, the no-nonsense Neovim client in Rust
+
+# Disable the top window bar
+export NEOVIDE_FRAME=none
+
+# Enable Neovim's multigrid functionality for EXTREME FANCINESS. Specifically
+# transparency for floating windows, window animations, and smooth scrolling.
+export NEOVIDE_MULTIGRID=1

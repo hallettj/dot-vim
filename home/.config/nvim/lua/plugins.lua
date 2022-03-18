@@ -112,7 +112,6 @@ return require('packer').startup(function()
   use {'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim'}
   use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
   use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked
-  use 'psliwka/vim-smoothie'
 
   -- Tmux integration
   use 'christoomey/vim-tmux-navigator'
