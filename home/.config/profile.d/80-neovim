@@ -1,0 +1,1 @@
+export NVIM_GTK_NO_HEADERBAR=1
