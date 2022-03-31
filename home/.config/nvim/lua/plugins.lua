@@ -24,6 +24,12 @@ return require('packer').startup(function()
   use {'andymass/vim-tradewinds', keys = {'<C-w>gh', '<C-w>gl'}}
   use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+  use {
+    'fannheyward/telescope-coc.nvim',
+    config = function()
+      require('telescope').load_extension('coc')
+    end
+  }
   use {'lotabout/skim', run = './install'} -- Install skim for zsh integration
 
   use 'tpope/vim-unimpaired' -- shortcuts for cycling/toggling different things

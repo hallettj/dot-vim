@@ -65,7 +65,7 @@ func! JoinOperator(submode)
 endfunc
 
 " navigation
-nnoremap <silent> <C-p> :<C-u>CocList files<cr>
+nnoremap <C-p> <cmd>Telescope find_files<cr>
 nnoremap <silent> <leader>b :<C-u>CocList buffers<cr>
 let g:which_key_map.b = 'list buffers'
 
@@ -206,7 +206,7 @@ tnoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Cmd>Telescope coc references<CR>
 
 " Use `[.` and `].` for navigate diagnostics
 nmap <silent> [. <Plug>(coc-diagnostic-prev)
