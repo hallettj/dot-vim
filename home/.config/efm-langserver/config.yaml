@@ -1,0 +1,30 @@
+version: 2
+root-markers:
+  - .git/
+  - _darcs/
+  - .hg/
+  - .bzr/
+  - .svn/
+
+tools:
+  dprint: &dprint
+    format-stdin: true
+    format-command: 'dprint fmt --stdin ${INPUT}'
+
+  lua-format: &lua-format
+    format-sdin: true
+    format-command: 'lua-format -i'
+
+  rustfmt: &rustfmt
+    format-stdin: true
+    format-command: 'rustfmt'
+
+languages:
+  lua:
+    - <<: *lua-format
+
+  typescript:
+    - <<: *dprint
+
+  rust:
+    - <<: *rustfmt

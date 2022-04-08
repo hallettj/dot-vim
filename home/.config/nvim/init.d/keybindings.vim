@@ -196,7 +196,7 @@ let g:which_key_map['"'] = {
 nnoremap <leader>u :MundoToggle<cr>
 
 " IDE features
-nmap <leader><space> <plug>(coc-format)
+nmap <leader><space> <cmd>CocCommand editor.action.formatDocument<CR>
 
 nnoremap <F4> :ActivateTerminalPane<CR>
 inoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>

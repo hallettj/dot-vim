@@ -46,6 +46,11 @@
       "command": "dhall-lsp-server",
       "filetypes": ["dhall"]
     },
+    "efm": {
+      "filetypes": ["lua", "typescript"],
+      "args": [],
+      "command": "efm-langserver"
+    },
     "scala": {
       "command": "node",
       "args": ["/home/jesse/bin/sbt-server-stdio.js"],

@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-lists',
   \ 'coc-lua',
-  \ 'coc-prettier',
   \ 'coc-project',
   \ 'coc-react-refactor',
   \ 'coc-rust-analyzer',
