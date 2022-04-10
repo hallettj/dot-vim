@@ -66,7 +66,7 @@ endfunc
 
 " navigation
 nnoremap <C-p> <cmd>Telescope find_files<cr>
-nnoremap <silent> <leader>b :<C-u>CocList buffers<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
 let g:which_key_map.b = 'list buffers'
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
