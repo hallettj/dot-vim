@@ -249,8 +249,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " described in the popupmenu-completion documentation) when it should be in
 " state 3. In state 2 <Enter> inserts the currently selected match instead of
 " inserting a line break.
-call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
-imap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Plug>SmartinputCR"
+"call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
+"imap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Plug>SmartinputCR"
+"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " snippets
 let g:coc_snippet_next = '<c-j>'
