@@ -51,6 +51,12 @@
       "args": [],
       "command": "efm-langserver"
     },
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"]
+    },
     "scala": {
       "command": "node",
       "args": ["/home/jesse/bin/sbt-server-stdio.js"],
