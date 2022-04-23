@@ -32,3 +32,10 @@ tnoremap <silent> <C-h> <C-\><C-n>:call <sid>navigateFromTerminal('left')<cr>
 tnoremap <silent> <C-j> <C-\><C-n>:call <sid>navigateFromTerminal('down')<cr>
 tnoremap <silent> <C-l> <C-\><C-n>:call <sid>navigateFromTerminal('right')<cr>
 tnoremap <silent> <C-k> <C-\><C-n>:call <sid>navigateFromTerminal('up')<cr>
+
+" And because we have vim-tmux-navigator configured not to install keybindings,
+" let's define the normal mode bindings here.
+nnoremap <silent> <C-h> <cmd>TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> <cmd>TmuxNavigateDown<cr>
+nnoremap <silent> <C-l> <cmd>TmuxNavigateRight<cr>
+nnoremap <silent> <C-k> <cmd>TmuxNavigateUp<cr>
