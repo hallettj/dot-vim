@@ -11,7 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute 'packadd packer.nvim'
 end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -22,13 +22,14 @@ return require('packer').startup(function()
   use 'kristijanhusak/vim-dirvish-git'
   use {'simnalamburt/vim-mundo', cmd = 'MundoToggle'} -- UI for navigating undo history
   use {'andymass/vim-tradewinds', keys = {'<C-w>gh', '<C-w>gl'}}
-  use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
   use {
-    'fannheyward/telescope-coc.nvim',
-    config = function()
-      require('telescope').load_extension('coc')
-    end
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+      {'fannheyward/telescope-coc.nvim'}
+    },
+    config = function() require('config/telescope') end
   }
   use {'lotabout/skim', run = './install'} -- Install skim for zsh integration
 
@@ -42,11 +43,19 @@ return require('packer').startup(function()
 
   -- Movements
   use 'machakann/vim-sandwich' -- `ds`, `cs`, `ys`, and `S` commands manage delimiters
-  use 'ggandor/lightspeed.nvim' -- `s`/`S` command jumps to occurrence of a pair of characters
+  use {
+    -- `s`/`S` command jumps to occurrence of a pair of characters
+    'ggandor/lightspeed.nvim',
+    config = function() require('config/lightspeed') end
+  }
   use 'wellle/targets.vim' -- more options for movements like `i` and `a`
 
   -- Language support
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function() require('config/treesitter') end
+  }
   use {'DeltaWhy/vim-mcfunction', ft = 'mcfunction'}
   use {'vmchale/dhall-vim', ft = 'dhall'}
 
@@ -71,52 +80,32 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
-  use {'sindrets/diffview.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  use {
+    'sindrets/diffview.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function() require('config/diffview') end
+  }
   use {
     'lewis6991/gitsigns.nvim',
     requires = 'nvim-lua/plenary.nvim',
-    config = function()
-      require('gitsigns').setup {
-        -- This is copied-and-pasted from the gitsigns readme using the old nvim
-        -- 0.6-compatible neovim lua API. The readme has an equivalent example
-        -- that uses a newer API that requires neovim 0.7.
-        on_attach = function(bufnr)
-          local function map(mode, lhs, rhs, opts)
-            opts = vim.tbl_extend('force', {noremap = true, silent = true}, opts or {})
-            vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
-          end
-
-          -- Navigation
-          map('n', ']c', "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", {expr=true})
-          map('n', '[c', "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", {expr=true})
-
-          -- Actions
-          map('n', '<leader>hs', ':Gitsigns stage_hunk<CR>')
-          map('v', '<leader>hs', ':Gitsigns stage_hunk<CR>')
-          map('n', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-          map('v', '<leader>hr', ':Gitsigns reset_hunk<CR>')
-          map('n', '<leader>hS', '<cmd>Gitsigns stage_buffer<CR>')
-          map('n', '<leader>hu', '<cmd>Gitsigns undo_stage_hunk<CR>')
-          map('n', '<leader>hR', '<cmd>Gitsigns reset_buffer<CR>')
-          map('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<CR>')
-          map('n', '<leader>hb', '<cmd>lua require"gitsigns".blame_line{full=true}<CR>')
-          map('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>')
-          map('n', '<leader>hd', '<cmd>Gitsigns diffthis<CR>')
-          map('n', '<leader>hD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
-          map('n', '<leader>td', '<cmd>Gitsigns toggle_deleted<CR>')
-
-          -- Text object
-          map('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-          map('x', 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-        end,
-      }
-    end,
+    config = function() require('config/gitsigns') end
   }
 
   -- Visuals
-  use 'ishan9299/nvim-solarized-lua'
-  use {'mcchrish/zenbones.nvim', requires = 'rktjmp/lush.nvim'}
-  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  use {
+    'ishan9299/nvim-solarized-lua',
+    config = function() require('config/solarized') end
+  }
+  use {
+    'mcchrish/zenbones.nvim',
+    requires = 'rktjmp/lush.nvim',
+    config = function() require('config/zenbones') end
+  }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    config = function() require('config/lualine') end
+  }
   use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked
 
   -- Tmux integration
