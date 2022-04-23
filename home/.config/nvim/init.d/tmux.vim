@@ -1,4 +1,5 @@
 let g:tmux_navigator_disable_when_zoomed = 1
+let g:tmux_navigator_no_mappings = 1
 
 " Tmux functions copied from christoomey/vim-tmux-navigator
 function! s:TmuxOrTmateExecutable()
