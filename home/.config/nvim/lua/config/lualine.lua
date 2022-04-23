@@ -25,13 +25,22 @@ local function coc_status()
   return vim.g.coc_status:gsub('^%s+', ''):gsub('^Prettier%s+', '')
 end
 
+-- Termtoggle provides multiple toggleable terminals that are accessed by
+-- number. For example, `:2ToggleTerm` brings up terminal number 2.
+local function termtoggle_number()
+  return vim.b.toggle_number or ''
+end
+
 require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {
       {'branch', fmt = truncate(12)},
       'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {
+      termtoggle_number,
+      'filename',
+    },
     lualine_x = {
       {'filetype', fmt = format_filetype},
       coc_status,

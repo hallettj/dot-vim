@@ -4,8 +4,6 @@ if !1 | finish | endif
 " set vim home directory as vimrc is sourced
 let $VIMFILES=fnamemodify(globpath(&rtp, 'bundle'), ":h")
 
-set shell=/bin/bash
-
 " Install plugins by requiring ~/.config/nivm/lua/plugins.lua
 lua require('plugins')
 augroup CompilePluginLazyLoaders

@@ -198,10 +198,6 @@ nnoremap <leader>u :MundoToggle<cr>
 " IDE features
 nmap <leader><space> <cmd>CocCommand editor.action.formatDocument<CR>
 
-nnoremap <F4> :ActivateTerminalPane<CR>
-inoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
-tnoremap <F4> <C-\><C-n>:ActivateTerminalPane<CR>
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

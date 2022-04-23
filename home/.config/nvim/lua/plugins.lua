@@ -72,6 +72,7 @@ return require('packer').startup(function(use)
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'nvim-treesitter/playground'
+  use {'akinsho/toggleterm.nvim', config = function() require('config/toggleterm') end}
 
   -- Writing assistance
   use 'kana/vim-smartinput' -- automatically closes delimiters as they are typed
