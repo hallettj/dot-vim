@@ -6,7 +6,7 @@ local module_filename = string.match(info.source, '/([^/]*)$')
 
 -- Apparently the name of this module is given as an argument when it is
 -- required, and apparently we get that argument with three dots.
-local module_name = ... or "config"
+local module_name = ... or "init.d"
 
 local function scandir(directory)
   local i, t, popen = 0, {}, io.popen
@@ -29,3 +29,4 @@ for i, filename in ipairs(config_files) do
   local config_module = string.match(filename, "(.+).lua$")
   require(module_name.."."..config_module)
 end
+

@@ -60,8 +60,8 @@ if !has('gui_running')
   let loaded_matchparen = 1  " Prevents DoMatchParen plugin from loading.
 endif
 
-" Load configuration modules from ~/.config/nvim/lua/config/*.lua
-lua require('config')
+" Load configuration modules from ~/.config/nvim/lua/init_d/*.lua
+lua require('init_d')
 
 " Load vim configuration modules from ~/.config/nvim/init.d/*
 runtime! init.d/*.vim
