@@ -1,4 +1,9 @@
 require('gitsigns').setup {
+  signs = {
+    add    = {text = '│'},
+    change = {text = '│'},
+  },
+
   -- Key bindings copied directly from the gitsigns readme
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns

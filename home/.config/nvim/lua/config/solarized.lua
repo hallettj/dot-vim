@@ -1,4 +1,3 @@
-local augroup = require('autocmd-lua').augroup
 local cmd = vim.cmd
 local highlight = require('solarized.utils').highlighter
 
@@ -84,17 +83,21 @@ local function my_solarized_customizations()
     cmd('highlight! link Coc'..diagnostic_coc_labels[level]..'VirtualText DiagnosticVirtualText'..level)
   end
 
-  highlight('DiffAdd', {fg=c.green})
-  highlight('DiffChange', {fg=c.orange})
-  highlight('DiffDelete', {fg=c.red})
+  highlight('DiffAdd', {fg=c.green, bg=c.none})
+  highlight('DiffChange', {fg=c.orange, bg=c.none})
+  highlight('DiffDelete', {fg=c.red, bg=c.none})
   cmd('highlight! link GitSignsAdd DiffAdd')
   cmd('highlight! link GitSignsChange DiffChange')
   cmd('highlight! link GitSignsDelete DiffDelete')
 end
 
-augroup {
-  group = 'my_solarized_customizations',
-  autocmds = {
-    { event = 'ColorScheme', pattern = 'solarized', cmd = my_solarized_customizations },
-  },
-}
+vim.api.nvim_create_augroup('MySolarizedCustomizations', {clear=true})
+vim.api.nvim_create_autocmd('ColorScheme', {
+  group = 'MySolarizedCustomizations',
+  pattern = 'solarized',
+  callback = my_solarized_customizations,
+})
+
+vim.o.termguicolors = true
+vim.o.background = 'dark'
+cmd('colorscheme solarized')

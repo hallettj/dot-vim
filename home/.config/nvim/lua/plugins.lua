@@ -114,9 +114,6 @@ return require('packer').startup(function(use)
   use 'hallettj/tmux-config'
   use 'tpope/vim-tbone'
 
-  -- Lua support
-  use 'jakelinnzy/autocmd-lua'
-
   use '907th/vim-auto-save'
   use 'liuchengxu/vim-which-key'
 end)
