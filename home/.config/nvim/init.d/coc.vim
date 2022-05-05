@@ -2,7 +2,6 @@ let g:coc_global_extensions = [
   \ 'coc-calc',
   \ 'coc-css',
   \ 'coc-eslint',
-  \ 'coc-diagnostic',
   \ 'coc-flow',
   \ 'coc-html',
   \ 'coc-json',

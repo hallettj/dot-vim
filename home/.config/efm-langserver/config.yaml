@@ -1,4 +1,6 @@
 version: 2
+#log-file: /home/jesse/tmp/efm.log
+#log-level: 1
 root-markers:
   - .git/
   - _darcs/
@@ -14,6 +16,22 @@ tools:
       - dprint.json
       - .dprint.json
     require-marker: true
+
+  eslint-formatter: &eslint-formatter
+    format-stdin: true
+    format-command: "eslint --fix-dry-run --format=json --stdin --stdin-filename=${INPUT} | jq --raw-output '.[0].output'"
+    root-markers:
+      - .eslintrc.js
+      - .eslintrc.cjs
+      - .eslintrc.yaml
+      - .eslintrc.yml
+      - .eslintrc.json
+    require-marker: true
+
+  hadolint: &hadolint
+    lint-command: "hadolint --no-color"
+    lint-formats:
+      - "%f:%l %m"
 
   lua-format: &lua-format
     format-sdin: true
@@ -39,9 +57,30 @@ tools:
     format-stdin: true
     format-command: "rustfmt"
 
+  shellcheck: &shellcheck
+    lint-command: "shellcheck -f gcc -x"
+    lint-source: "shellcheck"
+    lint-formats:
+      - "%f:%l:%c: %trror: %m"
+      - "%f:%l:%c: %tarning: %m"
+      - "%f:%l:%c: %tote: %m"
+
+  shfmt: &shfmt
+    format-command: "shfmt -ci -s -bn"
+    format-stdin: true
+
 languages:
-  javascript:
+  css:
+    - <<: *prettier
+
+  dockerfile:
     - <<: *dprint
+    - <<: *hadolint
+
+  graphql:
+    - <<: *prettier
+
+  html:
     - <<: *prettier
 
   json:
@@ -51,12 +90,29 @@ languages:
   lua:
     - <<: *lua-format
 
-  typescript:
-    - <<: *dprint
+  markdown:
     - <<: *prettier
 
   rust:
     - <<: *rustfmt
+
+  sh:
+    - <<: *shellcheck
+    - <<: *shfmt
+
+  toml:
+    - <<: *dprint
+
+  typescript: &typescript
+    - <<: *dprint
+    - <<: *prettier
+    # TODO: I only want eslint formatter to run if the other formatters are not
+    # configured
+    #- <<: *eslint-formatter
+
+  typescriptreact: *typescript
+  javascript: *typescript
+  javascriptreact: *typescript
 
   yaml:
     - <<: *prettier

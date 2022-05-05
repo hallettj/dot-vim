@@ -9,11 +9,9 @@
   "diagnostic.enableMessage": "jump",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck"
-  },
   "eslint.format.enable": false,
   "javascript.format.enabled": false,
+  "json.format.enable": false,
   "Lua.diagnostics.globals": [
     "use",
     "vim"
@@ -57,12 +55,19 @@
     },
     "efm": {
       "filetypes": [
+        "css",
+        "dockerfile",
+        "graphql",
+        "html",
         "javascript",
+        "javascriptreact",
         "json",
         "lua",
         "markdown",
+        "sh",
         "toml",
         "typescript",
+        "typescriptreact",
         "yaml"
       ],
       "args": [],
