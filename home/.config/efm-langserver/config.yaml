@@ -9,7 +9,7 @@ root-markers:
 tools:
   dprint: &dprint
     format-stdin: true
-    format-command: 'dprint fmt --stdin ${INPUT}'
+    format-command: "dprint fmt --stdin ${INPUT}"
     root-markers:
       - dprint.json
       - .dprint.json
@@ -17,11 +17,11 @@ tools:
 
   lua-format: &lua-format
     format-sdin: true
-    format-command: 'lua-format -i'
+    format-command: "lua-format"
 
   prettier: &prettier
     format-stdin: true
-    format-command: 'prettier --stdin-filepath ${INPUT}'
+    format-command: "prettier --stdin-filepath ${INPUT}"
     root-markers:
       - .prettierrc
       - .prettierrc.json
@@ -30,24 +30,33 @@ tools:
       - .prettierrc.json5
       - .prettierrc.js
       - .prettierrc.cjs
-      - .prettierrc.config.js
-      - .prettierrc.config.cjs
       - .prettierrc.toml
+      - prettierrc.config.js
+      - prettierrc.config.cjs
     require-marker: true
 
   rustfmt: &rustfmt
     format-stdin: true
-    format-command: 'rustfmt'
+    format-command: "rustfmt"
 
 languages:
   javascript:
     - <<: *dprint
+    - <<: *prettier
+
+  json:
+    - <<: *dprint
+    - <<: *prettier
 
   lua:
     - <<: *lua-format
 
   typescript:
     - <<: *dprint
+    - <<: *prettier
 
   rust:
     - <<: *rustfmt
+
+  yaml:
+    - <<: *prettier

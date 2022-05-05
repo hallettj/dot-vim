@@ -1,5 +1,7 @@
 {
-  "coc.source.emoji.filetypes": ["markdown"],
+  "coc.source.emoji.filetypes": [
+    "markdown"
+  ],
   "codeLens.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
@@ -10,7 +12,12 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
-  "Lua.diagnostics.globals": ["use", "vim"],
+  "eslint.format.enable": false,
+  "javascript.format.enabled": false,
+  "Lua.diagnostics.globals": [
+    "use",
+    "vim"
+  ],
   "suggest.noselect": true,
   "suggest.enablePreselect": true,
   "suggest.completionItemKindLabels": {
@@ -44,26 +51,53 @@
   "languageserver": {
     "dhall": {
       "command": "dhall-lsp-server",
-      "filetypes": ["dhall"]
+      "filetypes": [
+        "dhall"
+      ]
     },
     "efm": {
-      "filetypes": ["lua", "typescript"],
+      "filetypes": [
+        "javascript",
+        "json",
+        "lua",
+        "markdown",
+        "toml",
+        "typescript",
+        "yaml"
+      ],
       "args": [],
       "command": "efm-langserver"
     },
     "haskell": {
       "command": "haskell-language-server-wrapper",
-      "args": ["--lsp"],
-      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
-      "filetypes": ["haskell", "lhaskell"]
+      "args": [
+        "--lsp"
+      ],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": [
+        "haskell",
+        "lhaskell"
+      ]
     },
     "scala": {
       "command": "node",
-      "args": ["/home/jesse/bin/sbt-server-stdio.js"],
-      "filetypes": ["scala"],
+      "args": [
+        "/home/jesse/bin/sbt-server-stdio.js"
+      ],
+      "filetypes": [
+        "scala"
+      ],
       "initializationOptions": {},
       "settings": {},
-      "rootPatterns": ["build.sbt"]
+      "rootPatterns": [
+        "build.sbt"
+      ]
     }
   },
   "list.insertMappings": {
@@ -75,11 +109,15 @@
     "v": "action:vsplit"
   },
   "list.source.files.command": "fdfind",
-  "list.source.files.args": ["--type", "f"],
+  "list.source.files.args": [
+    "--type",
+    "f"
+  ],
   "rust-analyzer.lens.implementations": true,
   "rust-analyzer.inlayHints.enable": true,
   "tsserver.enableJavascript": true,
   "typescript.autoClosingTags": true,
+  "typescript.format.enabled": false,
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.format.semicolons": "remove",
