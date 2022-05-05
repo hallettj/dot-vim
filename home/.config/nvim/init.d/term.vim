@@ -3,6 +3,7 @@ tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " Double-tap escape to enter normal mode in a terminal
 tnoremap <silent> <ESC><ESC> <C-\><C-n>
+tnoremap <silent> <C-b> <C-\><C-n>
 
 augroup MyNeoterm
   autocmd!
