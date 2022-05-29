@@ -70,6 +70,7 @@ nnoremap <leader>b <cmd>Telescope buffers<cr>
 let g:which_key_map.b = 'list buffers'
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fp <cmd>lua require('find_directories').find_projects{}<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>

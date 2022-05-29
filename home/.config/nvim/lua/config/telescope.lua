@@ -1,3 +1,5 @@
-require('telescope').setup {}
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('coc')
+local telescope = require('telescope')
+
+telescope.setup {}
+telescope.load_extension('fzf')
+telescope.load_extension('coc')
