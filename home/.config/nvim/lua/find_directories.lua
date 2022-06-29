@@ -61,8 +61,8 @@ exports.find_directories = function(opts)
                 actions.close(prompt_bufnr)
                 local dir = from_entry.path(entry)
                 local expanded_dir = vim.fn.expand((opts.cwd and (opts.cwd .. '/') or '') .. dir)
-                vim.cmd('lcd ' .. expanded_dir)
-                print('changed window directory to ' .. expanded_dir)
+                vim.cmd('cd ' .. expanded_dir)
+                print('changed directory to ' .. expanded_dir)
             end)
             return true
         end
