@@ -73,6 +73,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-refactor'
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'nvim-treesitter/playground'
+  use {'ziontee113/syntax-tree-surfer', config = function() require('config/tree-surfer') end}
   use {'akinsho/toggleterm.nvim', config = function() require('config/toggleterm') end}
 
   -- Writing assistance
