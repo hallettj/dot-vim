@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
   -- IDE features
   use {'neoclide/coc.nvim', branch = 'release'}
   use 'nvim-treesitter/nvim-treesitter-refactor'
+  use 'nvim-treesitter/nvim-treesitter-context'
   use 'nvim-treesitter/playground'
   use {'akinsho/toggleterm.nvim', config = function() require('config/toggleterm') end}
 
