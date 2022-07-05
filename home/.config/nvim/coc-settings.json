@@ -79,11 +79,11 @@
         "--lsp"
       ],
       "rootPatterns": [
+        "hie.yaml",
         "*.cabal",
         "stack.yaml",
         "cabal.project",
-        "package.yaml",
-        "hie.yaml"
+        "package.yaml"
       ],
       "filetypes": [
         "haskell",
