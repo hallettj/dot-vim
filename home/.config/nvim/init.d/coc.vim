@@ -16,7 +16,6 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ ]
 
-set cmdheight=2
 set completeopt=noinsert,noselect,menuone
 set signcolumn=yes
 
