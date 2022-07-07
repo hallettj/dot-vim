@@ -1,8 +1,7 @@
 " To simulate |i_CTRL-R| in terminal-mode: >
 tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
-" Double-tap escape to enter normal mode in a terminal
-tnoremap <silent> <ESC><ESC> <C-\><C-n>
+" Key binding to enter normal mode in a terminal
 tnoremap <silent> <C-b> <C-\><C-n>
 
 augroup MyNeoterm
