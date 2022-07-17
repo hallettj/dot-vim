@@ -8,6 +8,12 @@ set noswapfile
 set nobackup
 set writebackup
 
+" Keep backups for writebackup in a central location
+set backupdir=~/.local/share/nvim/backup//
+
+" This isn't used since noswapfile is set, but it's here for symmetry
+set directory=~/.local/share/nvim/swap//
+
 " Reduce time to, e.g., CursorHold event
 set updatetime=300
 

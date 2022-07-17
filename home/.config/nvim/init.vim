@@ -41,10 +41,6 @@ set conceallevel=0 concealcursor=c
 " Highlights the given column.
 set colorcolumn=80
 
-" Store temp files in a central location
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
 if has('gui_running')
   " Remove menu bar, toolbar, and scrollbars
   set guioptions+=mTLlRrb
