@@ -37,9 +37,9 @@ vim.keymap.set("x", "<A-k>", '<cmd>STSSwapPrevVisual<cr>', opts)
 
 -- Targeted Jump with virtual_text
 local sts = require("syntax-tree-surfer")
-vim.keymap.set("n", "gv", function() -- only jump to variable_declarations
-    sts.targeted_jump({"variable_declaration"})
-end, opts)
+-- vim.keymap.set("n", "gv", function() -- only jump to variable_declarations
+--     sts.targeted_jump({"variable_declaration"})
+-- end, opts)
 vim.keymap.set("n", "gfu", function() -- only jump to functions
     sts.targeted_jump({"function", "arrrow_function", "function_definition"})
     -- > In this example, the Lua language schema uses "function",
