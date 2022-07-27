@@ -96,6 +96,14 @@ return require('packer').startup(function(use)
     requires = 'nvim-lua/plenary.nvim',
     config = function() require('config/gitsigns') end
   }
+  use {
+    'ldelossa/gh.nvim',
+    requires = {
+      {'ldelossa/litee.nvim'},
+      {'nvim-telescope/telescope.nvim', opt = true},
+    },
+    config = function() require('config/gh') end,
+  }
 
   -- Visuals
   use {
