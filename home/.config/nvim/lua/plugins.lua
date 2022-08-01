@@ -80,10 +80,7 @@ return require('packer').startup(function(use)
   use 'kana/vim-smartinput' -- automatically closes delimiters as they are typed
 
   -- git integration
-  use {
-    'tpope/vim-fugitive',
-    config = function() require('config/fugitive') end
-  }
+  use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'junegunn/gv.vim'
   use {
