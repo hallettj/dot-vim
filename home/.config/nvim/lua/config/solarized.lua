@@ -100,4 +100,3 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 
 vim.o.termguicolors = true
 vim.o.background = 'dark'
-cmd('colorscheme solarized')

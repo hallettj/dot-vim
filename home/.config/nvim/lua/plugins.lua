@@ -104,6 +104,11 @@ return require('packer').startup(function(use)
 
   -- Visuals
   use {
+    'marko-cerovac/material.nvim',
+    after = {'lualine.nvim'},
+    config = function() require('config/colorscheme-material') end
+  }
+  use {
     'ishan9299/nvim-solarized-lua',
     config = function() require('config/solarized') end
   }

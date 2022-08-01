@@ -57,23 +57,3 @@ require('lualine').setup {
     lualine_z = {}
   },
 }
-
--- Lualine does not automatically select its solarized themes when I set the
--- theme to 'auto'.
-vim.api.nvim_create_augroup('SetLualineTheme', {clear=true})
-vim.api.nvim_create_autocmd('ColorScheme', {
-  group = 'SetLualineTheme',
-  pattern = '*',
-  callback = function(args)
-    local theme = 'auto'
-    if args.match == 'solarized' and vim.o.background == 'dark' then
-      theme = 'solarized_dark'
-    end
-    if args.match == 'solarized' and vim.o.background == 'light' then
-      theme = 'solarized_light'
-    end
-    require('lualine').setup {
-      options = { theme = theme }
-    }
-  end,
-})
