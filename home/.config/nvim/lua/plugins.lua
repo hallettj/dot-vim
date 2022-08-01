@@ -130,5 +130,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-tbone'
 
   use '907th/vim-auto-save'
-  use 'liuchengxu/vim-which-key'
+  use {
+    'folke/which-key.nvim',
+    config = function() require('config/which-key') end
+  }
 end)
