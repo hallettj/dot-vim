@@ -226,10 +226,10 @@ endfunction
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -237,19 +237,15 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> for trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " Pressing enter closes popupmenu if it is open, and inserts a line break.
 " Defer to vim-smartinput when the popupmenu is not visible.
-"
-" It seems that coc.nvim incorrectly puts the popupmenu into state 2 (as
-" described in the popupmenu-completion documentation) when it should be in
-" state 3. In state 2 <Enter> inserts the currently selected match instead of
-" inserting a line break.
-"call smartinput#map_to_trigger('i', '<Plug>SmartinputCR', '<Enter>', '<CR>')
-"imap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<Plug>SmartinputCR"
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " snippets
 let g:coc_snippet_next = '<c-j>'
