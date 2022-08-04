@@ -30,7 +30,6 @@ return require('packer').startup(function(use)
         requires = {
             { 'nvim-lua/plenary.nvim' },
             { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-            { 'fannheyward/telescope-coc.nvim' }
         },
         config = function() require('config/telescope') end
     }
@@ -63,7 +62,32 @@ return require('packer').startup(function(use)
     use 'kana/vim-niceblock' -- makes `I` and `A` work in line-wise visual mode
 
     -- IDE features
-    use { 'neoclide/coc.nvim', branch = 'release' }
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-nvim-lua' },
+
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+
+            -- Support for specific languages
+            { 'simrat39/rust-tools.nvim' },
+        },
+        config = function() require('config/lsp') end
+    }
+    use { 'j-hui/fidget.nvim', config = function() require('fidget').setup {} end } -- show progress messages from language servers
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
@@ -82,6 +106,15 @@ return require('packer').startup(function(use)
     }
 
     -- Language support
+    use {
+        'simrat39/rust-tools.nvim',
+        requires = {
+            { 'neovim/nvim-lspconfig' },
+            { 'nvim-lua/plenary.nvim' },
+            { 'mfussenegger/nvim-dap' },
+        },
+        -- Configured in config/lsp.lua
+    }
     use { 'DeltaWhy/vim-mcfunction', ft = 'mcfunction' }
     use { 'vmchale/dhall-vim', ft = 'dhall' }
 
