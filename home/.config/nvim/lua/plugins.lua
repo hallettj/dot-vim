@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'tpope/vim-sensible'
+    use 'tpope/vim-sleuth'
 
     -- Navigation
     use 'justinmk/vim-dirvish' -- file browser to replace netrw
