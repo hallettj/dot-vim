@@ -70,6 +70,7 @@ local fmt = function(cmd) return function(str) return cmd:format(str) end end
 local lsp = fmt('<cmd>lua vim.lsp.%s<cr>')
 local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<cr>')
 local telescope = fmt('<cmd>Telescope %s<cr>')
+local trouble = fmt('<cmd>Trouble %s<cr>')
 
 wk.register({
     K = { lsp 'buf.hover()', 'show documentation for symbol under cursor' },
@@ -77,12 +78,17 @@ wk.register({
     gD = { lsp 'buf.declaration()', 'go to declaration' },
     gy = { telescope 'lsp_type_definitions', 'go to type' },
     gi = { telescope 'lsp_implementations', 'go to implementation' },
-    gr = { telescope 'lsp_references', 'list references' },
+    gr = { telescope 'lsp_references', 'find references' },
+    gR = { trouble 'lsp_references', 'list references' },
     gl = { diagnostic 'open_float()', 'show diagnostic info' },
     ['[d'] = { diagnostic 'goto_prev()', 'previous diagnostic' },
     [']d'] = { diagnostic 'goto_next()', 'next diagnostic' },
     ['[D'] = { diagnostic 'goto_prev({ severity = { min = vim.diagnostic.severity.ERROR } })', 'previous error' },
     [']D'] = { diagnostic 'goto_next({ severity = { min = vim.diagnostic.severity.ERROR } })', 'next error' },
+    ['[x'] = { function() require('trouble').previous({ skip_groups = true, jump = true }) end,
+        'previous item from Trouble' },
+    [']x'] = { function() require('trouble').next({ skip_groups = true, jump = true }) end,
+        'next item from Trouble' },
     ['<leader><space>'] = { '<cmd>LspZeroFormat<cr>', 'format document' },
     ['<leader>u'] = { '<cmd>MundoToggle<tr>', 'toggle Mundo' },
 })
@@ -107,6 +113,16 @@ wk.register({
     d = { telescope 'diagnostics bufnr=0', 'diagnostics for buffer' },
     D = { telescope 'diagnostics', 'diagnostics for all buffers' },
 }, { prefix = '<leader>l' })
+
+wk.register({
+    name = '+loclist',
+    x = { trouble '', 'diagnostics (same mode as last used)' },
+    w = { trouble 'workspace_diagnostics', 'workspace diagnostics ' },
+    d = { trouble 'document_diagnostics', 'document diagnostics' },
+    l = { trouble 'loclists', 'location list' },
+    q = { trouble 'quickfix', 'quickfix list' },
+    c = { '<cmd>TroubleClose<cr>', 'close Trouble' },
+}, { prefix = '<leader>x', silent = true })
 
 -- wk.register({
 --     name = "+CocList",
