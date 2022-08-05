@@ -87,7 +87,7 @@ return require('packer').startup(function(use)
         },
         config = function() require('config/lsp') end
     }
-    use { 'j-hui/fidget.nvim', config = function() require('fidget').setup {} end } -- show progress messages from language servers
+    use { 'j-hui/fidget.nvim', config = function() require('config/fidget') end } -- show progress messages from language servers
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
