@@ -35,6 +35,8 @@ return require('packer').startup(function(use)
         },
         config = function() require('config/telescope') end,
     }
+    -- Show input prompts in floating window; make selections with Telescope
+    use { 'stevearc/dressing.nvim', config = function() require('config/dressing') end }
     use {
         'folke/trouble.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
