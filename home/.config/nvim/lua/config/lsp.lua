@@ -19,6 +19,13 @@ local rust_lsp = lsp.build_options('rust_analyzer', {})
 
 lsp.setup()
 
--- Language servers that are configured specially need to be started explicitly.
+-- Overide lsp-zero's virtual_text setting.
+vim.diagnostic.config {
+    virtual_text = true,
+}
+
+-- Language servers that are excluded from automatic startup by calling
+-- `build_options` need to be started explicitly.
+
 lspconfig.hls.setup(haskell_lsp)
 require('rust-tools').setup({ server = rust_lsp })
