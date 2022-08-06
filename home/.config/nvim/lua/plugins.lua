@@ -164,6 +164,7 @@ return require('packer').startup(function(use)
         'ishan9299/nvim-solarized-lua',
         config = function() require('config/solarized') end
     }
+    use 'folke/tokyonight.nvim'
     use {
         'mcchrish/zenbones.nvim',
         requires = 'rktjmp/lush.nvim',

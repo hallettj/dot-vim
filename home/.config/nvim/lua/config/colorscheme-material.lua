@@ -3,7 +3,8 @@ require('material').setup({
     popup_menu = true,
   },
   contrast_filetypes = {
-    "terminal",
+    'terminal',
+    'toggleterm',
   },
   italics = {
     comments = true,
@@ -12,8 +13,5 @@ require('material').setup({
     strings = false,
     variables = false,
   },
-  lualine_style = "default", -- values are "default" or "stealth"
+  lualine_style = 'default', -- values are "default" or "stealth"
 })
-
--- Set colorscheme to material by default
-vim.cmd('colorscheme material')
