@@ -92,7 +92,15 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' },
 
             -- Support for specific languages
-            { 'simrat39/rust-tools.nvim' },
+            {
+                'simrat39/rust-tools.nvim',
+                branch = 'modularize_and_inlay_rewrite', -- CodeLLDB v1.7 requires modularize_and_inlay_rewrite branch
+                requires = {
+                    { 'neovim/nvim-lspconfig' },
+                    { 'nvim-lua/plenary.nvim' },
+                    { 'mfussenegger/nvim-dap' },
+                },
+            },
         },
         config = function() require('config/lsp') end
     }
@@ -114,16 +122,10 @@ return require('packer').startup(function(use)
         config = function() require('config/toggleterm') end
     }
 
+    -- Debugging
+    use { 'mfussenegger/nvim-dap' }
+
     -- Language support
-    use {
-        'simrat39/rust-tools.nvim',
-        requires = {
-            { 'neovim/nvim-lspconfig' },
-            { 'nvim-lua/plenary.nvim' },
-            { 'mfussenegger/nvim-dap' },
-        },
-        -- Configured in config/lsp.lua
-    }
     use { 'DeltaWhy/vim-mcfunction', ft = 'mcfunction' }
     use { 'vmchale/dhall-vim', ft = 'dhall' }
 
