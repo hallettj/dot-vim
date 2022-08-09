@@ -106,6 +106,11 @@ return require('packer').startup(function(use)
     }
     use { 'j-hui/fidget.nvim', config = function() require('config/fidget') end } -- show progress messages from language servers
     use {
+        'lvimuser/lsp-inlayhints.nvim',
+        event = vim.fn.has('nvim-0.8') == 1 and 'LspAttach' or nil,
+        config = function() require('config/lsp-inlayhints') end,
+    }
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         config = function() require('config/treesitter') end

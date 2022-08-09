@@ -19,6 +19,25 @@ local haskell_lsp = lsp.build_options('hls', {})
 -- lsp-zero.
 local rust_lsp = lsp.build_options('rust_analyzer', {})
 
+-- Configuration to make lsp-inlayhints.nvim work with TypeScript
+local tsserver_config = {
+    inlayHints = {
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+    }
+}
+lsp.configure('tsserver', {
+    settings = {
+        typescript = tsserver_config,
+        javascript = tsserver_config,
+    },
+})
+
 -- Sets all of the LSP servers running.
 lsp.setup()
 
@@ -39,6 +58,9 @@ local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 require('rust-tools').setup({
     server = rust_lsp,
+    tools = {
+        autoSetHints = false, -- We're getting hints from lsp-inlayhints instead
+    },
     dap = {
         -- TODO: Ideally we would get dap adapter configuration from the
         -- `get_codelldb_adapter` function. But there seems to be some issue
