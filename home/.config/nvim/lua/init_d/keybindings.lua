@@ -89,7 +89,12 @@ wk.register({
         'previous item from Trouble' },
     [']x'] = { function() require('trouble').next({ skip_groups = true, jump = true }) end,
         'next item from Trouble' },
-    ['<leader><space>'] = { '<cmd>LspZeroFormat<cr>', 'format document' },
+    ['<leader><space>'] = {
+        vim.fn.has('nvim-0.8') == 1
+            and function() vim.lsp.buf.format({ async = true }) end
+            or '<cmd>LspZeroFormat<cr>',
+        'format document'
+    },
     ['<leader>u'] = { '<cmd>MundoToggle<tr>', 'toggle Mundo' },
 })
 
