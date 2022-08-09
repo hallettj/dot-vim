@@ -1,5 +1,5 @@
 if get(g:, "neovide", v:false)
-  set guifont=Victor\ Mono\ Medium:h10
+  set guifont=Cartograph\ CF:h10
   let g:neovide_refresh_rate = 72
   let g:neovide_remember_window_size = v:false
   let g:neovide_remember_window_position = v:false
