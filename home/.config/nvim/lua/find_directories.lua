@@ -21,7 +21,7 @@ local exports = {}
 exports.find_directories = function(opts)
     opts = opts or {}
 
-    local search_dirs = {"projects", ".config"}
+    local search_dirs = opts.search_dirs
     local exclude = map(opts.exclude or {},
                         function(pattern) return "--exclude=" .. pattern end)
     local fd_args = {
@@ -73,7 +73,7 @@ exports.find_projects = function(opts)
     exports.find_directories {
         prompt_title = "Find Projects",
         cwd = "~",
-        search_dirs = {"projects", ".config"},
+        search_dirs = {"projects", ".config", ".homesick"},
         exclude = {".git", "node_modules"},
         fd_args = {"--max-depth=2"},
         unpack(opts or {})
