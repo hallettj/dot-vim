@@ -5,6 +5,13 @@ lsp.preset('recommended')
 lsp.set_preferences {
     set_lsp_keymaps = false,
 }
+lsp.setup_nvim_cmp {
+    completion = {
+        -- Include `noselect` to prevent the first completion option from
+        -- getting selected automatically.
+        completeopt = 'menu,menuone,noinsert,noselect'
+    }
+}
 
 -- We want to use the system version of hls. Lsp-zero automatically starts
 -- language servers installed by Mason, but does not automatically start other
