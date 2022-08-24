@@ -18,6 +18,8 @@ if has ('ttyfast')
   set ttyfast
 endif
 
+set signcolumn=yes
+
 " Make searches case-sensitive only when capital letters are included.
 set ignorecase
 set smartcase
