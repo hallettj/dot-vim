@@ -95,22 +95,22 @@ wk.register({
             or '<cmd>LspZeroFormat<cr>',
         'format document'
     },
-    ['<leader>u'] = { '<cmd>MundoToggle<tr>', 'toggle Mundo' },
+    ['<leader>u'] = { '<cmd>MundoToggle<cr>', 'toggle Mundo' },
 })
 
 wk.register({
     name = '+IDE',
-    a = { lsp 'buf.code_action()', 'code actions at cursor or selection' },
+    c = { lsp 'buf.code_action()', 'code actions at cursor or selection' },
     l = { lsp 'codelens.run()', 'codelens command of current line' },
-    q = { lsp 'buf.code_action({ only = "quickfix" })', 'quickfix at cursor or selection' },
+    q = { lsp 'buf.code_action({ only = {"quickfix"} })', 'quickfix at cursor or selection' },
     r = { lsp 'buf.rename()', 'rename' },
-    R = { lsp 'buf.code_action({ only = "refactor" })', 'refactor at cursor or selection' },
+    R = { lsp 'buf.code_action({ only = {"refactor"} })', 'refactor at cursor or selection' },
 }, { prefix = '<leader>c', remap = true })
 wk.register({
     name = '+IDE',
-    a = { lsp 'buf.range_code_action()', 'code actions at cursor or selection' },
-    q = { lsp 'buf.range_code_action({ only = "quickfix" })', 'quickfix for cursor or selection' },
-    R = { lsp 'buf.range_code_action({ only = "refactor" })', 'refactor for cursor or selection' },
+    a = { lsp 'buf.code_action()', 'code actions at cursor or selection' },
+    q = { lsp 'buf.code_action({ only = {"quickfix"} })', 'quickfix for cursor or selection' },
+    R = { lsp 'buf.code_action({ only = {"refactor"} })', 'refactor for cursor or selection' },
 }, { prefix = '<leader>c', mode = 'v' })
 
 wk.register({
@@ -193,10 +193,7 @@ wk.register({
     e = { '<cmd>Gedit<space>', 'open file from history, e.g. :Gedit HEAD^:%' },
     p = { '<cmd>Git push<CR>', 'push' },
     w = { '<cmd>Gwrite<CR>', 'write file and stage' },
-    r = {
-        '<cmd>GRename<space>',
-        'rename file - enter path relative to current file'
-    },
+    r = { ':GRename<space>', 'rename file - enter path relative to current file' },
     R = { '<cmd>Gremove<CR>', 'git rm' }
 }, { prefix = '<leader>g' })
 
