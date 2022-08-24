@@ -17,7 +17,7 @@ if vim.fn.has('nvim-0.8') == 1 then
 
       -- Start lsp-inlayhints to display virtual text hints for function return
       -- types, parameter names, etc.
-      require('lsp-inlayhints').on_attach(bufnr, client)
+      require('lsp-inlayhints').on_attach(client, bufnr)
 
       -- Show code lenses including, for example, imported symbols for blanket
       -- import lines in Haskell modules. This also enables code lens actions.
