@@ -43,7 +43,19 @@ lsp.setup()
 
 -- Overide lsp-zero's virtual_text setting.
 vim.diagnostic.config {
-    virtual_text = true,
+    virtual_text = function()
+        return {
+            format = function(diagnostic)
+                -- Format virtual text for Haskell diagnostic messages
+                -- specially: remove consecutive runs of whitespace, and remove
+                -- the leading bullet.
+                if diagnostic.source == 'typecheck' then
+                    return diagnostic.message:gsub('^• ', ''):gsub('%s+', ' ')
+                end
+                return diagnostic.message
+            end,
+        }
+    end,
 }
 
 -- Language servers that are excluded from automatic startup by calling
