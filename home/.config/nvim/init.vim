@@ -38,9 +38,6 @@ endif
 set listchars=tab:▸\ ,trail:·
 set conceallevel=0 concealcursor=c
 
-" Highlights the given column.
-set colorcolumn=80
-
 if has('gui_running')
   " Remove menu bar, toolbar, and scrollbars
   set guioptions+=mTLlRrb
