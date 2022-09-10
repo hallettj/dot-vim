@@ -76,10 +76,14 @@ local extension_path = vim.env.HOME ..
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 require('rust-tools').setup({
-    server = rust_lsp,
     tools = {
-        autoSetHints = false, -- We're getting hints from lsp-inlayhints instead
+        inlay_hints = {
+            -- Disable inlay hints by default because we get them from
+            -- lsp-inlayhints.
+            auto = false,
+        },
     },
+    server = rust_lsp,
     dap = {
         -- TODO: Ideally we would get dap adapter configuration from the
         -- `get_codelldb_adapter` function. But there seems to be some issue

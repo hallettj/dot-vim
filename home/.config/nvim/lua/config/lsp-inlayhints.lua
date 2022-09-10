@@ -22,6 +22,10 @@ if vim.fn.has('nvim-0.8') == 1 then
       -- Show code lenses including, for example, imported symbols for blanket
       -- import lines in Haskell modules. This also enables code lens actions.
       -- Code lenses don't show up unless the `refresh` function is called.
+      --
+      -- Code lenses are not directly related to inlay hints, and code lenses do
+      -- not use the lsp-inlayhints plugin. But it is convenient to put this
+      -- configuration here.
       if client.server_capabilities.codeLensProvider then
         autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
           group = lsp_augroup,
