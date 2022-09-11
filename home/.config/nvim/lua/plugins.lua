@@ -163,6 +163,19 @@ return require('packer').startup(function(use)
     -- Visuals
     use 'kyazdani42/nvim-web-devicons'
     use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function() require('config/lualine') end
+    }
+    use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked
+
+    -- Color Schemes
+    use {
+        'catppuccin/nvim', as = 'catppuccin',
+        config = function() require('config/colorscheme-catppuccin') end,
+        run = ':CatppuccinCompile',
+    }
+    use {
         'marko-cerovac/material.nvim',
         after = { 'lualine.nvim' },
         config = function() require('config/colorscheme-material') end
@@ -175,14 +188,8 @@ return require('packer').startup(function(use)
     use {
         'mcchrish/zenbones.nvim',
         requires = 'rktjmp/lush.nvim',
-        config = function() require('config/zenbones') end
+        config = function() require('config/colorscheme-zenbones') end
     }
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function() require('config/lualine') end
-    }
-    use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked
 
     -- Tmux integration
     use 'christoomey/vim-tmux-navigator'
