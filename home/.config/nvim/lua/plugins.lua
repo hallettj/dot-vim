@@ -43,6 +43,10 @@ return require('packer').startup(function(use)
         config = function() require('config/trouble') end,
     }
     use { 'lotabout/skim', run = './install' } -- Install skim for zsh integration
+    use {
+        'simrat39/symbols-outline.nvim',
+        config = function() require('config/symbols-outline') end,
+    }
 
     use 'tpope/vim-unimpaired' -- shortcuts for cycling/toggling different things
     use 'tpope/vim-characterize' -- show information about character under cursor

@@ -44,7 +44,8 @@ end
 
 wk.register {
     ['<c-p>'] = { '<cmd>Telescope find_files<cr>', 'find file' },
-    ['<leader>b'] = { '<cmd>Telescope buffers<cr>', 'find buffer' }
+    ['<leader>b'] = { '<cmd>Telescope buffers<cr>', 'find buffer' },
+    ['<leader>s'] = { '<cmd>SymbolsOutline<cr>', 'toggle symbol outline' },
 }
 
 -- Telescope finders
