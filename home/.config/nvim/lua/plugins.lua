@@ -188,7 +188,10 @@ return require('packer').startup(function(use)
         'ishan9299/nvim-solarized-lua',
         config = function() require('config/solarized') end
     }
-    use 'folke/tokyonight.nvim'
+    use {
+        'folke/tokyonight.nvim',
+        config = function() require('config/colorscheme-tokyonight') end,
+    }
     use {
         'mcchrish/zenbones.nvim',
         requires = 'rktjmp/lush.nvim',
