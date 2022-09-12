@@ -7,11 +7,6 @@ require('catppuccin').setup({
     enabled = true,
     path = vim.fn.stdpath('cache') .. '/catppuccin',
   },
-  dim_inactive = {
-    enabled = false,
-    shade = 'dark',
-    percentage = 0.15,
-  },
   styles = {
     comments = { 'italic' },
     conditionals = { 'italic' },
@@ -39,6 +34,21 @@ require('catppuccin').setup({
     telescope = true,
     treesitter = true,
     which_key = true,
+    native_lsp = {
+      enabled = true,
+      virtual_text = {
+        errors = {},
+        hints = {},
+        warnings = {},
+        information = {},
+      },
+      underlines = {
+        errors = { 'underline' },
+        hints = { 'underline' },
+        warnings = { 'underline' },
+        information = { 'underline' },
+      },
+    },
   },
   highlight_overrides = {
     all = {
