@@ -53,13 +53,7 @@ vim.diagnostic.config {
     virtual_text = function()
         return {
             format = function(diagnostic)
-                -- Format virtual text for Haskell diagnostic messages
-                -- specially: remove consecutive runs of whitespace, and remove
-                -- the leading bullet.
-                if diagnostic.source == 'typecheck' then
-                    return diagnostic.message:gsub('^• ', ''):gsub('%s+', ' ')
-                end
-                return diagnostic.message
+                return diagnostic.message:gsub('^• ', ''):gsub('%s+', ' ')
             end,
         }
     end,
