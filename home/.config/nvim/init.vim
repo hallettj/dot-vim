@@ -6,10 +6,6 @@ let $VIMFILES=fnamemodify(globpath(&rtp, 'bundle'), ":h")
 
 " Install plugins by requiring ~/.config/nivm/lua/plugins.lua
 lua require('plugins')
-augroup CompilePluginLazyLoaders
-  autocmd!
-  autocmd BufWritePost plugins.lua PackerCompile
-augroup END
 
 set encoding=utf-8
 set scrolloff=3
