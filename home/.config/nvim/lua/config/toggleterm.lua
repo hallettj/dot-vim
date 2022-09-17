@@ -9,5 +9,5 @@ require("toggleterm").setup {
     persist_size = false,
     open_mapping = [[<c-\>]],
     direction = "vertical",
-    shade_terminals = false,
+    shade_terminals = true,
 }

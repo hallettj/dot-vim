@@ -13,14 +13,17 @@ local ensure_packer = function()
 end
 local packer_bootstrap = ensure_packer()
 
--- Packer needs a compile step after plugin configuration changes. Do this
--- automatically on changes to this file.
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+-- Packer needs to compile lazy loading hooks after plugin configuration changes. Do this
+-- automatically on changes to this file. This also sources changes so that
+-- calls to `:PackerInstall` or `:PackerUpdate` use the latest config.
+vim.api.nvim_create_autocmd('BufWritePost', {
+    group = vim.api.nvim_create_augroup('packer_user_config', { clear = true }),
+    pattern = 'plugins.lua',
+    callback = function()
+        vim.cmd.source '<afile>'
+        vim.cmd.PackerCompile()
+    end,
+})
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -186,7 +189,7 @@ return require('packer').startup(function(use)
     use {
         'catppuccin/nvim', as = 'catppuccin',
         config = function() require('config/colorscheme-catppuccin') end,
-        run = ':CatppuccinCompile',
+        run = function() require('catppuccin').compile() end,
     }
     use {
         'marko-cerovac/material.nvim',
