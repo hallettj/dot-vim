@@ -12,10 +12,10 @@ vim.o.backup = false
 vim.o.writebackup = true
 
 -- Keep backups for writebackup in a central location
-vim.o.backupdir = '~/.local/share/nvim/backup//'
+vim.o.backupdir = vim.fn.stdpath('data') .. '/backup//'
 
 -- This isn't used since noswapfile is set, but it's here for symmetry
-vim.o.directory = '~/.local/share/nvim/swap//'
+vim.o.directory = vim.fn.stdpath('data') .. '/swap//'
 
 -- Reduce time to, e.g., CursorHold event
 vim.o.updatetime = 300
