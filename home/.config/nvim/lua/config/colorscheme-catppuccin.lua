@@ -75,6 +75,7 @@ require('catppuccin').setup({
   -- This whole system might change again before nvim 0.8 is stabilized. See
   -- https://github.com/nvim-treesitter/nvim-treesitter/pull/3365
   custom_highlights = {
+    ['@keyword.operator'] = { style = { 'italic' } },
     -- disable italic for parameters
     ['@parameter'] = { style = {} },
     ['@namespace'] = { style = {} },
