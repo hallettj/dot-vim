@@ -23,17 +23,3 @@
         - neovim
         - python3-neovim
       when: no_sudo is not defined
-
-    - name: create symlink to point Vim to Neovim config directory
-      file: state=link src=~/.config/nvim dest=~/.vim
-
-    - name: create symlink to point Vim to Neovim init script
-      file: state=link src=~/.config/nvim/init.vim dest=~/.vimrc
-
-    - name: install vim-plug, which manages vim plugins
-      run:
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-    - name: install plugins
-      shell: nvim -c "try | PlugInstall | finally | qall! | endtry" -i NONE +q
