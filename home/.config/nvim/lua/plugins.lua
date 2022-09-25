@@ -127,6 +127,11 @@ return require('packer').startup(function(use)
         config = function() require('config/lsp-inlayhints') end,
     }
     use {
+        'jose-elias-alvarez/null-ls.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function() require('config/null-ls') end
+    }
+    use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         config = function() require('config/treesitter') end
