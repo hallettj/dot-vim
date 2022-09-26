@@ -172,16 +172,6 @@ wk.register({
     i = { dap 'toggle()', 'Toggle' },
 }, { prefix = '<leader>d' })
 
--- wk.register({
---     name = "+CocList",
---     a = {":<C-u>CocList diagnostics<cr>"},
---     c = {":<C-u>CocList commands<cr>"},
---     e = {":<C-u>CocList extensions<cr>"},
---     o = {":<C-u>CocList outline<cr>"},
---     p = {":<C-u>CocList project<cr>"},
---     s = {":<C-u>CocList services<cr>"}
--- }, {prefix = "<leader>d", silent = true})
-
 -- tpope/vim-fugitive
 wk.register({
     name = '+git',
@@ -245,18 +235,6 @@ wk.register({
         t = { '<cmd>GHToggleThread<cr>', 'Toggle' }
     }
 }, { prefix = '<leader>gh' })
-
-wk.register({
-    name = '+math',
-    a = {
-        '<plug>(coc-calc-result-append)',
-        'evaluate math expression on line, and append result'
-    },
-    r = {
-        '<plug>(coc-calc-result-replace)',
-        'evaluate math expression on line, and replace with result'
-    }
-}, { prefix = '<leader>m', remap = true })
 
 -- Magic Registers
 wk.register({
