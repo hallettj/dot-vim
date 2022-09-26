@@ -185,17 +185,18 @@ wk.register({
 -- tpope/vim-fugitive
 wk.register({
     name = '+git',
-    s = { '<cmd>vert Git<CR>', 'git status in vert split' },
-    d = { '<cmd>Gvdiffsplit<CR>', 'git diff in vert splits' },
+    s = { '<cmd>vert Git<CR>', 'git status' },
+    d = { '<cmd>Gvdiffsplit<CR>', 'git diff current file' },
+    D = { ':vert Git diff<space>', 'git diff prompting for refs' },
     c = { '<cmd>Git commit<CR>', 'git commit' },
     b = { '<cmd>Git blame<CR>', 'git blame' },
     l = { '<cmd>GV<cr>', 'log graph for branch' },
     L = { '<cmd>GV --all<cr>', 'log graph for all branches' },
-    e = { '<cmd>Gedit<space>', 'open file from history, e.g. :Gedit HEAD^:%' },
+    e = { ':Gedit<space>', 'open file from history, e.g. :Gedit HEAD^:%' },
     p = { '<cmd>Git push<CR>', 'push' },
     w = { '<cmd>Gwrite<CR>', 'write file and stage' },
     r = { ':GRename<space>', 'rename file - enter path relative to current file' },
-    R = { '<cmd>Gremove<CR>', 'git rm' }
+    R = { '<cmd>GDelete<CR>', 'git rm current file and delete buffer' }
 }, { prefix = '<leader>g' })
 
 -- See gitsigns bindings in config/gitsigns.lua for:
