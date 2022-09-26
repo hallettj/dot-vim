@@ -154,6 +154,15 @@ return require('packer').startup(function(use)
     -- Language support
     use { 'DeltaWhy/vim-mcfunction', ft = 'mcfunction' }
     use { 'vmchale/dhall-vim', ft = 'dhall' }
+    use {
+        'saecki/crates.nvim',
+        event = { 'BufRead Cargo.toml' },
+        requires = {
+            { 'nvim-lua/plenary.nvim' },
+            { 'hrsh7th/nvim-cmp', opt = true },
+        },
+        config = function() require('config/rust-crates') end,
+    }
 
     -- Writing assistance
     use 'kana/vim-smartinput' -- automatically closes delimiters as they are typed
