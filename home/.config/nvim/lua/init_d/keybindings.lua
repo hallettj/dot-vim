@@ -56,7 +56,9 @@ wk.register({
     g = { '<cmd>Telescope live_grep<cr>', 'live grep' },
     b = { '<cmd>Telescope buffers<cr>', 'buffers' },
     h = { '<cmd>Telescope help_tags<cr>', 'help tags' },
-    c = { '<cmd>Telescope colorscheme<cr>', 'color schemes' }
+    c = { '<cmd>Telescope colorscheme<cr>', 'color schemes' },
+    s = { '<cmd>Telescope lsp_document_symbols<cr>', 'document symbols' },
+    S = { '<cmd>Telescope lsp_workspace_symbols<cr>', 'workspace symbols' },
 }, { prefix = '<leader>f' })
 
 -- Where am I?
