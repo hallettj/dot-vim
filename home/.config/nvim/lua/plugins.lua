@@ -32,6 +32,10 @@ return require('packer').startup(function(use)
     use 'tpope/vim-sensible'
     use 'tpope/vim-sleuth'
 
+    -- Automatically load environment variables set in a `.envrc` or `.env` file
+    -- when changing to a directory with such a file.
+    use 'direnv/direnv.vim'
+
     -- Navigation
     use 'justinmk/vim-dirvish' -- file browser to replace netrw
     use 'kristijanhusak/vim-dirvish-git'
