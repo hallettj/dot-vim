@@ -79,6 +79,13 @@ return require('packer').startup(function(use)
         'ggandor/leap.nvim',
         config = function() require('config/leap') end
     }
+    use {
+        -- operate on remote pieces of text using leap motions; e.g.
+        -- yar<textobject><leap>
+        'ggandor/leap-spooky.nvim',
+        requires = { 'ggandor/leap.nvim' },
+        config = function () require('config/leap-spooky') end,
+    }
     use 'wellle/targets.vim' -- more options for movements like `i` and `a`
 
     -- Text objects
