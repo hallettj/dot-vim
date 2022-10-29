@@ -45,11 +45,13 @@ require('catppuccin').setup({
     },
     fidget = true,
     gitsigns = true,
-    lightspeed = true,
+    leap = true,
     lsp_trouble = true,
     telescope = true,
     treesitter = true,
     which_key = true,
+    markdown = true,
+    mason = true,
     native_lsp = {
       enabled = true,
       virtual_text = {

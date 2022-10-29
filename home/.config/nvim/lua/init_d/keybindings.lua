@@ -12,10 +12,6 @@ map({ 'n', 'v' }, ':', ',')
 map({ 'n', 'v' }, "'", '`')
 map({ 'n', 'v' }, '`', "'")
 
--- Replace ; and : with Lightspeed versions - overrides : binding above
-map({ 'n', 'x' }, ';', '<plug>Lightspeed_;_ft', { remap = true, silent = true })
-map({ 'n', 'x' }, ':', '<plug>Lightspeed_,_ft', { remap = true, silent = true })
-
 -- Window management shortcuts
 wk.register {
     ['<leader>-'] = { '<c-w>_', 'maximize vertically' },
