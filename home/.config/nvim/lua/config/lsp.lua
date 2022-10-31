@@ -17,7 +17,14 @@ lsp.setup_nvim_cmp {
 -- language servers installed by Mason, but does not automatically start other
 -- servers. This line gets configuration options from lsp-zero to provide when
 -- explicitly starting hls.
-local haskell_lsp = lsp.build_options('hls', {})
+local haskell_lsp = lsp.build_options('hls', {
+    -- Disable formatting for hls - we want to be able to specify a specific
+    -- version of ormolu which is easier to do with null-ls.
+    on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
+})
 
 -- Configure rust_analyzer specially because we want to manage the server via
 -- rust-tools. Calling `lsp.build_options` implicitly adds the given server to
