@@ -12,7 +12,7 @@ local ormolu = {
   filetypes = { 'haskell' },
   generator = h.formatter_factory {
     command = 'ormolu',
-    args = { '--cabal-default-extensions', '--stdin-input-file', '$FILENAME' },
+    args = { '--stdin-input-file', '$FILENAME' },
     to_stdin = true,
   },
 }
