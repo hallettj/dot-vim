@@ -15,7 +15,16 @@ map({ 'n', 'v' }, '`', "'")
 -- Window management shortcuts
 wk.register {
     ['<leader>-'] = { '<c-w>_', 'maximize vertically' },
-    ['<leader>='] = { '<c-w>=', 'equal window sizes' }
+    ['<leader>='] = { '<c-w>=', 'equal window sizes' },
+
+    ['<c-w><c-m>'] = { '<cmd>WinShift<cr>', 'start win-move mode' },
+    ['<c-w>m'] = { '<cmd>WinShift<cr>', 'start win-move mode' },
+    ['<c-w>X'] = { '<cmd>WinShift swap<cr>', 'swap two windows' },
+
+    ['<c-s-h>'] = { '<cmd>WinShift left<cr>', 'move window left' },
+    ['<c-s-j>'] = { '<cmd>WinShift down<cr>', 'move window down' },
+    ['<c-s-k>'] = { '<cmd>WinShift up<cr>', 'move window up' },
+    ['<c-s-l>'] = { '<cmd>WinShift right<cr>', 'move window right' },
 }
 
 -- Retain selection in visual mode when indenting blocks

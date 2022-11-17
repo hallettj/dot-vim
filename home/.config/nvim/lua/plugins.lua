@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
     use 'justinmk/vim-dirvish' -- file browser to replace netrw
     use 'kristijanhusak/vim-dirvish-git'
     use { 'simnalamburt/vim-mundo', cmd = 'MundoToggle' } -- UI for navigating undo history
-    use { 'andymass/vim-tradewinds', keys = { '<C-w>gh', '<C-w>gl' } }
+    use { 'sindrets/winshift.nvim', config = function() require('config/winshift') end }
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
