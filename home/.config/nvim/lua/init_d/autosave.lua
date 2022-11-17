@@ -22,7 +22,6 @@ vim.o.updatetime = 300
 
 vim.g.auto_save = 1
 vim.g.auto_save_silent = 1
-vim.g.auto_save_write_all_buffers = 1
 
 local group = augroup('my_autosave', { clear = true })
 
@@ -46,5 +45,15 @@ autocmd('FileChangedShellPost', {
   pattern = '*',
   callback = function()
     vim.api.nvim_echo({ { 'File changed on disk. Buffer reloaded.', 'WarningMsg' } }, false, {})
+  end
+})
+
+-- Disable autosave in Cargo.toml - constant workspace reloading is too
+-- disruptive.
+autocmd({ 'BufNewFile', 'BufRead' }, {
+  group = group,
+  pattern = 'Cargo.toml',
+  callback = function()
+    vim.b.auto_save = 0
   end
 })
