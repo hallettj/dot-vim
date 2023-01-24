@@ -176,6 +176,8 @@ return require('packer').startup(function(use)
         config = function() require('config/rust-crates') end,
     }
 
+    use 'xasopheno/weresocool_vim'
+
     -- Writing assistance
     use 'kana/vim-smartinput' -- automatically closes delimiters as they are typed
 
