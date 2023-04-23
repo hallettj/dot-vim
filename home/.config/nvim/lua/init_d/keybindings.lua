@@ -38,11 +38,9 @@ map('v', '<enter>', 'y')
 -- These come from:
 -- http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 for _, mode in ipairs { 'n', 'v' } do
-    wk.register({
-        y = { '"+y', 'yank to system clipboard' },
-        p = { '"+p', 'put after from system clipboard' },
-        P = { '"+P', 'put before from system clipboard' }
-    }, { mode, prefix = '<leader>' })
+    map(mode, '<leader>y', '"+y')
+    map(mode, '<leader>p', '"+p')
+    map(mode, '<leader>P', '"+P')
 end
 
 -- Navigation
