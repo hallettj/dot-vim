@@ -37,3 +37,19 @@ ls.add_snippets('haskell', {
     t({ '', '\t\t<$> ' }), i(0),
   })
 })
+
+ls.add_snippets('haskell', {
+  s({ trig = 'objCodec', dscr = 'instance for HasCodec with object codec' }, {
+    t('instance HasCodec '), i(1, 'Type'), t(' where'),
+    t({ '', '\tcodec = AC.object "' }), f(copy, 1), t('" $ '),
+    t({ '', '\t\t' }), f(copy, 1),
+    t({ '', '\t\t\t<$> ' }), i(0),
+  })
+})
+
+ls.add_snippets('haskell', {
+  s({ trig = 'newtypeCodec', dsrc = 'instance for HasCodec for simple newtype' }, {
+    t('instance HasCodec '), i(1, 'Type'), t(' where'),
+    t({ '', '\tcodec = dimapCodec ' }), f(copy, 1), t(' '), i(2, 'unConstructor'), t(' codec'), i(0),
+  })
+})
