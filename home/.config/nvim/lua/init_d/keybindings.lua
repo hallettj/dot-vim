@@ -21,10 +21,15 @@ wk.register {
     ['<c-w>m'] = { '<cmd>WinShift<cr>', 'start win-move mode' },
     ['<c-w>X'] = { '<cmd>WinShift swap<cr>', 'swap two windows' },
 
+    ['<c-h>'] = { '<c-w>h', 'move to window on left' },
+    ['<c-t>'] = { '<c-w>j', 'move to window below' },
+    ['<c-c>'] = { '<c-w>k', 'move to window above' },
+    ['<c-n>'] = { '<c-w>l', 'move to window on right' },
+
     ['<c-s-h>'] = { '<cmd>WinShift left<cr>', 'move window left' },
-    ['<c-s-j>'] = { '<cmd>WinShift down<cr>', 'move window down' },
-    ['<c-s-k>'] = { '<cmd>WinShift up<cr>', 'move window up' },
-    ['<c-s-l>'] = { '<cmd>WinShift right<cr>', 'move window right' },
+    ['<c-s-t>'] = { '<cmd>WinShift down<cr>', 'move window down' },
+    ['<c-s-c>'] = { '<cmd>WinShift up<cr>', 'move window up' },
+    ['<c-s-n>'] = { '<cmd>WinShift right<cr>', 'move window right' },
 }
 
 -- Retain selection in visual mode when indenting blocks

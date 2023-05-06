@@ -238,11 +238,6 @@ return require('packer').startup(function(use)
         config = function() require('config/colorscheme-zenbones') end
     }
 
-    -- Tmux integration
-    use 'christoomey/vim-tmux-navigator'
-    use 'hallettj/tmux-config'
-    use 'tpope/vim-tbone'
-
     use '907th/vim-auto-save'
     use {
         'folke/which-key.nvim',
