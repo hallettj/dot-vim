@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
     use 'direnv/direnv.vim'
 
     -- Navigation
-    use 'justinmk/vim-dirvish' -- file browser to replace netrw
+    use { 'justinmk/vim-dirvish', config = function() require('config/dirvish') end } -- file browser to replace netrw
     use 'kristijanhusak/vim-dirvish-git'
     use { 'simnalamburt/vim-mundo', cmd = 'MundoToggle' } -- UI for navigating undo history
     use { 'sindrets/winshift.nvim', config = function() require('config/winshift') end }
@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
     use 'AndrewRadev/splitjoin.vim' -- `gS` and `gJ` commands split or join lines
 
     -- Movements
-    use 'machakann/vim-sandwich' -- `ds`, `cs`, `ys`, and `S` commands manage delimiters
+    use { 'machakann/vim-sandwich', config = function() require('config/vim-sandwich') end } -- `ds`, `cs`, `ys`, and `S` commands manage delimiters
     use {
         -- `s`/`S` command jumps to occurrence of a pair of characters
         'ggandor/leap.nvim',
@@ -179,7 +179,7 @@ return require('packer').startup(function(use)
     use 'xasopheno/weresocool_vim'
 
     -- Writing assistance
-    use 'kana/vim-smartinput' -- automatically closes delimiters as they are typed
+    use { 'kana/vim-smartinput', config = function() require('config/smartinput') end } -- automatically closes delimiters as they are typed
 
     -- git integration
     use 'tpope/vim-fugitive'
@@ -211,7 +211,7 @@ return require('packer').startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require('config/lualine') end
     }
-    use 'machakann/vim-highlightedyank' -- highlight text after it has been yanked
+    use { 'machakann/vim-highlightedyank', config = function() require('config/highlightedyank') end } -- highlight text after it has been yanked
 
     -- Color Schemes
     use {
