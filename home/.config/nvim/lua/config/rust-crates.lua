@@ -13,7 +13,12 @@ local cmp = require('cmp')
 local crates = require('crates')
 local wk = require('which-key')
 
-crates.setup {}
+crates.setup {
+  null_ls = {
+    enabled = true,
+    name = 'crates.nvim',
+  },
+}
 
 vim.api.nvim_create_autocmd('BufRead', {
   group = vim.api.nvim_create_augroup('CratesNvimCustomization', { clear = true }),

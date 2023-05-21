@@ -172,6 +172,7 @@ return require('packer').startup(function(use)
         requires = {
             { 'nvim-lua/plenary.nvim' },
             { 'hrsh7th/nvim-cmp', opt = true },
+            { 'jose-elias-alvarez/null-ls.nvim'},
         },
         config = function() require('config/rust-crates') end,
     }
