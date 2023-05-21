@@ -21,6 +21,16 @@ wk.register {
     ['<c-w>m'] = { '<cmd>WinShift<cr>', 'start win-move mode' },
     ['<c-w>X'] = { '<cmd>WinShift swap<cr>', 'swap two windows' },
 
+    ['<c-left>'] = { '<c-w>h', 'move to window on left' },
+    ['<c-down>'] = { '<c-w>j', 'move to window below' },
+    ['<c-up>'] = { '<c-w>k', 'move to window above' },
+    ['<c-right>'] = { '<c-w>l', 'move to window on right' },
+
+    ['<c-s-left>'] = { '<cmd>WinShift left<cr>', 'move window left' },
+    ['<c-s-down>'] = { '<cmd>WinShift down<cr>', 'move window down' },
+    ['<c-s-up>'] = { '<cmd>WinShift up<cr>', 'move window up' },
+    ['<c-s-right>'] = { '<cmd>WinShift right<cr>', 'move window right' },
+
     ['<c-h>'] = { '<c-w>h', 'move to window on left' },
     ['<c-t>'] = { '<c-w>j', 'move to window below' },
     ['<c-c>'] = { '<c-w>k', 'move to window above' },
