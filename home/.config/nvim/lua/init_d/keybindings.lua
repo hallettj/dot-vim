@@ -102,6 +102,7 @@ wk.register({
     gr = { telescope 'lsp_references', 'find references' },
     gR = { trouble 'lsp_references', 'list references' },
     gl = { diagnostic 'open_float()', 'show diagnostic info' },
+    gC = { '<cmd>RustOpenCargo<cr>', 'open Cargo.toml' },
     ['[d'] = { diagnostic 'goto_prev()', 'previous diagnostic' },
     [']d'] = { diagnostic 'goto_next()', 'next diagnostic' },
     ['[D'] = { diagnostic 'goto_prev({ severity = { min = vim.diagnostic.severity.ERROR } })', 'previous error' },
@@ -138,6 +139,7 @@ wk.register({
     name = '+lists',
     d = { telescope 'diagnostics bufnr=0', 'diagnostics for buffer' },
     D = { telescope 'diagnostics', 'diagnostics for all buffers' },
+    r = { '<cmd>RustRunnables<cr>', 'Rust runnables' },
 }, { prefix = '<leader>l' })
 
 wk.register({
