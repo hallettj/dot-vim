@@ -1,5 +1,27 @@
--- Install plugins by requiring ~/.config/nivm/lua/plugins.lua
-require('plugins')
+-- Bootstrap the lazy.nvim plugin manager
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Set <leader> to <space>. Leader and local leader must be set before
+-- initializing plugins.
+vim.g.mapleader = ' '
+vim.g.maplocalleader = '\\'
+
+-- Initialize plugins, evaluating all modules in `lua/plugins/`
+require('lazy').setup('plugins', {
+  change_detection = { notify = false },
+  dev = { path = '~/projects/vim/' },
+})
 
 local opt = vim.opt
 
@@ -18,7 +40,7 @@ opt.hlsearch = false
 -- Wrap long lines
 opt.wrap = true
 opt.textwidth = 80
-opt.formatoptions = { c = true, q = true, r = true, n = true, ["1"] = true }
+opt.formatoptions = { c = true, q = true, r = true, n = true, ['1'] = true }
 
 -- Reverse chirality of splits
 opt.splitbelow = true
@@ -45,7 +67,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
 -- Visuals --
 
-opt.signcolumn = 'auto:1-2'
+opt.signcolumn = 'yes'
 opt.showcmd = false
 opt.foldenable = false
 
@@ -55,12 +77,6 @@ opt.concealcursor = 'c'
 
 -- Nicer diffs
 opt.diffopt = { 'filler', 'internal', 'algorithm:histogram', 'indent-heuristic' }
-
--- We need to apply the colorscheme synchronously during startup - otherwise
--- Treesitter highlight groups get linked to generic group names. See notes in
--- config/colorscheme-catppuccin.lua.
-require('config/colorscheme-catppuccin')
-
 
 -- Load configuration modules from ~/.config/nvim/lua/init_d/*.lua
 require('init_d')
