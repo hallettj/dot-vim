@@ -94,6 +94,10 @@ return {
         { name = 'luasnip', keyword_length = 2 },
       },
       mapping = {
+        -- `Enter` key to confirm completion
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        --
+        -- Navigate between snippet placeholders
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
       },
