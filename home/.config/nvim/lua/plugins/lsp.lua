@@ -22,9 +22,6 @@ return {
 
     -- Snippets - this dependency is required according to the lsp-zero docs
     'L3MON4D3/LuaSnip',
-
-    -- Needs to be set up here so we can pass server options from lsp-zero
-    'simrat39/rust-tools.nvim',
   },
   config = function()
     local lsp = require('lsp-zero').preset {}
@@ -39,14 +36,9 @@ return {
     -- Configure lua language server for neovim
     require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
-    -- Rust analyzer is set up by rust-tools. We want to use the system version
-    -- of hls.
+    -- Rust analyzer is set up by rust-tools (see lua/plugins/rust-tools.lua).
+    -- We want to use the system version of hls.
     lsp.skip_server_setup { 'hls', 'rust_analyzer' }
-
-    -- Configure rust_analyzer specially because we want to manage the server via
-    -- rust-tools. The options table returned is populated with helpful settings
-    -- provided by lsp-zero.
-    local rust_lsp = lsp.build_options('rust_analyzer', {})
 
     -- We want to use the system version of hls. Lsp-zero automatically starts
     -- language servers installed by Mason, but does not automatically start other
@@ -80,8 +72,12 @@ return {
       },
     })
 
-    -- Sets all of the LSP servers running.
+    -- Sets managed LSP servers running.
     lsp.setup()
+
+    -- Language servers that are excluded from automatic startup by calling
+    -- `build_options` need to be started explicitly.
+    require('lspconfig').hls.setup(haskell_lsp)
 
     local cmp = require('cmp')
     local cmp_action = require('lsp-zero').cmp_action()
@@ -113,20 +109,5 @@ return {
         }
       end,
     }
-
-    -- Language servers that are excluded from automatic startup by calling
-    -- `build_options` need to be started explicitly.
-    require('rust-tools').setup {
-      tools = {
-        inlay_hints = {
-          -- Disable inlay hints by default because we get them from
-          -- lsp-inlayhints.
-          auto = false,
-        },
-      },
-      server = rust_lsp,
-    }
-
-    require('lspconfig').hls.setup(haskell_lsp)
   end,
 }
