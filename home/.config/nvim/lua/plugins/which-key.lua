@@ -99,7 +99,7 @@ return {
     -- IDE features
     local fmt = function(cmd) return function(str) return cmd:format(str) end end
     local lsp = fmt('<cmd>lua vim.lsp.%s<cr>')
-    local diagnostic = fmt('<cmd>lua vim.diagnostic.%s<cr>')
+    local diagnostic = vim.diagnostic
     local telescope = fmt('<cmd>Telescope %s<cr>')
     local trouble = fmt('<cmd>Trouble %s<cr>')
 
@@ -111,12 +111,14 @@ return {
       gi = { telescope 'lsp_implementations', 'go to implementation' },
       gr = { telescope 'lsp_references', 'find references' },
       gR = { trouble 'lsp_references', 'list references' },
-      gl = { diagnostic 'open_float()', 'show diagnostic info' },
+      gl = { diagnostic.open_float, 'show diagnostic info' },
       gC = { '<cmd>RustOpenCargo<cr>', 'open Cargo.toml' },
-      ['[d'] = { diagnostic 'goto_prev()', 'previous diagnostic' },
-      [']d'] = { diagnostic 'goto_next()', 'next diagnostic' },
-      ['[D'] = { diagnostic 'goto_prev({ severity = { min = vim.diagnostic.severity.ERROR } })', 'previous error' },
-      [']D'] = { diagnostic 'goto_next({ severity = { min = vim.diagnostic.severity.ERROR } })', 'next error' },
+      ['[d'] = { diagnostic.goto_prev, 'previous diagnostic' },
+      [']d'] = { diagnostic.goto_next, 'next diagnostic' },
+      ['[D'] = { function() diagnostic.goto_prev({ severity = { min = diagnostic.severity.ERROR } }) end,
+        'previous error' },
+      [']D'] = { function() diagnostic.goto_next({ severity = { min = diagnostic.severity.ERROR } }) end,
+        'next error' },
       ['[x'] = { function() require('trouble').previous({ skip_groups = true, jump = true }) end,
         'previous item from Trouble' },
       [']x'] = { function() require('trouble').next({ skip_groups = true, jump = true }) end,
