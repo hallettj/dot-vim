@@ -23,7 +23,6 @@ return {
   'tpope/vim-eunuch', -- commands for manipulating files and directories
   'tpope/vim-repeat', -- makes the `.` command work with third-party actions
   'tpope/vim-rsi', -- add Emacs-like shortcuts to command mode
-  'AndrewRadev/splitjoin.vim', -- `gS` and `gJ` commands split or join lines
 
   -- Movements
   'wellle/targets.vim', -- more options for movements like `i` and `a`
