@@ -1,3 +1,6 @@
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
 -- Bootstrap the lazy.nvim plugin manager
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -52,8 +55,8 @@ if vim.fn.has('gui_running') == 1 then
 end
 
 -- When editing a file, always jump to the last cursor position
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = vim.api.nvim_create_augroup('restore-cursor-position', { clear = true }),
+autocmd('BufReadPost', {
+  group = augroup('restore-cursor-position', { clear = true }),
   pattern = '*',
   callback = function(opts)
     local last_position = vim.api.nvim_buf_get_mark(opts.buf, '"')
@@ -77,6 +80,13 @@ opt.concealcursor = 'c'
 
 -- Nicer diffs
 opt.diffopt = { 'filler', 'internal', 'algorithm:histogram', 'indent-heuristic' }
+
+autocmd('TextYankPost', {
+  group = augroup('highlight-yanked-text', { clear = true }),
+  callback = function()
+    pcall(vim.highlight.on_yank, { higroup = 'IncSearch', timeout = 400 })
+  end,
+})
 
 -- Load configuration modules from ~/.config/nvim/lua/init_d/*.lua
 require('init_d')

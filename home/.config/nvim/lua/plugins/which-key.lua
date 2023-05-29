@@ -76,8 +76,6 @@ return {
       ['<leader>O'] = { '<cmd>SymbolsOutline<cr>', 'toggle symbol outline' },
     }
 
-
-
     -- Telescope finders
     wk.register({
       name = '+finders',
