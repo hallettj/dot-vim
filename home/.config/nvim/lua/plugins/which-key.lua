@@ -23,12 +23,12 @@ return {
     }
 
     -- Swap : and ,
-    map({ 'n', 'v' }, ',', ':')
-    map({ 'n', 'v' }, ':', ',')
+    map({ 'n', 'v' }, ',', ':', { desc = 'enter command mode' })
+    map({ 'n', 'v' }, ':', ',', { desc = 'repeat latest f, t, F, or T in opposite direction' })
 
     -- Swap ' and `
-    map({ 'n', 'v' }, "'", '`')
-    map({ 'n', 'v' }, '`', "'")
+    map({ 'n', 'v' }, "'", '`', { desc = 'jump to mark in the current buffer' })
+    map({ 'n', 'v' }, '`', "'", { desc = 'jump to mark in the current buffer' })
 
     -- Window management shortcuts
     wk.register {
@@ -61,19 +61,16 @@ return {
     }
 
     -- Retain selection in visual mode when indenting blocks
-    map('v', '<', '<gv')
-    map('v', '>', '>gv')
-
-    -- Makes vim's visual mode more consistent with tmux's
-    map('v', '<enter>', 'y')
+    map('v', '<', '<gv', { desc = "shift selection leftwards one 'shiftwidth'" })
+    map('v', '>', '>gv', { desc = "shift selection rightwards one 'shiftwidth'" })
 
     -- System copy/paste shortcuts
     -- These come from:
     -- http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
     for _, mode in ipairs { 'n', 'v' } do
-      map(mode, '<leader>y', '"+y')
-      map(mode, '<leader>p', '"+p')
-      map(mode, '<leader>P', '"+P')
+      map(mode, '<leader>y', '"+y', { desc = 'yank to system clipboard' })
+      map(mode, '<leader>p', '"+p', { desc = 'paste from system clipboard after cursor' })
+      map(mode, '<leader>P', '"+P', { desc = 'paste from system clipboard before cursor' })
     end
 
     -- Navigation
