@@ -1,3 +1,5 @@
+local dict = require 'dict'
+
 -- Customize keymaps to avoid conflicts with leap.
 --
 -- The general rule is that if the key ends in "_line", the delimiter pair is
@@ -16,20 +18,21 @@ local keymaps = {
   change          = 'cz',
 }
 
-local keys = {}
-for _, v in pairs(keymaps) do
-  table.insert(keys, v)
-end
-
 return {
   'kylechui/nvim-surround',
   version = '*', -- Use for stability; omit to use `main` branch for the latest features
   dependencies = {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
-  keys = keys,
+  keys = dict.values(keymaps),
   opts = {
     keymaps = keymaps,
+    highlight = {
+      duration = 150, -- ms
+    },
   },
+  init = function()
+    vim.cmd.highlight({ 'link', 'NvimSurroundHighlight', 'IncSearch' })
+  end,
 }
