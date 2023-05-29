@@ -40,6 +40,21 @@ return {
     end,
   },
   {
+    'Wansmer/sibling-swap.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    keys = {
+      '<C-.>',
+      '<C-,>',
+      '<leader>.',
+      '<leader>,',
+    },
+    opts = {
+      highlight_node_at_cursor = {
+        ms = 400, hl_opts = { link = 'IncSearch', },
+      },
+    },
+  },
+  {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
@@ -72,15 +87,6 @@ return {
               ['if'] = '@function.inner',
               ['ac'] = '@class.outer',
               ['ic'] = '@class.inner',
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ['<leader>a'] = '@parameter.inner',
-            },
-            swap_previous = {
-              ['<leader>A'] = '@parameter.inner',
             },
           },
         },
