@@ -11,7 +11,15 @@ return {
     local map = vim.keymap.set
 
     wk.setup {
-      plugins = { spelling = { enabled = true, suggestions = 20 } }
+      triggers_nowait = { -- customized to remove commands that show registers
+        -- marks
+        '`',
+        "'",
+        'g`',
+        "g'",
+        -- spelling
+        'z=',
+      },
     }
 
     -- Swap : and ,
