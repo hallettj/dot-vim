@@ -49,11 +49,6 @@ opt.formatoptions = { c = true, q = true, r = true, n = true, ['1'] = true }
 opt.splitbelow = true
 opt.splitright = true
 
-if vim.fn.has('gui_running') == 1 then
-  -- Remove menu bar, toolbar, and scrollbars
-  opt.guioptions:remove({ 'm', 'T', 'r', 'L' })
-end
-
 -- When editing a file, always jump to the last cursor position
 autocmd('BufReadPost', {
   group = augroup('restore-cursor-position', { clear = true }),
