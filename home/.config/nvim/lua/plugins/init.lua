@@ -28,17 +28,11 @@ return {
   'wellle/targets.vim', -- more options for movements like `i` and `a`
 
   -- Text objects
-  { 'nvim-treesitter/nvim-treesitter-textobjects', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
   { 'kana/vim-textobj-entire', dependencies = { 'kana/vim-textobj-user' } }, -- `ae`: entire buffer, `ie`: excludes empty lines
   { 'kana/vim-textobj-line', dependencies = { 'kana/vim-textobj-user' } }, -- `al`: entire line, `il` excludes whitespace
 
   -- more from kana
   'kana/vim-niceblock', -- makes `I` and `A` work in line-wise visual mode
-
-  -- IDE features
-  { 'nvim-treesitter/nvim-treesitter-refactor', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
-  { 'nvim-treesitter/nvim-treesitter-context', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
-  { 'nvim-treesitter/playground', dependencies = { 'nvim-treesitter/nvim-treesitter' } },
 
   -- Debugging
   { 'mfussenegger/nvim-dap' },
