@@ -10,12 +10,9 @@ return {
       typescriptreact = 'tsx',
     }
 
-    local function truncate(max_len)
+    local function last_component()
       return function(str)
-        if string.len(str) <= max_len then
-          return str
-        end
-        return string.sub(str, 1, max_len - 1) .. '…'
+        return string.match(str, '[^/]+$')
       end
     end
 
@@ -42,12 +39,12 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = {
-          { 'branch', fmt = truncate(12) },
+          { 'branch', fmt = last_component() },
           'diff', 'diagnostics'
         },
         lualine_c = {
           termtoggle_number,
-          'filename',
+          { 'filename', path = 1 },
         },
         lualine_x = {
           { 'filetype', fmt = format_filetype },
