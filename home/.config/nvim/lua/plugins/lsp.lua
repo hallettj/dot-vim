@@ -33,6 +33,19 @@ return {
       info = '»'
     })
 
+    -- New inlay hints in nvim-0.10!
+    if vim.fn.has('nvim-0.10') == 1 then
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('EnableInlayHints', { clear = true }),
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.server_capabilities.inlayHintProvider then
+            vim.lsp.buf.inlay_hint(args.buf, true)
+          end
+        end
+      })
+    end
+
     -- Configure lua language server for neovim
     require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
@@ -86,7 +99,7 @@ return {
       sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
-        { name = 'buffer', keyword_length = 3 },
+        { name = 'buffer',  keyword_length = 3 },
         { name = 'luasnip', keyword_length = 2 },
       },
       mapping = {
